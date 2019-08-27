@@ -1,0 +1,15 @@
+.button {
+  color: white;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #BE0C62;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.button a:hover {
+  transform: scale(1.2);
+}

@@ -1,1 +1,15 @@
 // Specific CSS for your home-page
+.welcome-card {
+  background: $yellow;
+  border-radius: 10px;
+}
+
+.notification-bar {
+  background: #DED5EC;
+  display: flex;
+  align-items: center;
+}
+
+// .calendar {
+//    important day color : #FB9D56
+// }
