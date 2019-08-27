@@ -5,8 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :missions
-  has_many :clients
-  has_many :invoices
+  has_many :clients, dependent: :destroy
+  has_many :invoices, dependent: :destroy
   has_many :notifications
 
   validates :first_name, presence: true
