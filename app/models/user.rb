@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many :missions
   has_many :clients
   has_many :invoices
+  has_many :notifications
 end
