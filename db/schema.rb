@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_27_120511) do
+ActiveRecord::Schema.define(version: 2019_08_27_130001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,13 +29,42 @@ ActiveRecord::Schema.define(version: 2019_08_27_120511) do
     t.index ["user_id"], name: "index_clients_on_user_id"
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.string "title"
+    t.string "reference"
+    t.date "creation_date"
+    t.date "due_date"
+    t.date "payment_date"
+    t.string "status"
+    t.float "total_amount_ht"
+    t.float "total_amount_ttc"
+    t.bigint "user_id"
+    t.bigint "client_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_invoices_on_client_id"
+    t.index ["user_id"], name: "index_invoices_on_user_id"
+  end
+
   create_table "missions", force: :cascade do |t|
-    t.text "name"
-    t.text "description"
+    t.string "name"
+    t.string "description"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_missions_on_user_id"
+  end
+
+  create_table "missions_invoices", force: :cascade do |t|
+    t.integer "man_day_quantity"
+    t.integer "price_rate"
+    t.integer "vat_rate"
+    t.bigint "mission_id"
+    t.bigint "invoice_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["invoice_id"], name: "index_missions_invoices_on_invoice_id"
+    t.index ["mission_id"], name: "index_missions_invoices_on_mission_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -51,5 +80,9 @@ ActiveRecord::Schema.define(version: 2019_08_27_120511) do
   end
 
   add_foreign_key "clients", "users"
+  add_foreign_key "invoices", "clients"
+  add_foreign_key "invoices", "users"
   add_foreign_key "missions", "users"
+  add_foreign_key "missions_invoices", "invoices"
+  add_foreign_key "missions_invoices", "missions"
 end
