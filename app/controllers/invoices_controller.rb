@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_total_amount_ht]
 # skip_before_action :authenticate_user!
 
   def index
@@ -18,7 +18,8 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy]
     @invoice = Invoice.new(invoice_params)
     @invoice.user = current_user
     if @invoice.save
-      redirect_to invoices_path
+      # to be changed
+      render :new
     else
       render :new
     end
@@ -32,6 +33,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy]
 
   def destroy
   end
+
 
   private
 
