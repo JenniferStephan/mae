@@ -23,11 +23,15 @@
     <% end %>
   </div>
 
+  <h2><%= @invoice.total_amount_ht %></h2>
+
   <div>
     <p><%= current_user.first_name %>
     <%= current_user.last_name %>
+    <%= current_user.last_name %>
     <%= current_user.address %>
-    <%= current_user.siret %></p>
+    <%= current_user.siret %>
+    </p>
   </div>
 
 </div>
