@@ -1,0 +1,5 @@
+<div>
+<%= simple_form_for [@invoice, @missions_invoice] do |f| %>
+  <%= f.association :mission, label_method: :name, value_method: :name, include_blank: false %>
+<% end %>
+</div>

@@ -1,0 +1,46 @@
+<div class= "container">
+
+  <h1>Créer une facture</h1>
+
+  <div>
+    <%= simple_form_for [@user, @invoice] do |f| %>
+      <%= f.association :client, label_method: :company_name, value_method: :id, include_blank: false %>
+      <%= f.input :creation_date, label: "Date de facturation", class: "datepicker"%>
+      <%= f.input :title, label: "Titre"%>
+
+        <h3>Missions</h3>
+
+        <div id="missions_invoices">
+            <%= f.fields_for :missions_invoices do |missions_invoice| %>
+              <%= render 'missions_invoice_fields', f: missions_invoice %>
+            <% end %>
+          <div class="links">
+          <%= link_to_add_association 'add missions_invoice', f, :missions_invoices %>
+          </div>
+        </div>
+
+          <%= f.submit "valider", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+  <div>
+    <p><%= current_user.first_name %>
+    <%= current_user.last_name %>
+    <%= current_user.address %>
+    <%= current_user.siret %></p>
+  </div>
+
+</div>
+<!--
+<div>
+<%#= simple_form_for(@invoice, method: :post) do |f| %>
+  <%#= f.input :comment, label: "Entrez un message pour votre client" %>
+  <%#= f.submit 'Confirmer' %>
+<%# end %>
+</div> -->
+
+
+
+
+
+
