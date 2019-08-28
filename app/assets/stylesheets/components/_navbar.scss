@@ -7,6 +7,7 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-right: 1px solid rgb(247, 235, 217);
 }
 
 .navigation-icons {
@@ -23,7 +24,7 @@ li {
 }
 
 .navigation-icons a:hover {
-  transform: scale(1.2);
+  transform: scale(1.08);
   opacity: 1;
 }
 

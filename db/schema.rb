@@ -1,4 +1,6 @@
-ActiveRecord::Schema.define(version: 2019_08_27_130001) do
+
+ActiveRecord::Schema.define(version: 2019_08_28_180904) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +31,9 @@ ActiveRecord::Schema.define(version: 2019_08_27_130001) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
+    t.bigint "client_id"
+    t.text "comment"
+    t.index ["client_id"], name: "index_invoices_on_client_id"
     t.index ["user_id"], name: "index_invoices_on_user_id"
   end
 
@@ -44,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_130001) do
   create_table "missions_invoices", force: :cascade do |t|
     t.integer "man_day_quantity"
     t.integer "price_rate"
-    t.integer "vat_rate"
+    t.float "vat_rate"
     t.bigint "mission_id"
     t.bigint "invoice_id"
     t.datetime "created_at", null: false
@@ -86,6 +91,7 @@ ActiveRecord::Schema.define(version: 2019_08_27_130001) do
   end
 
   add_foreign_key "clients", "users"
+  add_foreign_key "invoices", "clients"
   add_foreign_key "invoices", "users"
   add_foreign_key "missions", "users"
   add_foreign_key "missions_invoices", "invoices"

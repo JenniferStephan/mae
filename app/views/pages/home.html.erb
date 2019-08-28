@@ -1,10 +1,14 @@
 <div class="welcome-card">
-  <%#= @users.each do |user| %>
-    <!-- <h2>Bonjour <%#= user.username %> !</h2> -->
-  <%# end %>
+  <h2>Bonjour <%= current_user.first_name %> !</h2>
+  <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
 </div>
 
-<img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
+<div class="invoices-cards">
+
+  <div class="invoices-status">
+    <div class="invoices-sent">
+      <ul class="list-group list-group-flush" data-toggle="checklist">
+
 
 <!-- test date picker -->
 <div class="input-daterange datepicker row align-items-center">
@@ -30,3 +34,121 @@
     </div>
 </div>
 
+        <div class="column-title">
+          <h3>Factures envoyées</h2>
+        </div>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line sent"></div>
+              <div>
+                <h5 class="checklist-title mb-0">Design web - Entreprise</h5>
+                <small>1000 €</small>
+              </div>
+            </div>
+
+            <div>
+              <div class="custom-control custom-checkbox custom-checkbox-success">
+                <input class="custom-control-input" id="chk-todo-task-1" type="checkbox" checked>
+                <label class="custom-control-label" for="chk-todo-task-1"></label>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line sent"></div>
+              <div>
+                <h5 class="checklist-title mb-0">MVP - Entreprise</h5>
+                <small>1000 €</small>
+              </div>
+            </div>
+
+            <div>
+              <div class="custom-control custom-checkbox custom-checkbox-success">
+                <input class="custom-control-input" id="chk-todo-task-1" type="checkbox" checked>
+                <label class="custom-control-label" for="chk-todo-task-1"></label>
+              </div>
+            </div>
+          </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="invoices-status">
+    <div class="invoices-paid">
+      <ul class="list-group list-group-flush" data-toggle="checklist">
+
+        <div class="column-title">
+          <h3>Factures payées</h2>
+        </div>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line paid"></div>
+              <div>
+                <h5 class="checklist-title mb-0">Illustration - Entreprise</h5>
+                <small>1000 €</small>
+              </div>
+            </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="invoices-status">
+    <div class="invoices-late">
+      <ul class="list-group list-group-flush" data-toggle="checklist">
+
+        <div class="column-title">
+          <h3>Factures en retard</h2>
+        </div>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line late"></div>
+              <div>
+                <h5 class="checklist-title mb-0">Mission 1 - Entreprise A</h5>
+                <small>2000 €</small>
+              </div>
+            </div>
+        </li>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line late"></div>
+              <div>
+                <h5 class="checklist-title mb-0">Illustration - Entreprise B</h5>
+                <small>1500 €</small>
+              </div>
+            </div>
+        </li>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line late"></div>
+              <div>
+                <h5 class="checklist-title mb-0">Mission 3 - Entreprise C</h5>
+                <small>2000 €</small>
+              </div>
+            </div>
+        </li>
+
+      </ul>
+    </div>
+  </div>
+
+</div>
+>>>>>>> 8011cb2c1293cc66edb3cf76e30544689f5897ff

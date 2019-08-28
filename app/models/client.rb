@@ -1,5 +1,6 @@
 class Client < ApplicationRecord
   belongs_to :user
+  has_many :invoices
 
   # validates :company_siret, uniqueness: true, format: { with: /\A\d{8}\z/, message: "Entrez les 8 chiffres de votre numéro SIRET" }
   validates :first_name, presence: true
