@@ -2,10 +2,24 @@
   position: relative;
 }
 
+.main-container {
+  position: absolute;
+  left: 120px;
+  width: calc(100vw - 120px);
+}
+
 .login {
   position: absolute;
   top: 0;
   right: 0;
+  z-index: 10;
+}
+
+.nav-item {
+  position: absolute;
+  top: 15px;
+  right: 0px;
+  width: 280px;
 }
 
 .sidebar {
@@ -13,13 +27,13 @@
   top: 0;
   left: 0;
   height: 100vh;
-  width: 140px;
+  width: 120px;
 }
 
 .logo {
   position: absolute;
   top: 12px;
-  left: 30px;
+  left: 20px;
   height: 80px;
   width: auto;
 }
@@ -31,21 +45,30 @@
 }
 
 .notification-bar {
-  height: 200vh;
-  width: 300px;
+  position: absolute;
+  right: 0;
+  height: 100vh;
+  width: 280px;
+  z-index: 9;
+  transition: right 0.6s ease-out;
+  &.open {
+    right: -310px;
+  }
 }
 
 .welcome-card {
-  position: absolute;
-  top: 100px;
-  left: 250px;
-  height: 100px;
-  width: 600px;
+  position: relative;
+  height: 90px;
+  width: 520px;
 }
 
 .illustration {
   position: absolute;
-  top: 13px;
-  left: 683px;
+  bottom: 41px;
+  right: 8px;
   height: 140px;
+}
+
+.invoices-status {
+  width: 320px;
 }

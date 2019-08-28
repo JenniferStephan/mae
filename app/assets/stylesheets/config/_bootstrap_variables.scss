@@ -6,7 +6,7 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 $light-yellow;
 $font-size-base: 1rem;
 
 // Colors
@@ -23,3 +23,7 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$link-color:                              rgba(0,0,0,0.7) !default;
+$link-decoration:                         none !default;
+$link-hover-color:                        rgba(0,0,0,1)  !default;
+$link-hover-decoration:                   none !default;
