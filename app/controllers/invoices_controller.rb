@@ -1,5 +1,6 @@
 class InvoicesController < ApplicationController
 before_action :set_invoice, only: [:show, :edit, :update, :destroy]
+skip_before_action :authenticate_user!
 
   def index
     @invoice = Invoice.all
