@@ -24,6 +24,6 @@ class ClientsController < ApplicationController
     @client = Client.find(params[:id])
   end
   def client_params
-    params.require(:invoice).permit()
+    params.require(:client).permit(:first_last, :last_name)
   end
 end
