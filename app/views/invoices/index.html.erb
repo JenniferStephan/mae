@@ -3,17 +3,18 @@
   <h1><i class="far fa-file-alt"></i>  Mes factures :</h1>
 </div>
 
+<div class="color-line"></div>
 
 <div class="invoices-array">
 
   <div class="array-header d-flex">
 
     <div class="array-header-column">
-      <h4>Référence</h4>
+      <h4>Titre</h4>
     </div>
 
     <div class="array-header-column">
-      <h4>Libellé</h4>
+      <h4>Client</h4>
     </div>
 
     <div class="array-header-column">
@@ -21,7 +22,7 @@
     </div>
 
     <div class="array-header-column">
-      <h4>Montant TTC</h4>
+      <h4>Référence</h4>
     </div>
 
     <div class="array-header-column">
@@ -29,7 +30,7 @@
     </div>
 
     <div class="array-header-column">
-      <h4>Client</h4>
+      <h4>Montant TTC</h4>
     </div>
 
     <div class="array-header-column invoice-actions">
@@ -45,11 +46,11 @@
   <div class="invoices-card d-flex">
 
     <div class="invoice-infos invoice-ref">
-      <%= invoice.reference %>
+     <%= invoice.title %>
     </div>
 
     <div class="invoice-infos">
-      <%= invoice.title %>
+      <p>eFashion Paris</p>
     </div>
 
     <div class="invoice-infos">
@@ -57,26 +58,26 @@
     </div>
 
     <div class="invoice-infos">
-      <p><%= invoice.total_amount_ttc %> €</p>
-    </div>
-
-    <div class="invoice-infos">
       <div class="statut">
-        <div class="status-point"></div> <%= invoice.status %>
+        <%= invoice.reference %>
       </div>
     </div>
 
     <div class="invoice-infos">
-      <p>test</p>
+      <%= invoice.status %>
+    </div>
+
+    <div class="invoice-infos infos-price">
+      <p><%= invoice.total_amount_ttc %> €</p>
     </div>
 
     <div class="invoice-infos invoice-actions dropdown">
 
-      <i class="fas fa-chevron-circle-down" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+      <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <button class="dropdown-item" type="button">Editer</button>
-        <button class="dropdown-item" type="button">Télécharger</button>
-        <button class="dropdown-item" type="button">Imprimer</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-edit"></i>Editer</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
       </div>
     </div>
 
