@@ -2,7 +2,8 @@ class InvoicesController < ApplicationController
 before_action :set_invoice, only: [:show, :edit, :update, :destroy]
 
   def index
-    @invoice = Invoice.all
+    @invoices = Invoice.where(user: current_user)
+    # @invoices = current_user.invoices
   end
 
   def new
