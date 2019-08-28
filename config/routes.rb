@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   get "/simulate_my_rate", to: "pages#simulation", as: "simulate_my_rate"
+  get "/test", to: "pages#test", as: "test"
 
 
   resources :invoices do

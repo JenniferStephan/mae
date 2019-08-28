@@ -6,4 +6,7 @@ class PagesController < ApplicationController
 
   def simulation
   end
+
+  def test
+  end
 end
