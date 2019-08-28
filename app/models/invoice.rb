@@ -1,6 +1,6 @@
 class Invoice < ApplicationRecord
   belongs_to :user
-  has_many :missions_invoices
+  has_many :missions_invoices, dependent: :destroy
 
 enum status: [:draft, :submitted, :sent, :paid, :delayed, :archived]
 
