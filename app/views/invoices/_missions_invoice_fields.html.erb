@@ -1,0 +1,8 @@
+<div class= "nested-fields">
+  <%= f.association :mission, label_method: :name, value_method: :id, include_blank: false %>
+  <%=   f.input :man_day_quantity, as: :integer %>
+  <%=   f.input :price_rate, as: :integer %>
+  <%=   f.input :vat_rate, collection: MissionsInvoice::VAT %>
+  <%=   link_to_remove_association "remove mission", f %>
+</div>
+
