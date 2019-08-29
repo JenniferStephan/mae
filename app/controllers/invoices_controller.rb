@@ -10,6 +10,15 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   def new
     @invoice = Invoice.new
     @invoice.missions_invoices.build
+    @my_clients = current_user.clients
+
+    #@my_clients = Client.where(user:current_user).map { |c| [c.company_name, c.id, { class: c.id }] }
+
+    if params[:search]
+      @client_found = Client.find(params[:search][:client]) if Client.find(params[:search][:client]).present?
+
+    end
+
   end
 
   def show
@@ -18,9 +27,13 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   def create
     @invoice = Invoice.new(invoice_params)
     @invoice.user = current_user
+    @invoice.client = Client.find(params[:client])
+    @my_clients = current_user.clients
     if @invoice.save
       # to be changed
+
       render :new
+
     else
       render :new
     end

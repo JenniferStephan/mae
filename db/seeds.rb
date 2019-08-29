@@ -98,18 +98,6 @@ invoice8 = Invoice.new(user: user,
 invoice8.save
 
 
-puts "creating first draft invoice"
-invoice_draft = Invoice.new(user: user, title: "test1 with invoice draft")
-invoice_draft.save
-puts invoice_draft
-puts "first draft invoice created"
-
-puts "creating first draft invoice"
-invoice_sent = Invoice.new(user: user, title: "test2")
-invoice_sent.sent!
-invoice_sent.save
-
-puts "we create #{Invoice.count} invoives/10"
 
 
 bnp = Client.create!(user: user,
@@ -138,6 +126,7 @@ web_design = Mission.create!(name: "web design", description: "doing some websit
 jour_TA = Mission.create!(name: "jour de TA")
 bus_dev = Mission.create!(name: "business dev")
 maintenance_site = Mission.create!(name: "maintenance site web")
+illustration = Mission.create!(name: "illustration")
 
 puts "creating first draft invoice"
 web_design_for_beta = MissionsInvoice.create!(man_day_quantity: 3, price_rate: 100, vat_rate: 0, mission: web_design, invoice: invoice1)
