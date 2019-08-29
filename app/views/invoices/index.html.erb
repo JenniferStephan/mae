@@ -45,7 +45,7 @@
 
   <div class="invoices-card d-flex">
 
-    <div class="invoice-infos invoice-ref">
+    <div class="invoice-infos infos-titre">
      <%= invoice.title %>
     </div>
 
@@ -63,8 +63,8 @@
       </div>
     </div>
 
-    <div class="invoice-infos">
-      <%= invoice.status %>
+    <div class="invoice-infos infos-status">
+      <p><i class="fas fa-asterisk"></i><%= invoice.status %></p>
     </div>
 
     <div class="invoice-infos infos-price">
@@ -75,9 +75,13 @@
 
       <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button class="dropdown-item" type="button"><i class="fas fa-search-plus"></i>Apercu</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button>
         <button class="dropdown-item" type="button"><i class="fas fa-edit"></i>Editer</button>
         <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
         <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
+
+
       </div>
     </div>
 

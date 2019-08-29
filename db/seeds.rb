@@ -90,7 +90,7 @@ invoice6.save
 
 invoice7 = Invoice.new(user: user,
                       title: "Mission développement",
-                      reference: "120119-AC0004",
+                      reference: "221118-AC0004",
                       creation_date: "22/10/18",
                       due_date: "22/11/18",
                       total_amount_ttc: "2000",
@@ -99,9 +99,9 @@ invoice7.save
 
 invoice8 = Invoice.new(user: user,
                       title: "Front-end",
-                      reference: "120119-AC0004",
-                      creation_date: "22/10/18",
-                      due_date: "22/11/18",
+                      reference: "040918-AC0004",
+                      creation_date: "04/09/18",
+                      due_date: "04/10/18",
                       total_amount_ttc: "2000",
                       status: 5)
 invoice8.save

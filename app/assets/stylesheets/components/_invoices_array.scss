@@ -25,10 +25,10 @@ margin-bottom: 20px;
   color: rgb(136, 152, 170);
   justify-content: space-around;
   border: solid;
-  border-color: rgba(136, 152, 170, .4);
+  border-color: rgba(136, 152, 170, .2);
   border-width: 1px;
   border-radius: 0px 0px 15px 15px;
-  box-shadow: 3px 3px 1px rgba(136, 152, 170, .1);
+  box-shadow: 2px 2px 8px rgba(136, 152, 170, .1);
   background-color: white;
 }
 
@@ -56,7 +56,7 @@ margin-bottom: 20px;
   font-family: $headers-font;
   margin-top: 5px;
   text-align: center;
-  color: rgba(250, 163, 6, .5);
+  color: rgba(250, 163, 6, .7);
 }
 
 .invoices-card {
@@ -78,7 +78,7 @@ margin-bottom: 20px;
 
 .invoice-infos {
   width: 16%;
-  padding: 8px;
+  padding: 10px 8px;
   text-align: center;
   font-weight: lighter;
   font-size: 12px;
@@ -124,7 +124,7 @@ margin-bottom: 20px;
   background-color: white;
 
   i {
-    color: rgba(250, 163, 6, 1);
+    color: rgba(250, 163, 6, .8);
   }
 }
 .dropdown-item i {
@@ -141,11 +141,30 @@ margin-bottom: 20px;
 .color-line {
   margin-top: 100px;
   width: 100%;
-  height: 8px;
-  background-color: rgba(250, 163, 6, .5);
-  border-radius: 10px 10px 0px 0px;
+  height: 2px;
+  background-color: rgba(250, 163, 6, .7);
+  border-radius: 15px 15px 0px 0px;
 }
 
 .fa-ellipsis-h:hover {
-  zoom: 1.1;
+  zoom: 1.05;
+}
+
+.infos-titre {
+ font-weight: normal;
+}
+
+.status-point {
+  margin-top: 6px;
+  margin-right: 6px;
+}
+
+.invoices-card .infos-status i {
+  color: rgba(107, 241, 120, .3);
+  font-size: 12px;
+}
+
+.infos-status {
+  display: flex;
+  justify-content: space-around;
 }
