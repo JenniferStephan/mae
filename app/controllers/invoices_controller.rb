@@ -3,7 +3,8 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
 # skip_before_action :authenticate_user!
 
   def index
-    @invoice = Invoice.all
+    @invoices = Invoice.where(user: current_user)
+    # @invoices = current_user.invoices
   end
 
   def new
