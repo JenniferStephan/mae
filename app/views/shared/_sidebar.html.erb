@@ -5,15 +5,24 @@
 
   <div class="navigation-icons">
     <%= link_to root_path do %>
-      <i class="fas fa-project-diagram icons"></i>
+      <div class="icon-and-title">
+        <i class="far fa-chart-bar"></i>
+        <p>Tableau de bord</p>
+      </div>
     <% end %>
 
     <%= link_to "invoices" do %>
-      <i class="far fa-file-alt icons"></i>
+      <div class="icon-and-title">
+        <i class="far fa-file-alt icons"></i>
+        <p>Factures</p>
+      </div>
     <% end %>
 
     <%= link_to "simulate_my_rate" do %>
-      <i class="fas fa-euro-sign icons"></i>
+      <div class="icon-and-title">
+        <i class="fas fa-euro-sign icons"></i>
+        <p>Simuler mon TJM</p>
+      </div>
     <% end %>
   </div>
 </div>

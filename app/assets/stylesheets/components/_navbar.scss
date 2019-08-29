@@ -1,6 +1,7 @@
 li {
   list-style: none;
 }
+
 .sidebar {
   background: white;
   display: flex;
@@ -14,20 +15,31 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-}
-
-.navigation-icons a {
-  color: black;
-  opacity: 0.7;
-  transition: all 0.3s ease;
-}
-
-.navigation-icons a:hover {
-  transform: scale(1.08);
-  opacity: 1;
+  } a {
+    color: black;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+  } a:hover {
+    transform: scale(1.08);
+    opacity: 1;
 }
 
 .icons{
-  font-size: 30px;
+  font-size: 17px;
+}
+
+.icon-and-title {
+  display: flex;
+  align-items: center;
+  p {
+    margin: 0px 0px 0px 7px;
+  }
+}
+
+.notif-button {
+  align-items: center;
+  display: flex;
+  p {
+    margin: 0px 0px 0px 7px;
+  }
 }
