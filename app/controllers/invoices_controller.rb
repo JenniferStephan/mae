@@ -3,7 +3,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
 # skip_before_action :authenticate_user!
 
   def index
-    @invoices = Invoice.where(user: current_user)
+    @invoices = Invoice.where(user: current_user).order(created_at: :asc)
     # @invoices = current_user.invoices
   end
 

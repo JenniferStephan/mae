@@ -48,7 +48,11 @@
     </div>
 
     <div class="invoice-infos">
-      <p>eFashion Paris</p>
+
+
+<%= invoice.client.company_name  %>
+
+
     </div>
 
     <div class="invoice-infos">
@@ -62,11 +66,11 @@
     </div>
 
     <div class="invoice-infos infos-status">
-      <p><i class="fas fa-asterisk"></i><%= invoice.status %></p>
+      <p class="<%= invoice.status.to_s %>"><i class="fas fa-asterisk"></i><%= invoice.status %></p>
     </div>
 
     <div class="invoice-infos infos-price">
-      <p><%= invoice.total_amount_ttc %> €</p>
+      <p><%= invoice.total_amount_ht %> €</p>
     </div>
 
     <div class="invoice-infos invoice-actions dropdown">
