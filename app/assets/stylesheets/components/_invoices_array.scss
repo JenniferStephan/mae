@@ -4,7 +4,7 @@ p {
 }
 .invoices_index_title {
 // color: rgba(108, 22, 199, .5);
-color: rgba(250, 163, 6, .5);
+// color: rgba(250, 163, 6, .5);
 // color: rgba(136, 152, 170, .6);
 text-shadow: 2px 2px 0px rgba(136, 152, 170, .1);
 margin-top: 40px;
@@ -139,7 +139,7 @@ margin-bottom: 20px;
 }
 
 .color-line {
-  margin-top: 100px;
+  margin-top: 15px;
   width: 100%;
   height: 2px;
   background-color: rgba(250, 163, 6, .7);
@@ -161,10 +161,153 @@ margin-bottom: 20px;
 
 .invoices-card .infos-status i {
   color: rgba(107, 241, 120, .3);
-  font-size: 12px;
+  font-size: 8px;
 }
 
 .infos-status {
   display: flex;
   justify-content: space-around;
 }
+
+
+.invoices-card .infos-status .draft i {
+  color: rgba(250, 163, 6, .8);
+}
+.invoices-card .infos-status .draft {
+  color: rgba(250, 163, 6, .8);
+}
+.invoices-card .draft {
+  color: rgba(250, 163, 6, .8);
+}
+
+
+.invoices-card .infos-status .submitted i {
+ color: rgba(250, 163, 6, .8);
+}
+.invoices-card .infos-status .submitted {
+ color: rgba(250, 163, 6, .8);
+}
+.invoices-card .submitted {
+ color: rgba(250, 163, 6, .8);
+}
+
+
+.invoices-card .infos-status .paid  i {
+ color: rgba(107, 241, 120, .8);
+}
+.invoices-card .infos-status .paid {
+ color: rgba(107, 241, 120, .8);
+}
+.invoices-card .paid {
+ color: rgba(107, 241, 120, .8);
+}
+
+.invoices-card .infos-status .delayed  i {
+ color: rgba(190, 12, 98, .8);
+}
+.invoices-card .infos-status .delayed {
+ color: rgba(190, 12, 98, .8);
+}
+.invoices-card .delayed {
+ color: rgba(190, 12, 98, .8);
+}
+
+.invoices-card .infos-status .archived  i {
+ color: rgba(59, 132, 66, .8);
+}
+.invoices-card .infos-status .archived {
+ color: rgba(59, 132, 66, .8);
+}
+.invoices-card .archived {
+ color: rgba(59, 132, 66, .8);
+}
+
+
+.links {
+  text-align: right;
+}
+
+.search-invoice{
+  margin-top: 30px;
+  justify-content: space-around;
+}
+
+.form-control {
+  width: 70vh;
+  border-radius: 5px;
+  height: 42px;
+}
+
+
+
+
+
+
+.inp {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  max-width: 280px;
+}
+.inp .label {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-size: 16px;
+  color: rgba(250, 163, 6, .8);
+  // color: #9098a9;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transition: all 0.2s ease;
+}
+.inp .border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: rgba( 108, 22, 199, .6);
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: all 0.15s ease;
+}
+.inp input {
+  -webkit-appearance: none;
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  padding: 12px 0;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(250, 163, 6, .8);;
+  background: none;
+  border-radius: 0;
+  color: rgba( 108, 22, 199, .6);;
+  transition: all 0.15s ease;
+}
+.inp input:hover {
+  background: rgba(34,50,84,0.03);
+}
+.inp input:not(:placeholder-shown) + span {
+  color: #5a667f;
+  transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus {
+  background: none;
+  outline: none;
+}
+.inp input:focus + span {
+  color: rgba( 108, 22, 199, .6);
+  transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus + span + .border {
+  transform: scaleX(1);
+}
+
+.label i {
+margin-top: 5px;
+margin-right: 5px;
+font-size: 15px;
+}
+
