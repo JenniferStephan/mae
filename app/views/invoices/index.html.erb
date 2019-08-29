@@ -1,8 +1,10 @@
 
-<!--
-<div class="invoices_index_title">
+
+<!-- <div class="invoices_index_title">
   <h1><i class="far fa-file-alt"></i>  Mes factures :</h1>
 </div> -->
+
+
 
 <div class="color-line"></div>
 
@@ -66,10 +68,10 @@
     </div>
 
     <div class="invoice-infos infos-status">
-      <p class="<%= invoice.status.to_s %>"><i class="fas fa-asterisk"></i><%= invoice.status %></p>
+      <p class="<%= invoice.status.to_s %>"><i class="fas fa-circle"></i><%= invoice.status %></p>
     </div>
 
-    <div class="invoice-infos infos-price">
+    <div class="invoice-infos <%= invoice.status.to_s %>">
       <p><%= invoice.total_amount_ht %> €</p>
     </div>
 
@@ -82,6 +84,7 @@
         <button class="dropdown-item" type="button"><i class="fas fa-edit"></i>Editer</button>
         <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
         <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-trash-alt"></i>Supprimer</button>
 
 
       </div>
@@ -92,6 +95,8 @@
   <% end %>
 
 </div>
-
-
+<div class="links">
+  <%= link_to "Nouvelle facture", new_invoice_path, class: "button" %>
+  <%= link_to "Retour", root_path, class: "button" %>
+</div>
 

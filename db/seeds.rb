@@ -97,8 +97,8 @@ le_wagon = Client.create!(user: user,
 
 web_design = Mission.create!(name: "Web design")
 jour_TA = Mission.create!(name: "Journée TA")
-bus_dev = Mission.create!(name: "Mission développement")
-bus_dev2 = Mission.create!(name: "Mission développement")
+bus_dev = Mission.create!(name: "Développement")
+bus_dev2 = Mission.create!(name: "Développement")
 maintenance_site = Mission.create!(name: "Maintenance")
 maintenance_site2 = Mission.create!(name: "Maintenance")
 maintenance_site3 = Mission.create!(name: "Maintenance")
@@ -108,7 +108,7 @@ consulting = Mission.create!(name: "Consulting")
 
 invoice1 = Invoice.new(user: user,
                       title: "Journée TA",
-                      reference: "210819-AC0001",
+                      reference: "210819-AC0008",
                       creation_date: Date.strptime("21-08-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("21-09-2019", '%d-%m-%Y'),
                       total_amount_ttc: "300",
@@ -124,7 +124,7 @@ jour_TA = MissionsInvoice.create!(man_day_quantity: 3, price_rate: 100, vat_rate
 
 invoice2 = Invoice.new(user: user,
                       title: "Web design",
-                      reference: "140519-AC0002",
+                      reference: "140519-AC0007",
                       creation_date: Date.strptime("14-05-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("14-06-2019", '%d-%m-%Y'),
                       total_amount_ttc: "1000",
@@ -136,8 +136,8 @@ invoice2.save!
 web_design = MissionsInvoice.create!(man_day_quantity: 5, price_rate: 200, vat_rate: 0, mission: web_design, invoice: invoice2)
 
 invoice3 = Invoice.new(user: user,
-                      title: "Mission développement",
-                      reference: "050319-AC0003",
+                      title: "Développement",
+                      reference: "050319-AC0006",
                       creation_date: Date.strptime("05-03-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("05-04-2019", '%d-%m-%Y'),
                       total_amount_ttc: "2700",
@@ -149,7 +149,7 @@ bus_dev = MissionsInvoice.create!(man_day_quantity: 6, price_rate: 450, vat_rate
 
 invoice4 = Invoice.new(user: user,
                       title: "Maintenance",
-                      reference: "121218-AC0004",
+                      reference: "121218-AC0005",
                       creation_date: Date.strptime("12-12-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("12-01-2019", '%d-%m-%Y'),
                       total_amount_ttc: "1500",
@@ -173,7 +173,7 @@ consulting = MissionsInvoice.create!(man_day_quantity: 10, price_rate: 550, vat_
 
 invoice6 = Invoice.new(user: user,
                       title: "Maintenance",
-                      reference: "301018-AC0004",
+                      reference: "301018-AC0003",
                       creation_date: Date.strptime("30-10-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("30-11-2018", '%d-%m-%Y'),
                       total_amount_ttc: "1500",
@@ -185,8 +185,8 @@ maintenance_site3 = MissionsInvoice.create!(man_day_quantity: 10, price_rate: 15
 
 
 invoice7 = Invoice.new(user: user,
-                      title: "Mission développement",
-                      reference: "220918-AC0004",
+                      title: "Développement",
+                      reference: "220918-AC0002",
                       creation_date: Date.strptime("22-09-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("22-10-2018", '%d-%m-%Y'),
                       total_amount_ttc: "4500",
@@ -200,7 +200,7 @@ bus_dev2 = MissionsInvoice.create!(man_day_quantity: 10, price_rate: 450, vat_ra
 
 invoice8 = Invoice.new(user: user,
                       title: "Maintenance",
-                      reference: "040818-AC0004",
+                      reference: "040818-AC0001",
                       creation_date: Date.strptime("04-08-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("04-09-2018", '%d-%m-%Y'),
                       total_amount_ttc: "6750",
