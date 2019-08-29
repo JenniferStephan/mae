@@ -139,7 +139,7 @@ margin-bottom: 20px;
 }
 
 .color-line {
-  margin-top: 55px;
+  margin-top: 15px;
   width: 100%;
   height: 2px;
   background-color: rgba(250, 163, 6, .7);
@@ -225,4 +225,13 @@ margin-bottom: 20px;
 
 .links {
   text-align: right;
+}
+
+.search-invoice{
+  margin-top: 30px;
+  justify-content: space-around;
+}
+
+.form-control {
+  width: 70vh;
 }
