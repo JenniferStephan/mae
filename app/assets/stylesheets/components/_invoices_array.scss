@@ -1,0 +1,201 @@
+p {
+  margin-bottom: none;
+  text-align: center;
+}
+
+// Invoices array
+
+.invoices-array {
+  max-height: 60vh;
+  overflow: auto;
+  margin: 0px 0px 20px 0px;
+  padding: 0px 20px 0px 20px;
+  color: rgb(136, 152, 170);
+  justify-content: space-around;
+  border: solid;
+  border-color: rgba(136, 152, 170, .2);
+  border-width: 1px;
+  border-radius: 0px 0px 15px 15px;
+  box-shadow: 2px 2px 8px rgba(136, 152, 170, .1);
+  background-color: white;
+}
+
+.array-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  width: 100%;
+  justify-content: space-around;
+  border-bottom: solid;
+  border-color: rgba(250, 163, 6, .2);
+  border-width: 1px;
+  padding-top: 15px;
+  margin-bottom: 5px;
+  background-color: white;
+}
+
+.array-header-column {
+  width: 16%;
+}
+
+.array-header-column h4 {
+  font-size: 15px;
+  font-family: $headers-font;
+  margin-top: 5px;
+  text-align: center;
+  color: rgba(250, 163, 6, .7);
+}
+
+.invoices-card {
+  justify-content: space-around;
+  border-bottom: solid;
+  border-color: rgba(136, 152, 170, .2);
+  border-width: 1px;
+  margin: 10px;
+}
+
+.invoices-card i {
+  color: rgba(250, 163, 6, .6);
+  font-size: 16px;
+  margin-top: 2px;
+  margin-right: 8px;
+}
+
+.invoices-card:last-child {
+  border-bottom: none;
+  padding-bottom: none;
+}
+
+.invoice-infos {
+  width: 16%;
+  padding: 10px 8px;
+  text-align: center;
+  font-weight: lighter;
+  font-size: 12px;
+}
+
+.statut {
+  position: relative;
+}
+
+.invoice-actions {
+  width: 4%;
+  text-align: center;
+}
+
+.infos-price {
+  font-weight: normal;
+  color: rgba(107, 241, 120, .6);
+  font-size: 14px;
+}
+
+// dropdown menu dans l'array
+
+.dropdown-index-invoices {
+  font-weight: bolder;
+  font-family: $body-font;
+  color: white;
+}
+
+.dropdown-item i {
+  color: white;
+  font-size: 12px;
+}
+.dropdown-item {
+  color: white;
+  font-size: 12px;
+}
+
+.dropdown-item:hover {
+  font-family: $body-font;
+  color: rgba(250, 163, 6, .6);
+  i {
+  color: rgba(250, 163, 6, .8);
+  }
+}
+.dropdown-menu {
+  background-color: rgba(250, 163, 6, 1);
+  border-radius: 15px;
+  width: auto;
+}
+
+
+// Bande de couleur array border-top
+.color-line {
+  margin-top: 15px;
+  width: 100%;
+  height: 2px;
+  background-color: rgba(250, 163, 6, .7);
+  border-radius: 15px 15px 0px 0px;
+}
+
+
+
+
+.fa-ellipsis-h:hover {
+  zoom: 1.05;
+}
+
+
+
+// Info status (couleur selon le statut)
+
+.infos-status {
+  display: flex;
+  justify-content: space-around;
+}
+.invoices-card .infos-status i {
+  font-size: 8px;
+}
+.invoices-card .infos-status .draft i {
+  color: rgba(250, 163, 6, .8);
+}
+.invoices-card .infos-status .draft {
+  color: rgba(250, 163, 6, .8);
+}
+.invoices-card .draft {
+  color: rgba(250, 163, 6, .8);
+}
+.invoices-card .infos-status .submitted i {
+ color: rgba(250, 163, 6, .8);
+}
+.invoices-card .infos-status .submitted {
+ color: rgba(250, 163, 6, .8);
+}
+.invoices-card .submitted {
+ color: rgba(250, 163, 6, .8);
+}
+.invoices-card .infos-status .paid  i {
+ color: rgba(107, 241, 120, .8);
+}
+.invoices-card .infos-status .paid {
+ color: rgba(107, 241, 120, .8);
+}
+.invoices-card .paid {
+ color: rgba(107, 241, 120, .8);
+}
+.invoices-card .infos-status .delayed  i {
+ color: rgba(190, 12, 98, .8);
+}
+.invoices-card .infos-status .delayed {
+ color: rgba(190, 12, 98, .8);
+}
+.invoices-card .delayed {
+ color: rgba(190, 12, 98, .8);
+}
+.invoices-card .infos-status .archived  i {
+ color: rgba(59, 132, 66, .8);
+}
+.invoices-card .infos-status .archived {
+ color: rgba(59, 132, 66, .8);
+}
+.invoices-card .archived {
+ color: rgba(59, 132, 66, .8);
+}
+
+// Boutton new/back
+
+.links {
+  text-align: right;
+}
+
