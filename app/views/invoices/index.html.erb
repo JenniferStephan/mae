@@ -1,8 +1,25 @@
 
-<!--
-<div class="invoices_index_title">
+
+<!-- <div class="invoices_index_title">
   <h1><i class="far fa-file-alt"></i>  Mes factures :</h1>
 </div> -->
+<div class="search-invoice">
+
+
+<label for="inp" class="inp">
+  <input type="text" id="inp" placeholder="&nbsp;">
+  <span class="label"><i class="fas fa-search"></i>Trouver une facture</span>
+  <span class="border"></span>
+</label>
+
+
+
+  <%#= form_tag invoices_path, method: :get, class: "form-inline" do %>
+    <%#= text_field_tag :query, params[:query], class: "form-control",
+    placeholder: "Trouver une facture"%>
+    <%#= submit_tag "Search", class: "button" %>
+  <%# end %>
+</div>
 
 <div class="color-line"></div>
 
@@ -48,7 +65,11 @@
     </div>
 
     <div class="invoice-infos">
-      <p>eFashion Paris</p>
+
+
+<%= invoice.client.company_name  %>
+
+
     </div>
 
     <div class="invoice-infos">
@@ -62,11 +83,11 @@
     </div>
 
     <div class="invoice-infos infos-status">
-      <p><i class="fas fa-asterisk"></i><%= invoice.status %></p>
+      <p class="<%= invoice.status.to_s %>"><i class="fas fa-circle"></i><%= invoice.status %></p>
     </div>
 
-    <div class="invoice-infos infos-price">
-      <p><%= invoice.total_amount_ttc %> €</p>
+    <div class="invoice-infos <%= invoice.status.to_s %>">
+      <p><%= invoice.total_amount_ht %> €</p>
     </div>
 
     <div class="invoice-infos invoice-actions dropdown">
@@ -78,6 +99,7 @@
         <button class="dropdown-item" type="button"><i class="fas fa-edit"></i>Editer</button>
         <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
         <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-trash-alt"></i>Supprimer</button>
 
 
       </div>
@@ -88,6 +110,8 @@
   <% end %>
 
 </div>
-
-
+<div class="links">
+  <%= link_to "Nouvelle facture", new_invoice_path, class: "button" %>
+  <%= link_to "Retour", root_path, class: "button" %>
+</div>
 

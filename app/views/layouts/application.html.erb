@@ -9,16 +9,18 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
-  <body class="structure">
+  <body>
     <%= render 'shared/login' %>
-    <%= render 'shared/sidebar' %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/notification_bar' %>
-    <div class="container main-container">
-      <%= yield %>
+    <div class="page-layout">
+      <%= render 'shared/sidebar' %>
+      <div class="page-container">
+        <%= yield %>
+      </div>
     </div>
+
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
-    <script src="/assets/js/plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
   </body>
 </html>
