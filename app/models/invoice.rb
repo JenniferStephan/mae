@@ -5,7 +5,7 @@ class Invoice < ApplicationRecord
   has_many :missions, through: :missions_invoices
   accepts_nested_attributes_for :missions_invoices, reject_if: :all_blank, allow_destroy: true
 
-enum status: [:draft, :submitted, :sent, :paid, :delayed, :archived]
+  enum status: [:draft, :submitted, :sent, :paid, :delayed, :archived]
 
   before_save :generate_reference, if: :sent?
   before_save :set_total_amounts
@@ -22,5 +22,4 @@ enum status: [:draft, :submitted, :sent, :paid, :delayed, :archived]
     self.total_amount_ttc = missions_invoices.inject(0) { |s, m_i| s + (m_i.man_day_quantity * m_i.price_rate * (1 + m_i.vat_rate)) }
     self.total_amount_ht = missions_invoices.inject(0) { |s, m_i| s + (m_i.man_day_quantity * m_i.price_rate) }
   end
-
 end

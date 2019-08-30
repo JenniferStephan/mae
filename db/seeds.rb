@@ -118,7 +118,7 @@ invoice1 = Invoice.new(user: user,
 
 invoice1.save!
 
-jour_TA = MissionsInvoice.create!(man_day_quantity: 3, price_rate: 100, vat_rate: 0, mission: jour_TA, invoice: invoice1)
+MissionsInvoice.create!(man_day_quantity: 3, price_rate: 100, vat_rate: 0, mission: jour_TA, invoice: invoice1)
 # puts web_design_for_beta
 
 
@@ -133,7 +133,7 @@ invoice2 = Invoice.new(user: user,
 
 invoice2.save!
 
-web_design = MissionsInvoice.create!(man_day_quantity: 5, price_rate: 200, vat_rate: 0, mission: web_design, invoice: invoice2)
+MissionsInvoice.create!(man_day_quantity: 5, price_rate: 200, vat_rate: 0, mission: web_design, invoice: invoice2)
 
 invoice3 = Invoice.new(user: user,
                       title: "Développement",
@@ -145,7 +145,8 @@ invoice3 = Invoice.new(user: user,
                       client: collectionist)
 
 invoice3.save!
-bus_dev = MissionsInvoice.create!(man_day_quantity: 6, price_rate: 450, vat_rate: 0, mission: bus_dev, invoice: invoice3)
+
+MissionsInvoice.create!(man_day_quantity: 6, price_rate: 450, vat_rate: 0, mission: bus_dev, invoice: invoice3)
 
 invoice4 = Invoice.new(user: user,
                       title: "Maintenance",
@@ -157,7 +158,8 @@ invoice4 = Invoice.new(user: user,
                       client: france_inter)
 
 invoice4.save!
-maintenance_site2 = MissionsInvoice.create!(man_day_quantity: 10, price_rate: 150, vat_rate: 0, mission: maintenance_site2, invoice: invoice4)
+
+MissionsInvoice.create!(man_day_quantity: 10, price_rate: 150, vat_rate: 0, mission: maintenance_site2, invoice: invoice4)
 
 invoice5 = Invoice.new(user: user,
                       title: "Consulting",
@@ -169,7 +171,7 @@ invoice5 = Invoice.new(user: user,
                       client: cic)
 
 invoice5.save!
-consulting = MissionsInvoice.create!(man_day_quantity: 10, price_rate: 550, vat_rate: 0, mission: consulting, invoice: invoice5)
+MissionsInvoice.create!(man_day_quantity: 10, price_rate: 550, vat_rate: 0, mission: consulting, invoice: invoice5)
 
 invoice6 = Invoice.new(user: user,
                       title: "Maintenance",
@@ -181,7 +183,7 @@ invoice6 = Invoice.new(user: user,
                       client: buzzman)
 
 invoice6.save!
-maintenance_site3 = MissionsInvoice.create!(man_day_quantity: 10, price_rate: 150, vat_rate: 0, mission: maintenance_site3, invoice: invoice6)
+MissionsInvoice.create!(man_day_quantity: 10, price_rate: 150, vat_rate: 0, mission: maintenance_site3, invoice: invoice6)
 
 
 invoice7 = Invoice.new(user: user,
@@ -194,7 +196,7 @@ invoice7 = Invoice.new(user: user,
                       client: kitchen_terre)
 
 invoice7.save!
-bus_dev2 = MissionsInvoice.create!(man_day_quantity: 10, price_rate: 450, vat_rate: 0, mission: bus_dev2, invoice: invoice7)
+MissionsInvoice.create!(man_day_quantity: 10, price_rate: 450, vat_rate: 0, mission: bus_dev2, invoice: invoice7)
 
 
 
@@ -207,19 +209,20 @@ invoice8 = Invoice.new(user: user,
                       status: 5,
                       client: ddb)
 invoice8.save!
-maintenance_site4 = MissionsInvoice.create!(man_day_quantity: 15, price_rate: 450, vat_rate: 0, mission: maintenance_site4, invoice: invoice8)
+MissionsInvoice.create!(man_day_quantity: 15, price_rate: 450, vat_rate: 0, mission: maintenance_site4, invoice: invoice8)
+
+invoice9 = Invoice.new(user: user,
+                      title: "MVP",
+                      reference: "040819-AC0001",
+                      creation_date: Date.strptime("04-08-2018", '%d-%m-%Y'),
+                      due_date: Date.strptime("04-09-2018", '%d-%m-%Y'),
+                      total_amount_ttc: "5050",
+                      status: 2,
+                      client: ddb)
+invoice9.save!
+MissionsInvoice.create!(man_day_quantity: 15, price_rate: 700, vat_rate: 0, mission: maintenance_site4, invoice: invoice9)
 
 
-# puts "creating first draft invoice"
-# invoice_draft = Invoice.new(user: user, title: "test1 with invoice draft", client: societe_generale, creation_date: "04/09/18")
-# invoice_draft.save!
-# puts invoice_draft
-# puts "first draft invoice created"
-
-# puts "creating first draft invoice"
-# invoice_sent = Invoice.new(user: user, title: "test2", client: societe_generale, creation_date: "04/09/18")
-# invoice_sent.sent!
-# invoice_sent.save!
 
 Invoice.all.each do |invoice|
   invoice.save!
@@ -227,23 +230,4 @@ Invoice.all.each do |invoice|
 end
 
 puts "we create #{Invoice.count} invoives/10"
-
-
-
-
-
-
-
-
-
-
-
-web_design = Mission.create!(name: "web design", description: "doing some website")
-jour_TA = Mission.create!(name: "jour de TA")
-bus_dev = Mission.create!(name: "business dev")
-maintenance_site = Mission.create!(name: "maintenance site web")
-illustration = Mission.create!(name: "illustration")
-
-
-puts "creating first draft invoice"
 

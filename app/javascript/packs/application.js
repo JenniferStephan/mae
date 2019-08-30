@@ -1,10 +1,11 @@
 import "bootstrap";
 
 import {initNotificationBar} from "../components/notificationBar";
+import changeColumn from '../components/changeColumn';
 
 initNotificationBar();
 
-let clientOption =document.querySelector('#search_client');
+let clientOption = document.querySelector('#search_client');
 
 const form = document.querySelector('.search');
 
@@ -61,3 +62,7 @@ linesFigures.forEach((linesFigure) => {
 //   document.addEventListener('click', (event) => {
 //     totalTTC();
 //   });
+
+if (document.querySelector(".checklist-entry")) {
+  changeColumn();
+}
