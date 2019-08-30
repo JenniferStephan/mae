@@ -18,3 +18,13 @@ $border-color: rgba(0,0,0,0.1);
     margin-bottom: 20px;
   }
 }
+
+.total-TTC, .total-HT {
+  margin-left: 15px;
+  margin-right: 15px;
+  background-color: rgba(280, 280, 280, 0.8);
+  width: 70px;
+  height: 30px;
+  padding: 10px 15px;
+  border: 1px, solid, rgba(130, 130, 130, 0.8);
+}
