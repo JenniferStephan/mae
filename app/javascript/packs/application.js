@@ -46,8 +46,8 @@ const totalAmount = () => {
 }
 
   totalAmount();
-  }
-}
+
+
 if (document.querySelector('.nested-fields')) {
   const linesFigures = document.querySelectorAll(".nested-fields input, .nested-fields select");
     linesFigures.forEach((linesFigure) => {
