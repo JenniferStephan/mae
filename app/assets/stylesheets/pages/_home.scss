@@ -1,4 +1,3 @@
-// Specific CSS for your home-page
 .welcome-card {
   margin-top: 120px;
   margin-left: 50px;
@@ -23,14 +22,14 @@
 
 .invoices-cards{
   display: flex;
+  align-items: flex-start;
   margin-top: 80px;
   margin-left: 50px;
-  border-radius: 10px;
-  overflow: hidden;
 }
 
 .invoices-status {
-    border-radius: 10px;
+  overflow: hidden;
+  border-radius: 10px;
   &:first-child {
     margin-left: 0px;
   }
@@ -52,17 +51,6 @@
 
 .checklist-entry {
   padding: 20px;
-  i {
-    color: black;
-    opacity: 0.6;
-    transition: all ease 0.2s;
-    &:hover {
-      opacity: 1;
-      transition: all ease 0.2s;
-      transform: scale(1.1);
-      cursor: pointer;
-    }
-  }
 }
 
 .checklist-item {
@@ -91,4 +79,23 @@
 
 .vertical-line.delayed {
   border-left: 3px solid #6C16C7;
+}
+
+.mark-as-paid-button {
+  border-radius: 5px;
+  background: #444053;
+  color: white;
+  padding: 3px 15px;
+  i {
+    opacity: 0.8;
+  }
+}
+
+.mark-as-paid-button:hover {
+    transition: all ease 0.2s;
+    transform: scale(1.1);
+    cursor: pointer;
+  i {
+    opacity: 1;
+  }
 }

@@ -4,10 +4,6 @@ li {
 
 .sidebar {
   background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   border-right: 1px solid rgb(247, 235, 217);
 }
 
@@ -15,13 +11,15 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  } a {
+  a {
     color: black;
     opacity: 0.7;
     transition: all 0.3s ease;
-  } a:hover {
+  }
+  a:hover {
     transform: scale(1.08);
     opacity: 1;
+  }
 }
 
 .icons{

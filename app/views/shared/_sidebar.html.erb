@@ -1,9 +1,11 @@
 <div class="sidebar">
+
   <%= link_to root_path do %>
-    <img class="logo" src="<%= image_path('logo-mae.png') %>"/>
+    <%= image_tag('logo-mae.png', class: 'logo')  %>
   <% end %>
 
   <div class="navigation-icons">
+
     <%= link_to root_path do %>
       <div class="icon-and-title">
         <i class="far fa-chart-bar"></i>
@@ -24,5 +26,7 @@
         <p>Simuler mon TJM</p>
       </div>
     <% end %>
+
   </div>
+
 </div>

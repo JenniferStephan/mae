@@ -11,12 +11,20 @@
   </head>
   <body>
     <%= render 'shared/login' %>
-    <%= render 'shared/sidebar' %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/notification_bar' %>
-    <div class="container main-container">
-      <%= yield %>
+    <div class="page-layout">
+      <%= render 'shared/sidebar' %>
+      <div class="page-container">
+        <%= yield %>
+      </div>
     </div>
+
+
+
+
+<!--     <div class="container main-container">
+    </div> -->
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
   </body>

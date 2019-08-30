@@ -4,7 +4,10 @@ import {initNotificationBar} from "../components/notificationBar";
 import changeColumn from '../components/changeColumn';
 
 initNotificationBar();
-changeColumn();
+
+if (document.querySelector(".checklist-entry")) {
+  changeColumn();
+}
 
 // Enable Bootstrap tooltips
 $(function () {

@@ -1,5 +1,5 @@
 const changeColumn = () => {
-  const euroButtons = document.querySelectorAll('.checklist-entry i');
+  const euroButtons = document.querySelectorAll('.mark-as-paid-button');
   const paidInvoices = document.querySelector('.invoices-paid');
   const paidInvoicesList = paidInvoices.querySelector('ul');
 

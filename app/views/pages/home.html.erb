@@ -10,7 +10,7 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures envoyées</h2>
+          <h3>Factures envoyées</h3>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -130,40 +130,6 @@
           </div>
         </li>
 
-        <li class="checklist-entry list-group-item flex-column align-items-start">
-          <div class="checklist-item checklist-item-success">
-            <div class="checklist-info">
-              <div class="vertical-line sent"></div>
-              <div class="invoice-infos">
-                <h5 class="checklist-title mb-0">mission</h5>
-                <small>1000€</small>
-              </div>
-            </div>
-
-            <div class="mark-as-paid-button">
-              <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
-            </div>
-          </div>
-        </li>
-
-        <li class="checklist-entry list-group-item flex-column align-items-start">
-          <div class="checklist-item checklist-item-success">
-            <div class="checklist-info">
-              <div class="vertical-line sent"></div>
-              <div class="invoice-infos">
-                <h5 class="checklist-title mb-0">mission</h5>
-                <small>1000€</small>
-              </div>
-            </div>
-
-            <div class="mark-as-paid-button">
-              <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
-            </div>
-          </div>
-        </li>
-
-
-
       </ul>
     </div>
   </div>
@@ -174,7 +140,7 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures payées</h2>
+          <h3>Factures payées</h3>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -203,20 +169,23 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures en retard</h2>
+          <h3>Factures en retard</h3>
         </div>
 
         <% @invoices.each do |invoice| %>
-        <% if invoice.delayed? %>
+          <% if invoice.delayed? %>
             <li class="checklist-entry list-group-item flex-column align-items-start">
               <div class="checklist-item checklist-item-success">
                 <div class="checklist-info">
                   <div class="vertical-line delayed"></div>
                   <div>
                     <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
-                    <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
+                    <small>
+                      <%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €
+                    </small>
                   </div>
                 </div>
+              </div>
             </li>
           <% end %>
         <% end %>
