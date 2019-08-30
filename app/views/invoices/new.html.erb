@@ -5,7 +5,7 @@
   <div>
     <%= simple_form_for [@user, @invoice] do |f| %>
       <%= f.association :client, label_method: :company_name, value_method: :id, include_blank: false %>
-      <%= f.input :creation_date, label: "Date de facturation", class: "datepicker"%>
+      <%#= f.input :creation_date, label: "Date de facturation", class: "datepicker"%>
       <%= f.input :title, label: "Titre"%>
 
         <h3>Missions</h3>

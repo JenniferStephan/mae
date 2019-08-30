@@ -3,60 +3,49 @@
   <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
 </div>
 
-<!-- test date picker range -->
-<div>
-  <div class="input-daterange datepicker row align-items-center">
-      <div class="col">
-          <div class="form-group">
-              <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                  </div>
-                  <input class="form-control" placeholder="Start date" type="text" value="06/18/2019">
-              </div>
-          </div>
-      </div>
-      <div class="col">
-          <div class="form-group">
-              <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-calendar-grid-58"></i></span>
-                  </div>
-                  <input class="form-control" placeholder="End date" type="text" value="06/22/2019">
-              </div>
-          </div>
-      </div>
-  </div>
-</div>
-<!-- fin test date picker -->
-
 <div class="invoices-cards">
 
   <div class="invoices-status">
     <div class="invoices-sent">
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
-
-
         <div class="column-title">
-          <h3>Factures envoyées</h2>
+          <h3>Factures envoyées</h3>
         </div>
+
+        <% @invoices.each do |invoice| %>
+          <% if invoice.sent? %>
+            <li class="checklist-entry list-group-item flex-column align-items-start">
+              <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                  <div class="vertical-line sent"></div>
+                  <div class="invoice-infos">
+                    <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
+                    <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
+                  </div>
+                </div>
+
+                <div class="mark-as-paid-button">
+                  <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
+                </div>
+              </div>
+            </li>
+          <% end %>
+        <% end %>
+
 
         <li class="checklist-entry list-group-item flex-column align-items-start">
           <div class="checklist-item checklist-item-success">
             <div class="checklist-info">
               <div class="vertical-line sent"></div>
-              <div>
-                <h5 class="checklist-title mb-0">Design web - Entreprise</h5>
-                <small>1000 €</small>
+              <div class="invoice-infos">
+                <h5 class="checklist-title mb-0">mission</h5>
+                <small>1000€</small>
               </div>
             </div>
 
-            <div>
-              <div class="custom-control custom-checkbox custom-checkbox-success">
-                <input class="custom-control-input" id="chk-todo-task-1" type="checkbox" checked>
-                <label class="custom-control-label" for="chk-todo-task-1"></label>
-              </div>
+            <div class="mark-as-paid-button">
+              <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
             </div>
           </div>
         </li>
@@ -65,17 +54,78 @@
           <div class="checklist-item checklist-item-success">
             <div class="checklist-info">
               <div class="vertical-line sent"></div>
-              <div>
-                <h5 class="checklist-title mb-0">MVP - Entreprise</h5>
-                <small>1000 €</small>
+              <div class="invoice-infos">
+                <h5 class="checklist-title mb-0">mission</h5>
+                <small>1000€</small>
               </div>
             </div>
 
-            <div>
-              <div class="custom-control custom-checkbox custom-checkbox-success">
-                <input class="custom-control-input" id="chk-todo-task-1" type="checkbox" checked>
-                <label class="custom-control-label" for="chk-todo-task-1"></label>
+            <div class="mark-as-paid-button">
+              <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
+            </div>
+          </div>
+        </li>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line sent"></div>
+              <div class="invoice-infos">
+                <h5 class="checklist-title mb-0">mission</h5>
+                <small>1000€</small>
               </div>
+            </div>
+
+            <div class="mark-as-paid-button">
+              <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
+            </div>
+          </div>
+        </li>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line sent"></div>
+              <div class="invoice-infos">
+                <h5 class="checklist-title mb-0">mission</h5>
+                <small>1000€</small>
+              </div>
+            </div>
+
+            <div class="mark-as-paid-button">
+              <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
+            </div>
+          </div>
+        </li>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line sent"></div>
+              <div class="invoice-infos">
+                <h5 class="checklist-title mb-0">mission</h5>
+                <small>1000€</small>
+              </div>
+            </div>
+
+            <div class="mark-as-paid-button">
+              <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
+            </div>
+          </div>
+        </li>
+
+        <li class="checklist-entry list-group-item flex-column align-items-start">
+          <div class="checklist-item checklist-item-success">
+            <div class="checklist-info">
+              <div class="vertical-line sent"></div>
+              <div class="invoice-infos">
+                <h5 class="checklist-title mb-0">mission</h5>
+                <small>1000€</small>
+              </div>
+            </div>
+
+            <div class="mark-as-paid-button">
+              <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
             </div>
           </div>
         </li>
@@ -90,19 +140,24 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures payées</h2>
+          <h3>Factures payées</h3>
         </div>
 
-        <li class="checklist-entry list-group-item flex-column align-items-start">
-          <div class="checklist-item checklist-item-success">
-            <div class="checklist-info">
-              <div class="vertical-line paid"></div>
-              <div>
-                <h5 class="checklist-title mb-0">Illustration - Entreprise</h5>
-                <small>1000 €</small>
+        <% @invoices.each do |invoice| %>
+          <% if invoice.paid? %>
+            <li class="checklist-entry list-group-item flex-column align-items-start">
+              <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                  <div class="vertical-line paid"></div>
+                  <div>
+                    <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
+                    <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
+                  </div>
+                </div>
               </div>
-            </div>
-        </li>
+            </li>
+          <% end %>
+        <% end %>
 
       </ul>
     </div>
@@ -110,49 +165,33 @@
 
 
   <div class="invoices-status">
-    <div class="invoices-late">
+    <div class="invoices-delayed">
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures en retard</h2>
+          <h3>Factures en retard</h3>
         </div>
 
-        <li class="checklist-entry list-group-item flex-column align-items-start">
-          <div class="checklist-item checklist-item-success">
-            <div class="checklist-info">
-              <div class="vertical-line late"></div>
-              <div>
-                <h5 class="checklist-title mb-0">Mission 1 - Entreprise A</h5>
-                <small>2000 €</small>
+        <% @invoices.each do |invoice| %>
+          <% if invoice.delayed? %>
+            <li class="checklist-entry list-group-item flex-column align-items-start">
+              <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                  <div class="vertical-line delayed"></div>
+                  <div>
+                    <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
+                    <small>
+                      <%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €
+                    </small>
+                  </div>
+                </div>
               </div>
-            </div>
-        </li>
-
-        <li class="checklist-entry list-group-item flex-column align-items-start">
-          <div class="checklist-item checklist-item-success">
-            <div class="checklist-info">
-              <div class="vertical-line late"></div>
-              <div>
-                <h5 class="checklist-title mb-0">Illustration - Entreprise B</h5>
-                <small>1500 €</small>
-              </div>
-            </div>
-        </li>
-
-        <li class="checklist-entry list-group-item flex-column align-items-start">
-          <div class="checklist-item checklist-item-success">
-            <div class="checklist-info">
-              <div class="vertical-line late"></div>
-              <div>
-                <h5 class="checklist-title mb-0">Mission 3 - Entreprise C</h5>
-                <small>2000 €</small>
-              </div>
-            </div>
-        </li>
+            </li>
+          <% end %>
+        <% end %>
 
       </ul>
     </div>
   </div>
 
 </div>
-
