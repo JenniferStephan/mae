@@ -1,4 +1,5 @@
 import "bootstrap";
+import "../plugins/flatpickr"
 
 import {initNotificationBar} from "../components/notificationBar";
 import changeColumn from '../components/changeColumn';
@@ -45,8 +46,8 @@ const totalAmount = () => {
 }
 
   totalAmount();
-  }
-}
+
+
 if (document.querySelector('.nested-fields')) {
   const linesFigures = document.querySelectorAll(".nested-fields input, .nested-fields select");
     linesFigures.forEach((linesFigure) => {

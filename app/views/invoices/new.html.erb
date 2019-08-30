@@ -1,5 +1,6 @@
 <div class= "container py-5">
 
+
   <h1>Créer une facture</h1>
 
   <div class="header-facture d-flex justify-content-between">
@@ -28,9 +29,10 @@
         <%= hidden_field_tag :client, @client_found.id %>
       <% end %>
 
-    <div class="datepicker d-inline-flex p-3">
-      <%= f.input :creation_date, label: "Date de facturation" %>
-    </div>
+
+      <%= f.input :creation_date, as: :string, required: false, label: "Date de facturation",input_html: {class: "datepicker d-inline-flex p-3"} %>
+
+
     <div class="titre p-2">
       <%= f.input :title, label: "Titre" %>
     </div>

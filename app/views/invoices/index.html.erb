@@ -13,15 +13,14 @@
     </label>
    -->
 
-
-    <%= form_tag invoices_path, method: :get, class: "form-inline" do %>
-      <label for="inp" class="inp">
-        <%= text_field_tag :query, params[:query], id: 'inp', placeholder: "  " %>
-        <span class="label"><i class="fas fa-search"></i>Trouver une facture</span>
-      </label>
-      <%#= submit_tag "Rechercher", class: "button submit-index-search" %>
-    <% end %>
-  </div>
+  <%= form_tag invoices_path, method: :get, class: "form-inline" do %>
+    <label for="inp" class="inp">
+      <%= text_field_tag :query, params[:query], id: 'inp', placeholder: "  " %>
+      <span class="label"><i class="fas fa-search"></i>Trouver une facture</span>
+    </label>
+  <%#= submit_tag "Rechercher", class: "button submit-index-search" %>
+  <% end %>
+</div>
 
   <div class="color-line"></div>
 
@@ -94,16 +93,15 @@
 
       <div class="invoice-infos invoice-actions dropdown">
 
-        <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-          <button class="dropdown-item" type="button"><i class="fas fa-search-plus"></i>Apercu</button>
-          <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button>
-          <button class="dropdown-item" type="button"><i class="fas fa-edit"></i>Editer</button>
-          <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
-          <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
-          <button class="dropdown-item" type="button"><i class="fas fa-trash-alt"></i>Supprimer</button>
-
-
+      <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <%= link_to "Aperçu", invoices_path(@invoice), class: "dropdown-item fas fa-search-plus"%>
+        <button class="dropdown-item" type="button"><i class="fas fa-search-plus"></i>Apercu</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-edit"></i>Editer</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
+        <button class="dropdown-item" type="button"><i class="fas fa-trash-alt"></i>Supprimer</button>
         </div>
       </div>
 

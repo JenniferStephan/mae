@@ -20,7 +20,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
 
     if params[:search]
       @client_found = Client.find(params[:search][:client]) if Client.find(params[:search][:client]).present?
-
     end
 
   end
@@ -35,9 +34,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     @invoice.client = Client.find(params[:client])
     @my_clients = current_user.clients
     if @invoice.save
-
-      invoice_path(@invoice)
-
+      render :show
     else
       render :new
     end
