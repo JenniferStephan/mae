@@ -35,9 +35,8 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     @invoice.client = Client.find(params[:client])
     @my_clients = current_user.clients
     if @invoice.save
-      # to be changed
 
-      render :new
+      render :show
 
     else
       render :new

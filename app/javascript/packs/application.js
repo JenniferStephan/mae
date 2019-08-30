@@ -1,4 +1,5 @@
 import "bootstrap";
+import "../plugins/flatpickr"
 
 import {initNotificationBar} from "../components/notificationBar";
 import changeColumn from '../components/changeColumn';

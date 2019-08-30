@@ -5,11 +5,11 @@ Client.destroy_all
 User.destroy_all
 
 
-user = User.create!(email: "jenn@lewagon.com",
+user = User.create!(email: "paul@test.com",
                     password: "testtest",
-                    first_name: "Jenn",
-                    last_name: "Stephan",
-                    username: "jenn",
+                    first_name: "Paula",
+                    last_name: "Paula",
+                    username: "Jenn",
                     siret: "54645643",
                     vat: 0,
                     address: "13 rue morand")
