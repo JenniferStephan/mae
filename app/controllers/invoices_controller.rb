@@ -3,7 +3,13 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
 # skip_before_action :authenticate_user!
 
   def index
-    @invoice = Invoice.all
+    invoices = Invoice.where(user: current_user).order(created_at: :asc)
+    if params[:query].present?
+      sql_query = "invoices.title ILIKE :query OR clients.company_name ILIKE :query OR invoices.reference ILIKE :query"
+      @invoices = invoices.joins(:client).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @invoices = invoices.all
+    end
   end
 
   def new

@@ -145,6 +145,7 @@ invoice3 = Invoice.new(user: user,
                       client: collectionist)
 
 invoice3.save!
+
 MissionsInvoice.create!(man_day_quantity: 6, price_rate: 450, vat_rate: 0, mission: bus_dev, invoice: invoice3)
 
 invoice4 = Invoice.new(user: user,
@@ -157,6 +158,7 @@ invoice4 = Invoice.new(user: user,
                       client: france_inter)
 
 invoice4.save!
+
 MissionsInvoice.create!(man_day_quantity: 10, price_rate: 150, vat_rate: 0, mission: maintenance_site2, invoice: invoice4)
 
 invoice5 = Invoice.new(user: user,
