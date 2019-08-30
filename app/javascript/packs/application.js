@@ -7,11 +7,12 @@ initNotificationBar();
 
 if (document.querySelector('#search_client')) {
   let clientOption =document.querySelector('#search_client');
-const form = document.querySelector('.search');
+  const form = document.querySelector('.search');
   clientOption.addEventListener('change', (event) => {
     form.submit();
   });
 }
+
 const totalHT = () => {
   const unitPrice = document.querySelector("#invoice_missions_invoices_attributes_0_price_rate").value;
   const quantity = document.querySelector("#invoice_missions_invoices_attributes_0_man_day_quantity").value;
