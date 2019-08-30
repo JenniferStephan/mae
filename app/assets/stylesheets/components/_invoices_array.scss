@@ -2,20 +2,6 @@ p {
   margin-bottom: none;
   text-align: center;
 }
-.invoices_index_title {
-// color: rgba(108, 22, 199, .5);
-// color: rgba(250, 163, 6, .5);
-// color: rgba(136, 152, 170, .6);
-text-shadow: 2px 2px 0px rgba(136, 152, 170, .1);
-margin-top: 40px;
-margin-left: 8px;
-margin-bottom: 20px;
-}
-
-.invoices_index_title i {
-  // color: $pink;
-  opacity: .8;
-}
 
 .invoices-array {
   max-height: 60vh;
@@ -97,9 +83,7 @@ margin-bottom: 20px;
 
 .invoice-actions {
   width: 4%;
-  // padding: 5px;
   text-align: center;
-  // font-weight: lighter;
 }
 
 .infos-price {
@@ -108,28 +92,29 @@ margin-bottom: 20px;
   font-size: 14px;
 }
 
-.dropdown-item {
+.dropdown-index-invoices {
   font-weight: bolder;
   font-family: $body-font;
   color: white;
-  font-size: 15px;
+  font-size: 10px;
 }
 
-
+.dropdown-item i {
+  color: white;
+}
+.dropdown-item {
+  color: white;
+}
 
 .dropdown-item:hover {
   font-weight: bolder;
   font-family: $body-font;
   color: rgba(250, 163, 6, .6);
-  background-color: white;
-
   i {
-    color: rgba(250, 163, 6, .8);
+  color: rgba(250, 163, 6, .8);
   }
 }
-.dropdown-item i {
-  color: white;
-}
+
 
 
 .dropdown-menu {
@@ -312,6 +297,7 @@ font-size: 15px;
 }
 
 .submit-index-search {
-  margin-top: 8px;
+  margin-top: 24px;
   margin-left: 10px;
 }
+

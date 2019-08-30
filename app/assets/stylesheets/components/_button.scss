@@ -1,13 +1,25 @@
 .button {
   color: white;
   font-family: 'Open Sans';
-  font-weight: 600;
-  padding: 8px 24px;
+  font-weight: 300;
+  font-size: 12px;
+  padding: 4px 12px;
   border-radius: 4px;
   background: #BE0C62;
   text-align: center;
   text-decoration: none;
   transition: all 0.3s ease;
+  border: solid;
+  border-color: #BE0C62;
+  border-width: 1px;
+}
+
+.button:hover {
+  background-color: white;
+  color: #BE0C62;
+  border: solid;
+  border-width: 1px;
+  border-color: #BE0C62;
 }
 
 .button a:hover {
