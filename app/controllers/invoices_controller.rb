@@ -17,7 +17,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     @invoice.missions_invoices.build
     @my_clients = current_user.clients
 
-    #@my_clients = Client.where(user:current_user).map { |c| [c.company_name, c.id, { class: c.id }] }
 
     if params[:search]
       @client_found = Client.find(params[:search][:client]) if Client.find(params[:search][:client]).present?
@@ -27,6 +26,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   end
 
   def show
+
   end
 
   def create
@@ -35,9 +35,8 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     @invoice.client = Client.find(params[:client])
     @my_clients = current_user.clients
     if @invoice.save
-      # to be changed
 
-      render :new
+      invoice_path(@invoice)
 
     else
       render :new
@@ -60,6 +59,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     @invoice = Invoice.find(params[:id])
   end
   def invoice_params
-    params.require(:invoice).permit(:client_id, :title, :creation_date, missions_invoices_attributes: [:id, :mission_id, :man_day_quantity, :price_rate, :vat_rate, :_destroy])
+    params.require(:invoice).permit(:client_id, :title, :creation_date, missions_invoices_attributes: [:id, :mission_id, :man_day_quantity, :price_rate, :vat_rate, :amount, :_destroy])
   end
 end
