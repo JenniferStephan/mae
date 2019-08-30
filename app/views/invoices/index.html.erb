@@ -1,17 +1,27 @@
 
+<div class="container">
+  <!-- <div class="invoices_index_title">
+    <h1><i class="far fa-file-alt"></i>  Mes factures :</h1>
+  </div> -->
+  <div class="search-invoice">
 
-<!-- <div class="invoices_index_title">
-  <h1><i class="far fa-file-alt"></i>  Mes factures :</h1>
-</div> -->
-<div class="search-invoice">
+
+  <!--   <label for="inp" class="inp">
+      <input type="text" id="inp" placeholder="&nbsp;" method="get">
+      <span class="label"><i class="fas fa-search"></i>Trouver une facture</span>
+      <span class="border"></span>
+    </label>
+   -->
 
 
-<!--   <label for="inp" class="inp">
-    <input type="text" id="inp" placeholder="&nbsp;" method="get">
-    <span class="label"><i class="fas fa-search"></i>Trouver une facture</span>
-    <span class="border"></span>
-  </label>
- -->
+    <%= form_tag invoices_path, method: :get, class: "form-inline" do %>
+      <label for="inp" class="inp">
+        <%= text_field_tag :query, params[:query], id: 'inp', placeholder: "  " %>
+        <span class="label"><i class="fas fa-search"></i>Trouver une facture</span>
+      </label>
+      <%#= submit_tag "Rechercher", class: "button submit-index-search" %>
+    <% end %>
+  </div>
 
 
   <%= form_tag invoices_path, method: :get, class: "form-inline" do %>
@@ -23,77 +33,78 @@
   <% end %>
 </div>
 
-<div class="color-line"></div>
+  <div class="color-line"></div>
 
-<div class="invoices-array">
+  <div class="invoices-array">
 
-  <div class="array-header d-flex">
+    <div class="array-header d-flex">
 
-    <div class="array-header-column">
-      <h4>Titre</h4>
-    </div>
-
-    <div class="array-header-column">
-      <h4>Client</h4>
-    </div>
-
-    <div class="array-header-column">
-      <h4>Date de création</h4>
-    </div>
-
-    <div class="array-header-column">
-      <h4>Référence</h4>
-    </div>
-
-    <div class="array-header-column">
-      <h4>Statut</h4>
-    </div>
-
-    <div class="array-header-column">
-      <h4>Montant TTC</h4>
-    </div>
-
-    <div class="array-header-column invoice-actions">
-    </div>
-
-  </div>
-
-  <% @invoices.each do |invoice| %>
-
-  <div class="invoices-card d-flex">
-
-    <div class="invoice-infos infos-titre">
-     <%= invoice.title %>
-    </div>
-
-    <div class="invoice-infos">
-
-
-<%= invoice.client.company_name  %>
-
-
-    </div>
-
-    <div class="invoice-infos">
-      <%= invoice.creation_date %>
-    </div>
-
-    <div class="invoice-infos">
-      <div class="statut">
-        <%= invoice.reference %>
+      <div class="array-header-column">
+        <h4>Titre</h4>
       </div>
+
+      <div class="array-header-column">
+        <h4>Client</h4>
+      </div>
+
+      <div class="array-header-column">
+        <h4>Date de création</h4>
+      </div>
+
+      <div class="array-header-column">
+        <h4>Référence</h4>
+      </div>
+
+      <div class="array-header-column">
+        <h4>Statut</h4>
+      </div>
+
+      <div class="array-header-column">
+        <h4>Montant TTC</h4>
+      </div>
+
+      <div class="array-header-column invoice-actions">
+      </div>
+
     </div>
 
-    <div class="invoice-infos infos-status">
-      <p class="<%= invoice.status.to_s %>"><i class="fas fa-circle"></i><%= invoice.status %></p>
-    </div>
+    <% @invoices.each do |invoice| %>
 
-    <div class="invoice-infos <%= invoice.status.to_s %>">
-      <p><%= invoice.total_amount_ht %> €</p>
-    </div>
+    <div class="invoices-card d-flex">
 
-    <div class="invoice-infos invoice-actions dropdown">
+      <div class="invoice-infos infos-titre">
+       <%= invoice.title %>
+      </div>
 
+      <div class="invoice-infos">
+
+
+  <%= invoice.client.company_name  %>
+
+
+      </div>
+
+      <div class="invoice-infos">
+        <%= invoice.creation_date %>
+      </div>
+
+      <div class="invoice-infos">
+        <div class="statut">
+          <%= invoice.reference %>
+        </div>
+      </div>
+
+      <div class="invoice-infos infos-status">
+        <p class="<%= invoice.status.to_s %>"><i class="fas fa-circle"></i><%= invoice.status %></p>
+      </div>
+
+      <div class="invoice-infos">
+        <p><%=  number_with_delimiter(invoice.total_amount_ht, delimiter: " ") %> €</p>
+      </div>
+
+      <div class="invoice-infos invoice-actions dropdown">
+
+<<<<<<< HEAD
       <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
         <%= link_to "Aperçu", invoices_path(@invoice), class: "dropdown-item fas fa-search-plus"%>
@@ -103,18 +114,28 @@
         <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
         <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
         <button class="dropdown-item" type="button"><i class="fas fa-trash-alt"></i>Supprimer</button>
+=======
+        <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <button class="dropdown-item" type="button"><i class="fas fa-search-plus"></i>Apercu</button>
+          <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button>
+          <button class="dropdown-item" type="button"><i class="fas fa-edit"></i>Editer</button>
+          <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
+          <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
+          <button class="dropdown-item" type="button"><i class="fas fa-trash-alt"></i>Supprimer</button>
+>>>>>>> 41ef1d210b77ac431ac2a794221c246723492456
 
 
+        </div>
       </div>
+
     </div>
 
+    <% end %>
+
   </div>
-
-  <% end %>
-
+  <div class="links">
+    <%= link_to "Nouvelle facture", new_invoice_path, class: "button" %>
+    <%= link_to "Retour", root_path, class: "button" %>
+  </div>
 </div>
-<div class="links">
-  <%= link_to "Nouvelle facture", new_invoice_path, class: "button" %>
-  <%= link_to "Retour", root_path, class: "button" %>
-</div>
-

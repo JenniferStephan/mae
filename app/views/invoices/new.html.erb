@@ -1,4 +1,5 @@
-<div class= "container pt-3">
+<div class= "container py-5">
+
 
   <h1>Créer une facture</h1>
 
@@ -12,8 +13,8 @@
 
 
     <%= simple_form_for :search, url: new_invoice_path, method: :get do |f| %>
-        <div class="client">
-          <%= f.input :client, collection: @my_clients, label_method: :company_name, value_method: :id, include_blank: true, as: :select %>
+        <div class="client p-2">
+          <%= f.input :client, label:"Sélectionnez un client", collection: @my_clients, label_method: :company_name, value_method: :id, include_blank: true, as: :select %>
           <% if @client_found.present? %>
             <%= @client_found.company_name %> <br/>
             <%= @client_found.last_name %> <br/>
@@ -28,35 +29,39 @@
         <%= hidden_field_tag :client, @client_found.id %>
       <% end %>
 
-        <div class="flatpicker ">
-        <%= f.input :creation_date, label: "Date de facturation" %>
-        </div>
+
+    <div class="datepicker d-inline-flex p-3">
+      <%= f.input :creation_date, label: "Date de facturation" %>
+    </div>
+
     <div class="titre p-2">
       <%= f.input :title, label: "Titre" %>
     </div>
 
         <h3>Missions</h3>
 
-
-          <div id="missions_invoices">
-              <%= f.fields_for :missions_invoices do |missions_invoice| %>
-                <%= render 'missions_invoice_fields', f: missions_invoice %>
-              <% end %>
+        <div id="missions_invoices p-2">
+            <%= f.fields_for :missions_invoices do |missions_invoice| %>
+              <%= render 'missions_invoice_fields', f: missions_invoice %>
+    <% end %>
 
             <div class="links d-flex justify-content-between">
-            <%= link_to_add_association 'Ajouter une ligne', f, :missions_invoices, class:"btn btn-dark" %>
-            <p>Montant total HT <div class="total-HT"> </div> <div><%= @invoice.total_amount_ht %> </div></p>
-            <p>Montant total TTC <div class="total-TTC"> </div> <div> <%= @invoice.total_amount_ttc %> </div></p>
-            <%= f.submit "valider", class: "btn btn-primary" %>
+              <%= link_to_add_association 'Ajouter une ligne', f, :missions_invoices, class:"bouton btn btn-dark" %>
             </div>
-          </div>
-
-    <% end %>
- </div>
-
-
-
- </div>
+            <div class="calc-total d-flex align-items-end flex-column mb-3">
+              <div class="d-flex justify-content-around p-2">
+                <p>Montant total HT</p>
+                <div class="total-HT"> </div>
+              </div>
+              <div class="d-flex">
+                <p>Montant total TTC</p>
+                <div class="total-TTC"> </div>
+              </div>
+              <%= f.submit "valider", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
+  </div>
 
 
 

@@ -1,15 +1,21 @@
 <div class= "nested-fields d-flex p-2 align-items-center justify-content-between">
-  <div class="mission-name">
-    <%= f.association :mission, label: "Intitulé de la mission", label_method: :name, value_method: :id, include_blank: false %>
+
+  <div class="mission-name flex-grow-1">
+    <%= f.association :mission, label: "Intitulé de la mission", label_method: :name, value_method: :id, include_blank: true %>
+
   </div>
   <div class="quantity">
-    <%=   f.input :man_day_quantity, label: "Quantité", as: :integer %>
+    <%=   f.input :man_day_quantity, label: "Quantité", as: :integer, class:"man_day_quantity" %>
   </div>
   <div class="unit-price">
     <%=   f.input :price_rate, label: "Prix unitaire", as: :integer %>
   </div>
   <div class="tva">
     <%=   f.input :vat_rate, label: "Taux de TVA", collection: MissionsInvoice::VAT %>
+  </div>
+  <div class="d-flex flex-column">
+    <p>Montant total TTC</p>
+      <div class="total-line-TTC"> </div>
   </div>
   <div class="remove-line">
     <%=   link_to_remove_association "[X]", f %>

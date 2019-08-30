@@ -1,0 +1,85 @@
+// Search-bar invoices index
+
+.search-invoice{
+  margin-top: 30px;
+  justify-content: space-around;
+}
+
+.form-control {
+  width: 70vh;
+  border-radius: 5px;
+  height: 42px;
+}
+
+.inp {
+  position: relative;
+  // margin: auto;
+  width: 100%;
+  max-width: 300px;
+}
+.inp .label {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  font-size: 16px;
+  color: rgba(250, 163, 6, .8);
+  // color: #9098a9;
+  font-weight: 500;
+  transform-origin: 0 0;
+  transition: all 0.2s ease;
+}
+.inp .border {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  background: rgba(250, 163, 6, .7);
+  transform: scaleX(0);
+  transform-origin: 0 0;
+  transition: all 0.15s ease;
+}
+.inp input {
+  -webkit-appearance: none;
+  width: 100%;
+  border: 0;
+  font-family: inherit;
+  padding: 12px 0;
+  height: 48px;
+  font-size: 16px;
+  font-weight: 500;
+  border-bottom: 2px solid rgba(250, 163, 6, .8);
+  background: none;
+  border-radius: 0;
+  color: rgba(250, 163, 6, .7);
+  transition: all 0.15s ease;
+}
+.inp input:hover {
+  background: rgba(34,50,84,0.03);
+}
+.inp input:not(:placeholder-shown) + span {
+  color: rgba(250, 163, 6, .8);
+  transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus {
+  background: none;
+  outline: none;
+}
+.inp input:focus + span {
+  color: rgba(250, 163, 6, .8);
+  transform: translateY(-26px) scale(0.75);
+}
+.inp input:focus + span + .border {
+  transform: scaleX(1);
+}
+
+.label i {
+margin-top: 5px;
+margin-right: 5px;
+font-size: 15px;
+}
+
+.submit-index-search {
+  margin-top: 24px;
+  margin-left: 10px;
+}
