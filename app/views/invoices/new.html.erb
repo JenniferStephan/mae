@@ -2,11 +2,38 @@
 
   <h1>Créer une facture</h1>
 
-  <div>
-    <%= simple_form_for [@user, @invoice] do |f| %>
-      <%= f.association :client, label_method: :company_name, value_method: :id, include_blank: false %>
-      <%#= f.input :creation_date, label: "Date de facturation", class: "datepicker"%>
-      <%= f.input :title, label: "Titre"%>
+  <div class="header-facture d-flex justify-content-between">
+    <div>
+      <%= current_user.first_name %>
+      <%= current_user.last_name %> <br/>
+      <%= current_user.address %> <br/>
+      <span> Numéro de Siret : <%= current_user.siret %> </span><br/>
+    </div>
+
+
+    <%= simple_form_for :search, url: new_invoice_path, method: :get do |f| %>
+        <div class="client">
+          <%= f.input :client, collection: @my_clients, label_method: :company_name, value_method: :id, include_blank: true, as: :select %>
+          <% if @client_found.present? %>
+            <%= @client_found.company_name %> <br/>
+            <%= @client_found.last_name %> <br/>
+            <%= @client_found.company_address %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= simple_form_for @invoice do |f| %>
+      <% if params[:search] %>
+        <%= hidden_field_tag :client, @client_found.id %>
+      <% end %>
+
+    <div class="datepicker d-inline-flex p-2">
+      <%= f.input :creation_date, label: "Date de facturation" %>
+    </div>
+    <div class="titre p-2">
+      <%= f.input :title, label: "Titre" %>
+    </div>
 
         <h3>Missions</h3>
 
@@ -14,35 +41,19 @@
             <%= f.fields_for :missions_invoices do |missions_invoice| %>
               <%= render 'missions_invoice_fields', f: missions_invoice %>
             <% end %>
-          <div class="links">
-          <%= link_to_add_association 'add missions_invoice', f, :missions_invoices %>
-          </div>
-        </div>
 
+          <div class="links d-flex justify-content-between">
+          <%= link_to_add_association 'Ajouter une ligne', f, :missions_invoices, class:"btn btn-dark" %>
+          <p>Montant total HT <div class="total-HT"> </div> <div><%= @invoice.total_amount_ht %> </div></p>
+          <p>Montant total TTC <div class="total-TTC"> </div> <div> <%= @invoice.total_amount_ttc %> </div></p>
           <%= f.submit "valider", class: "btn btn-primary" %>
+          </div>
     <% end %>
-  </div>
+ </div>
 
-  <h2><%= @invoice.total_amount_ht %></h2>
 
-  <div>
-    <p><%= current_user.first_name %>
-    <%= current_user.last_name %>
-    <%= current_user.last_name %>
-    <%= current_user.address %>
-    <%= current_user.siret %>
-    </p>
-  </div>
 
-</div>
-<!--
-<div>
-<%#= simple_form_for(@invoice, method: :post) do |f| %>
-  <%#= f.input :comment, label: "Entrez un message pour votre client" %>
-  <%#= f.submit 'Confirmer' %>
-<%# end %>
-</div> -->
-
+ </div>
 
 
 

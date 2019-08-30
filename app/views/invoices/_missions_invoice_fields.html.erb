@@ -1,8 +1,18 @@
-<div class= "nested-fields">
-  <%= f.association :mission, label_method: :name, value_method: :id, include_blank: false %>
-  <%=   f.input :man_day_quantity, as: :integer %>
-  <%=   f.input :price_rate, as: :integer %>
-  <%=   f.input :vat_rate, collection: MissionsInvoice::VAT %>
-  <%=   link_to_remove_association "remove mission", f %>
+<div class= "nested-fields d-flex p-2 align-items-center justify-content-between">
+  <div class="mission-name flex-grow-1">
+    <%= f.association :mission, label: "Intitulé de la mission", label_method: :name, value_method: :id, include_blank: false %>
+  </div>
+  <div class="quantity">
+    <%=   f.input :man_day_quantity, label: "Quantité", as: :integer %>
+  </div>
+  <div class="unit-price">
+    <%=   f.input :price_rate, label: "Prix unitaire", as: :integer %>
+  </div>
+  <div class="tva">
+    <%=   f.input :vat_rate, label: "Taux de TVA", collection: MissionsInvoice::VAT %>
+  </div>
+  <div class="remove-line">
+    <%=   link_to_remove_association "[X]", f %>
+  </div>
 </div>
 

@@ -223,16 +223,6 @@ invoice9.save!
 MissionsInvoice.create!(man_day_quantity: 15, price_rate: 700, vat_rate: 0, mission: maintenance_site4, invoice: invoice9)
 
 
-# puts "creating first draft invoice"
-# invoice_draft = Invoice.new(user: user, title: "test1 with invoice draft", client: societe_generale, creation_date: "04/09/18")
-# invoice_draft.save!
-# puts invoice_draft
-# puts "first draft invoice created"
-
-# puts "creating first draft invoice"
-# invoice_sent = Invoice.new(user: user, title: "test2", client: societe_generale, creation_date: "04/09/18")
-# invoice_sent.sent!
-# invoice_sent.save!
 
 Invoice.all.each do |invoice|
   invoice.save!
@@ -240,3 +230,4 @@ Invoice.all.each do |invoice|
 end
 
 puts "we create #{Invoice.count} invoives/10"
+
