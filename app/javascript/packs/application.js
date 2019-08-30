@@ -37,7 +37,6 @@ const totalHT = () => {
 
 
 
-
 const totalAmount = () => {
   const linesFigures = document.querySelectorAll(".nested-fields input, .nested-fields select");
   console.log(linesFigures);
@@ -51,20 +50,7 @@ const totalAmount = () => {
 
   totalAmount();
 
-// const initline = () => {
-//   const linesFigures = document.querySelectorAll('.nested-fields input, .nested-fields select')
-//   linesFigures.forEach((linesFigure) => {
-//     if (linesFigure.querySelector('').innerText != '') {
-//       linesFigure.classList.add('line-active')
-//     }
-//   })
-// }
 
-// const button = document.querySelector('.bouton');
-
-// button.addEventListener('click', (event) => {
-//   totalAmount();
-// });
 
 
 
