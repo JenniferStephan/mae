@@ -1,17 +1,18 @@
 .welcome-card {
   margin-top: 120px;
   margin-left: 50px;
-  background: $yellow;
+  background: #ffcb3f;
   border-radius: 10px;
   h2 {
-    color: #444053;
+    color: white;
+    opacity: 0.9;
     padding: 25px;
   }
 }
 
 .notification-bar {
   background: white;
-  border-left: 1px solid rgb(247, 235, 217);
+  border-left: 1px solid rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
 }
@@ -19,6 +20,11 @@
 // .calendar {
 //    important day color : #FB9D56
 // }
+
+.invoice-infos {
+  flex-grow: 1;
+  text-align: left;
+}
 
 .invoices-cards{
   display: flex;
@@ -60,38 +66,66 @@
 
 .checklist-info {
   display: flex;
+  align-items: flex-start;
   margin-right: 15px;
   width: 250px;
 }
 
-.vertical-line {
-  overflow: hidden;
+.status-colored-circle {
+  font-size: 10px;
   margin-right: 10px;
 }
 
-.vertical-line.sent {
-  border-left: 3px solid #66D7EE;
+.status-colored-circle.sent {
+  color: $turquoise;
+  line-height: 1.9;
 }
 
-.vertical-line.paid {
-  border-left: 3px solid #BE0C62;
+.status-colored-circle.paid {
+  color: #64D286;
+  line-height: 1.9;
 }
 
-.vertical-line.delayed {
-  border-left: 3px solid #6C16C7;
+.status-colored-circle.delayed {
+  color: $pink;
+  line-height: 1.9;
 }
 
 .mark-as-paid-button {
   border-radius: 5px;
-  background: #444053;
+  background: #FFC108;
+  box-shadow: 0px 2px 2px rgba(50,50,93,.11);
   color: white;
-  padding: 3px 15px;
+  text-align: center;
+  padding: 2px 9px;
   i {
-    opacity: 0.8;
+    opacity: 0.9;
   }
 }
 
 .mark-as-paid-button:hover {
+    transition: all ease 0.2s;
+    transform: scale(1.1);
+    cursor: pointer;
+  i {
+    opacity: 1;
+  }
+}
+
+.late-client-button {
+  margin-top: 7px;
+  border-radius: 5px;
+  background: #FFC108;
+  box-shadow: 0px 2px 2px rgba(50,50,93,.11);
+  color: white;
+  text-align: center;
+  padding: 2px 9px;
+  i {
+    opacity: 0.9;
+  }
+}
+
+.late-client-button:hover {
     transition: all ease 0.2s;
     transform: scale(1.1);
     cursor: pointer;

@@ -52,6 +52,8 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   def destroy
   end
 
+  # def invoice_
+
 
   private
 

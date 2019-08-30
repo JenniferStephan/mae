@@ -59,4 +59,3 @@ if (document.querySelector('.nested-fields')) {
 if (document.querySelector(".checklist-entry")) {
   changeColumn();
 }
-
