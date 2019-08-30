@@ -1,23 +1,19 @@
 import "bootstrap";
 
 import {initNotificationBar} from "../components/notificationBar";
+import changeColumn from '../components/changeColumn';
 
 initNotificationBar();
 
 
 if (document.querySelector('#search_client')) {
   let clientOption =document.querySelector('#search_client');
-
-const form = document.querySelector('.search');
-
+  const form = document.querySelector('.search');
   clientOption.addEventListener('change', (event) => {
     form.submit();
-
   });
 }
 
-
-const bigArray = [];
 
 const totalHT = () => {
   const unitPrice = document.querySelector("#invoice_missions_invoices_attributes_0_price_rate", '#invoice_missions_invoices_attributes_1567166956407_price_rate').value;
@@ -49,11 +45,18 @@ const totalAmount = () => {
 }
 
   totalAmount();
+  }
+}
+if (document.querySelector('.nested-fields')) {
+  const linesFigures = document.querySelectorAll(".nested-fields input, .nested-fields select");
+    linesFigures.forEach((linesFigure) => {
+      linesFigure.addEventListener('change', (event) => {
+      totalHT();
+    });
+  });
+}
 
-
-
-
-
-
-
+if (document.querySelector(".checklist-entry")) {
+  changeColumn();
+}
 

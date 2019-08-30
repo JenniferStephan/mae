@@ -1,10 +1,12 @@
-// Specific CSS for your home-page
 .welcome-card {
   margin-top: 120px;
   margin-left: 50px;
-  padding: 20px;
   background: $yellow;
   border-radius: 10px;
+  h2 {
+    color: #444053;
+    padding: 25px;
+  }
 }
 
 .notification-bar {
@@ -20,14 +22,14 @@
 
 .invoices-cards{
   display: flex;
+  align-items: flex-start;
   margin-top: 80px;
   margin-left: 50px;
-  .invoices-status {
-    width: 320px;
-  }
 }
 
 .invoices-status {
+  overflow: hidden;
+  border-radius: 10px;
   &:first-child {
     margin-left: 0px;
   }
@@ -63,7 +65,7 @@
 }
 
 .vertical-line {
-  height: 40px;
+  overflow: hidden;
   margin-right: 10px;
 }
 
@@ -75,6 +77,25 @@
   border-left: 3px solid #BE0C62;
 }
 
-.vertical-line.late {
+.vertical-line.delayed {
   border-left: 3px solid #6C16C7;
+}
+
+.mark-as-paid-button {
+  border-radius: 5px;
+  background: #444053;
+  color: white;
+  padding: 3px 15px;
+  i {
+    opacity: 0.8;
+  }
+}
+
+.mark-as-paid-button:hover {
+    transition: all ease 0.2s;
+    transform: scale(1.1);
+    cursor: pointer;
+  i {
+    opacity: 1;
+  }
 }
