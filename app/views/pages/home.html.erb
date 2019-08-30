@@ -18,15 +18,58 @@
             <li class="checklist-entry list-group-item flex-column align-items-start">
               <div class="checklist-item checklist-item-success">
                 <div class="checklist-info">
-                  <div class="vertical-line sent"></div>
+                  <i class="status-colored-circle sent fas fa-circle"></i>
                   <div class="invoice-infos">
                     <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
                     <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
                   </div>
                 </div>
 
-                <div class="mark-as-paid-button">
-                  <i class="mark-as-paid-icon fas fa-euro-sign" title="Marquer comme payée"></i>
+                <div class="actions-on-invoices-buttons">
+                  <div class="mark-as-paid-button">
+                    <i class="mark-as-paid-icon fas fa-check" title="Marquer comme payée"></i>
+                  </div>
+                </div>
+              </div>
+              <%#= link_to '', invoice_status_path(invoice), hidden: true, remote: true, class: "hidden-link" %>
+            </li>
+          <% end %>
+        <% end %>
+
+      </ul>
+    </div>
+  </div>
+
+
+  <div class="invoices-status">
+    <div class="invoices-delayed">
+      <ul class="list-group list-group-flush" data-toggle="checklist">
+
+        <div class="column-title">
+          <h3>Factures en retard</h3>
+        </div>
+
+        <% @invoices.each do |invoice| %>
+          <% if invoice.delayed? %>
+            <li class="checklist-entry list-group-item flex-column align-items-start">
+              <div class="checklist-item checklist-item-success">
+                <div class="checklist-info">
+                  <i class="status-colored-circle delayed fas fa-circle"></i>
+                  <div class="invoice-infos">
+                    <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
+                    <small>
+                      <%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €
+                    </small>
+                  </div>
+                </div>
+
+                <div class="actions-on-invoices-buttons">
+                  <div class="mark-as-paid-button">
+                    <i class="mark-as-paid-icon fas fa-check" title="Marquer comme payée"></i>
+                  </div>
+                  <div class="late-client-button">
+                    <i class="late-client-icon fas fa-user-clock" title="Relancer"></i>
+                  </div>
                 </div>
               </div>
             </li>
@@ -51,7 +94,7 @@
             <li class="checklist-entry list-group-item flex-column align-items-start">
               <div class="checklist-item checklist-item-success">
                 <div class="checklist-info">
-                  <div class="vertical-line paid"></div>
+                  <i class="status-colored-circle paid fas fa-circle"></i>
                   <div>
                     <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
                     <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
@@ -66,35 +109,5 @@
     </div>
   </div>
 
-
-  <div class="invoices-status">
-    <div class="invoices-delayed">
-      <ul class="list-group list-group-flush" data-toggle="checklist">
-
-        <div class="column-title">
-          <h3>Factures en retard</h3>
-        </div>
-
-        <% @invoices.each do |invoice| %>
-          <% if invoice.delayed? %>
-            <li class="checklist-entry list-group-item flex-column align-items-start">
-              <div class="checklist-item checklist-item-success">
-                <div class="checklist-info">
-                  <div class="vertical-line delayed"></div>
-                  <div>
-                    <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
-                    <small>
-                      <%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €
-                    </small>
-                  </div>
-                </div>
-              </div>
-            </li>
-          <% end %>
-        <% end %>
-
-      </ul>
-    </div>
-  </div>
 
 </div>
