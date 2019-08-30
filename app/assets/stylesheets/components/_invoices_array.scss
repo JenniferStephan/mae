@@ -3,6 +3,8 @@ p {
   text-align: center;
 }
 
+// Invoices array
+
 .invoices-array {
   max-height: 60vh;
   overflow: auto;
@@ -27,7 +29,6 @@ p {
   border-bottom: solid;
   border-color: rgba(250, 163, 6, .2);
   border-width: 1px;
-  // background-color: rgb(246, 249, 252);
   padding-top: 15px;
   margin-bottom: 5px;
   background-color: white;
@@ -53,14 +54,17 @@ p {
   margin: 10px;
 }
 
+.invoices-card i {
+  color: rgba(250, 163, 6, .6);
+  font-size: 16px;
+  margin-top: 2px;
+  margin-right: 8px;
+}
+
 .invoices-card:last-child {
   border-bottom: none;
   padding-bottom: none;
 }
-
-// .invoices-card:first-child {
-//   margin-top: 10px;
-// }
 
 .invoice-infos {
   width: 16%;
@@ -68,13 +72,6 @@ p {
   text-align: center;
   font-weight: lighter;
   font-size: 12px;
-}
-
-.invoices-card i {
-  color: rgba(250, 163, 6, .6);
-  font-size: 16px;
-  margin-top: 2px;
-  margin-right: 8px;
 }
 
 .statut {
@@ -92,37 +89,38 @@ p {
   font-size: 14px;
 }
 
+// dropdown menu dans l'array
+
 .dropdown-index-invoices {
   font-weight: bolder;
   font-family: $body-font;
   color: white;
-  font-size: 10px;
 }
 
 .dropdown-item i {
   color: white;
+  font-size: 12px;
 }
 .dropdown-item {
   color: white;
+  font-size: 12px;
 }
 
 .dropdown-item:hover {
-  font-weight: bolder;
   font-family: $body-font;
   color: rgba(250, 163, 6, .6);
   i {
   color: rgba(250, 163, 6, .8);
   }
 }
-
-
-
 .dropdown-menu {
   background-color: rgba(250, 163, 6, 1);
   border-radius: 15px;
   width: auto;
 }
 
+
+// Bande de couleur array border-top
 .color-line {
   margin-top: 15px;
   width: 100%;
@@ -131,30 +129,24 @@ p {
   border-radius: 15px 15px 0px 0px;
 }
 
+
+
+
 .fa-ellipsis-h:hover {
   zoom: 1.05;
 }
 
-.infos-titre {
- font-weight: normal;
-}
 
-.status-point {
-  margin-top: 6px;
-  margin-right: 6px;
-}
 
-.invoices-card .infos-status i {
-  color: rgba(107, 241, 120, .3);
-  font-size: 8px;
-}
+// Info status (couleur selon le statut)
 
 .infos-status {
   display: flex;
   justify-content: space-around;
 }
-
-
+.invoices-card .infos-status i {
+  font-size: 8px;
+}
 .invoices-card .infos-status .draft i {
   color: rgba(250, 163, 6, .8);
 }
@@ -164,8 +156,6 @@ p {
 .invoices-card .draft {
   color: rgba(250, 163, 6, .8);
 }
-
-
 .invoices-card .infos-status .submitted i {
  color: rgba(250, 163, 6, .8);
 }
@@ -175,8 +165,6 @@ p {
 .invoices-card .submitted {
  color: rgba(250, 163, 6, .8);
 }
-
-
 .invoices-card .infos-status .paid  i {
  color: rgba(107, 241, 120, .8);
 }
@@ -186,7 +174,6 @@ p {
 .invoices-card .paid {
  color: rgba(107, 241, 120, .8);
 }
-
 .invoices-card .infos-status .delayed  i {
  color: rgba(190, 12, 98, .8);
 }
@@ -196,7 +183,6 @@ p {
 .invoices-card .delayed {
  color: rgba(190, 12, 98, .8);
 }
-
 .invoices-card .infos-status .archived  i {
  color: rgba(59, 132, 66, .8);
 }
@@ -207,97 +193,9 @@ p {
  color: rgba(59, 132, 66, .8);
 }
 
+// Boutton new/back
 
 .links {
   text-align: right;
-}
-
-.search-invoice{
-  margin-top: 30px;
-  justify-content: space-around;
-}
-
-.form-control {
-  width: 70vh;
-  border-radius: 5px;
-  height: 42px;
-}
-
-
-
-
-
-
-.inp {
-  position: relative;
-  // margin: auto;
-  width: 100%;
-  max-width: 300px;
-}
-.inp .label {
-  position: absolute;
-  top: 16px;
-  left: 0;
-  font-size: 16px;
-  color: rgba(250, 163, 6, .8);
-  // color: #9098a9;
-  font-weight: 500;
-  transform-origin: 0 0;
-  transition: all 0.2s ease;
-}
-.inp .border {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 2px;
-  width: 100%;
-  background: rgba(250, 163, 6, .7);
-  transform: scaleX(0);
-  transform-origin: 0 0;
-  transition: all 0.15s ease;
-}
-.inp input {
-  -webkit-appearance: none;
-  width: 100%;
-  border: 0;
-  font-family: inherit;
-  padding: 12px 0;
-  height: 48px;
-  font-size: 16px;
-  font-weight: 500;
-  border-bottom: 2px solid rgba(250, 163, 6, .8);
-  background: none;
-  border-radius: 0;
-  color: rgba(250, 163, 6, .7);
-  transition: all 0.15s ease;
-}
-.inp input:hover {
-  background: rgba(34,50,84,0.03);
-}
-.inp input:not(:placeholder-shown) + span {
-  color: rgba(250, 163, 6, .8);
-  transform: translateY(-26px) scale(0.75);
-}
-.inp input:focus {
-  background: none;
-  outline: none;
-}
-.inp input:focus + span {
-  color: rgba(250, 163, 6, .8);
-  transform: translateY(-26px) scale(0.75);
-}
-.inp input:focus + span + .border {
-  transform: scaleX(1);
-}
-
-.label i {
-margin-top: 5px;
-margin-right: 5px;
-font-size: 15px;
-}
-
-.submit-index-search {
-  margin-top: 24px;
-  margin-left: 10px;
 }
 
