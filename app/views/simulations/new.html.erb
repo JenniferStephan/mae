@@ -1,0 +1,35 @@
+<div class="container">
+<h1 class= "structure ml-5">simulation</h1>
+</div>
+
+<!-- <h1>votre tx : <%= @result %></h1> -->
+
+<div class="row">
+  <div class="col-5">
+    <%= simple_form_for @simulation do |f| %>
+
+        <%= f.input :activity,
+        label:"Quelle est votre catégorie d'activité ?",
+        collection: Simulation::ACTIVITIES,
+        as: :select %>
+
+        <%#= f.input :reglementary,
+        label:"Est-ce une activité libérale règlementée ?",
+        as: :select %>
+
+        <%= f.input :year_existence,
+        label:"Quel est l'âge de l'entreprise en année d'activité ?",
+        collection: Simulation::YEAREXISTENCE,
+        # include_blank: true,
+        as: :select %>
+
+        <%= f.input :accre,
+        label:"Avez-vous obtenu l'ACCRE lors de votre création d'entreprise ?",
+        as: :select %>
+
+      <%= f.submit "valider", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+
+

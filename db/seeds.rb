@@ -22,13 +22,13 @@ societe_generale = Client.create!(user: user,
                         company_name: "Societe generale",
                         company_address: "14 rue morand")
 
-bnp = Client.create!(user: user,
+mae = Client.create!(user: user,
                     email: "camille@bnp.com",
                     first_name: "camille",
                     last_name: "ole",
                     category: "pro",
-                    company_name: "BNP",
-                    company_address: "la Defense")
+                    company_name: "Equipe MAE",
+                    company_address: "le Wagon")
 
 credit_agricole = Client.create!(user: user,
                                 email: "antoine@credit.com",

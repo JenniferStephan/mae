@@ -5,8 +5,6 @@ class PagesController < ApplicationController
     @clients = Client.all
   end
 
-  def simulation
-  end
 
   def test
   end

@@ -25,7 +25,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   end
 
   def show
-
   end
 
   def create

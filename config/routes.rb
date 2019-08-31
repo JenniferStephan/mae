@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  get "/simulate_my_rate", to: "pages#simulation", as: "simulate_my_rate"
+  resources :simulations
   get "/test", to: "pages#test", as: "test"
 
 
