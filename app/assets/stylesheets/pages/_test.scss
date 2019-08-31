@@ -2,46 +2,61 @@
 .container {
   width: 900px;
   margin: auto;
+  padding: 3px;
 }
 
 .banner {
-  background: url("mae-banner-2.png") no-repeat 0 0;;
+  background: url("1.png") no-repeat 0 0;;
   // background-size: cover;
   background-position: center;
   // padding: 150px 0;
   height: 500px;
+  position: relative;
 }
+
 
 .banner h1 {
-  color: white;
+  color: #3F3D56;
   width: 600px;
   padding-bottom: 30px;
+  position: absolute;
+  bottom: 240px;
+  left: 45px;
 }
 
-// .banner p {
-//   color: white;
-//   opacity: .7;
-//   font-size: 20px;
-// }
-
-.btn-primary {
-  display: inline-block;
-  background-color: #943177;
-  padding: 16px 36px;
-  opacity: 0.8;
-  border-radius: 50px;
-  color: white;
+.banner h6 {
+  color: $yellow;
+  font-weight: bold;
+  opacity: .7;
+  font-family: $headers-font;
+  font-size: 18px;
+  position: absolute;
+  bottom: 290px;
+  left: 45px;
 }
 
-.btn-primary:hover {
-  background-color: #5F3D5F;
+.banner p {
+  color: #3F3D56;
+  opacity: .7;
+  font-family: $headers-font;
+  text-align: left;
+  width: 500px;
+  position: absolute;
+  bottom: 140px;
+  left: 45px;
 }
 
-.btn-secondary {
-  border: 1px solid #1EDD88;
-  padding: 8px 16px;
-  border-radius: 50px;
-  color: #1EDD88;
+.button-position {
+  position: absolute;
+  bottom: 95px;
+  left: 45px;
+  opacity: 0.7;
+}
+
+.card-container {
+    width: 1200px;
+    margin: auto;
+    padding: 3px;
 }
 
 
@@ -53,8 +68,12 @@
   opacity: .5;
 }
 
+.text-center {
+  color: #EB6183;
+}
+
 .card {
-  width: 200px;
+  width: 300px;
   border-radius: 3px;
   box-shadow: 0 0 5px rgb(230,230,230);
   text-align: center;
@@ -76,7 +95,8 @@
 
 .footer a {
   font-size: 30px;
-  color:  #6C61F8;
+  color:  #AA75E1;
+  text-align: center;
 }
 
 .footer p {
@@ -85,6 +105,10 @@
 
 .footer .fas {
   color: #FFFFFF;
+}
+
+.links {
+  text-align: center;
 }
 
 
