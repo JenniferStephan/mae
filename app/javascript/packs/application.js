@@ -4,9 +4,12 @@ import { loadDynamicBannerText } from '../components/banner';
 import {initNotificationBar} from "../components/notificationBar";
 import changeColumn from '../components/changeColumn';
 
+
+
 initNotificationBar();
 
 loadDynamicBannerText();
+
 
 
 if (document.querySelector('#search_client')) {
