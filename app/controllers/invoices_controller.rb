@@ -21,10 +21,31 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     if params[:search]
       @client_found = Client.find(params[:search][:client]) if Client.find(params[:search][:client]).present?
     end
-
   end
 
+<<<<<<< HEAD
   def show
+=======
+
+# I added in the show action of the invoices the method either to see the html version
+# of the invoice, or the pdf one.
+
+
+  def show
+   respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "Invoice No. #{@invoice.reference}",
+          page_size: 'A4',
+          template: "invoices/show.html.erb",
+          layout: "pdf.html",
+          orientation: "Landscape",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75
+      end
+    end
+>>>>>>> 558b3881a3f5cf6cefc29fa6543aedafecca99e4
   end
 
   def create
