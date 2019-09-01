@@ -14,14 +14,14 @@
 
 .infos_factures {
   position: absolute;
-  right: 50px;
-  top: 70px;
+  right: 240px;
+  top: 80px;
 }
 
 .client {
   position: absolute;
-  right: 130px;
-  top: 200px;
+  right: 300px;
+  top: 220px;
 }
 
 
@@ -34,13 +34,15 @@
 .button_pdf {
   position: absolute;
   top: 42px;
-  left: 235px;
+  left: 260px;
+  font-size: 12px;
 }
 
 .button_envoi {
   position: absolute;
   top: 42px;
-  left: 380px !important;
+  left: 330px;
+  font-size: 12px;
 }
 
 .invoice-box table {
