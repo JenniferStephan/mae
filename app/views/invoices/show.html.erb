@@ -71,4 +71,5 @@
       <div>Total TTC : <%= @invoice.total_amount_ttc %></div>
     </div>
 
+<%= link_to "DOWNLOAD PDF", invoice_path(@invoice, format: :pdf), class: "button" %>
 
