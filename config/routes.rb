@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :simulations
-  get "/test", to: "pages#test", as: "test"
+  get "/discover", to: "pages#discover", as: "landing_page"
 
 
   resources :invoices do

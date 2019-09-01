@@ -23,9 +23,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     end
   end
 
-<<<<<<< HEAD
-  def show
-=======
 
 # I added in the show action of the invoices the method either to see the html version
 # of the invoice, or the pdf one.
@@ -45,7 +42,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
           dpi: 75
       end
     end
->>>>>>> 558b3881a3f5cf6cefc29fa6543aedafecca99e4
   end
 
   def create
