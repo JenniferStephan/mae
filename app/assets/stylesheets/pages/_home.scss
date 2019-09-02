@@ -1,5 +1,5 @@
 .welcome-card {
-  margin-top: 120px;
+  margin-top: 170px;
   margin-left: 50px;
   background: #ffcb3f;
   border-radius: 10px;
@@ -18,7 +18,7 @@
 }
 
 // .calendar {
-//    important day color : #FB9D56
+//    important day color : $yellow
 // }
 
 .invoice-infos {
@@ -39,7 +39,7 @@
   &:first-child {
     margin-left: 0px;
   }
-  margin-left: 50px;
+  margin-left: 40px;
   h5 {
     font-size: 15px;
   }
@@ -77,7 +77,7 @@
 }
 
 .status-colored-circle.sent {
-  color: $turquoise;
+  color: $dark-blue;
   line-height: 1.9;
 }
 
@@ -87,7 +87,7 @@
 }
 
 .status-colored-circle.delayed {
-  color: $pink;
+  color: #F5365C;
   line-height: 1.9;
 }
 

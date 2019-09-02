@@ -140,20 +140,33 @@ invoice3 = Invoice.new(user: user,
                       reference: "050319-AC0006",
                       creation_date: Date.strptime("05-03-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("05-04-2019", '%d-%m-%Y'),
-                      total_amount_ttc: "2700",
+                      payment_date: '2019-03-21',
+                      total_amount_ttc: 2700,
                       status: 3,
                       client: collectionist)
-
 invoice3.save!
 
 MissionsInvoice.create!(man_day_quantity: 6, price_rate: 450, vat_rate: 0, mission: bus_dev, invoice: invoice3)
+
+invoice3_1 = Invoice.new(user: user,
+                      title: "Développement",
+                      reference: "200319-AC0007",
+                      creation_date: Date.strptime("20-03-2019", '%d-%m-%Y'),
+                      due_date: Date.strptime("20-04-2019", '%d-%m-%Y'),
+                      payment_date: '2019-03-27',
+                      total_amount_ttc: 600,
+                      status: 3,
+                      client: collectionist)
+invoice3_1.save!
+MissionsInvoice.create!(man_day_quantity: 2, price_rate: 300, vat_rate: 0, mission: bus_dev, invoice: invoice3_1)
 
 invoice4 = Invoice.new(user: user,
                       title: "Maintenance",
                       reference: "121218-AC0005",
                       creation_date: Date.strptime("12-12-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("12-01-2019", '%d-%m-%Y'),
-                      total_amount_ttc: "1500",
+                      payment_date: '2019-01-08',
+                      total_amount_ttc: 1500,
                       status: 3,
                       client: france_inter)
 
@@ -229,5 +242,4 @@ Invoice.all.each do |invoice|
   puts invoice.total_amount_ttc
 end
 
-puts "we create #{Invoice.count} invoives/10"
-
+puts "we create #{Invoice.count} invoices/10"
