@@ -5,11 +5,11 @@ Client.destroy_all
 User.destroy_all
 
 
-user = User.create!(email: "jenn@lewagon.com",
+user = User.create!(email: "paul@test.com",
                     password: "testtest",
-                    first_name: "Jenn",
-                    last_name: "Stephan",
-                    username: "jenn",
+                    first_name: "Paula",
+                    last_name: "Paula",
+                    username: "Jenn",
                     siret: "54645643",
                     vat: 0,
                     address: "13 rue morand")
@@ -22,13 +22,13 @@ societe_generale = Client.create!(user: user,
                         company_name: "Societe generale",
                         company_address: "14 rue morand")
 
-bnp = Client.create!(user: user,
+mae = Client.create!(user: user,
                     email: "camille@bnp.com",
                     first_name: "camille",
                     last_name: "ole",
                     category: "pro",
-                    company_name: "BNP",
-                    company_address: "la Defense")
+                    company_name: "Equipe MAE",
+                    company_address: "le Wagon")
 
 credit_agricole = Client.create!(user: user,
                                 email: "antoine@credit.com",
@@ -145,6 +145,7 @@ invoice3 = Invoice.new(user: user,
                       status: 3,
                       client: collectionist)
 invoice3.save!
+
 MissionsInvoice.create!(man_day_quantity: 6, price_rate: 450, vat_rate: 0, mission: bus_dev, invoice: invoice3)
 
 invoice3_1 = Invoice.new(user: user,
@@ -170,6 +171,7 @@ invoice4 = Invoice.new(user: user,
                       client: france_inter)
 
 invoice4.save!
+
 MissionsInvoice.create!(man_day_quantity: 10, price_rate: 150, vat_rate: 0, mission: maintenance_site2, invoice: invoice4)
 
 invoice5 = Invoice.new(user: user,
@@ -234,16 +236,6 @@ invoice9.save!
 MissionsInvoice.create!(man_day_quantity: 15, price_rate: 700, vat_rate: 0, mission: maintenance_site4, invoice: invoice9)
 
 
-# puts "creating first draft invoice"
-# invoice_draft = Invoice.new(user: user, title: "test1 with invoice draft", client: societe_generale, creation_date: "04/09/18")
-# invoice_draft.save!
-# puts invoice_draft
-# puts "first draft invoice created"
-
-# puts "creating first draft invoice"
-# invoice_sent = Invoice.new(user: user, title: "test2", client: societe_generale, creation_date: "04/09/18")
-# invoice_sent.sent!
-# invoice_sent.save!
 
 Invoice.all.each do |invoice|
   invoice.save!

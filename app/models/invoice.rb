@@ -7,7 +7,7 @@ class Invoice < ApplicationRecord
 
   enum status: [:draft, :submitted, :sent, :paid, :delayed, :archived]
 
-  before_save :generate_reference, if: :sent?
+  before_save :generate_reference
   before_save :set_total_amounts
 
   validates :title, presence: true

@@ -1,8 +1,25 @@
-<div class= "nested-fields">
-  <%= f.association :mission, label_method: :name, value_method: :id, include_blank: false %>
-  <%=   f.input :man_day_quantity, as: :integer %>
-  <%=   f.input :price_rate, as: :integer %>
-  <%=   f.input :vat_rate, collection: MissionsInvoice::VAT %>
-  <%=   link_to_remove_association "remove mission", f %>
+<div class= "nested-fields d-flex p-2 align-items-center justify-content-between position-relative">
+
+<!--   <div class="mission-name flex-grow-1"> -->
+    <%= f.association :mission, label: "Intitulé de la mission", label_method: :name, value_method: :id, include_blank: true, input_html: {class: "mission-name flex-grow-1"} %>
+
+<!--   </div> -->
+  <!-- <div class="quantity"> -->
+    <%=   f.input :man_day_quantity, label: "Quantité", as: :integer, input_html: {class: "w-input"} %>
+<!--    </div> -->
+<!--   <div class="unit-price">  -->
+    <%=   f.input :price_rate, label: "Prix unitaire", as: :integer, input_html: {class: "w-input"}%>
+<!--   </div>
+  <div class="tva"> -->
+    <%=   f.input :vat_rate, label: "Taux de TVA", collection: MissionsInvoice::VAT, input_html: {class: "w-input"} %>
+<!--  </div> -->
+      <div class="montant d-flex flex-column">
+        <p>Montant total TTC</p>
+        <div class="total-line-TTC"> </div>
+      </div>
+
+  <div class="remove-line">
+    <%=   link_to_remove_association "<i class='fas fa-times-circle'></i>".html_safe, f %>
+  </div>
 </div>
 

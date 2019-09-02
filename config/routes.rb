@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
 
-  get "/simulate_my_rate", to: "pages#simulation", as: "simulate_my_rate"
-  get "/test", to: "pages#test", as: "test"
+  resources :simulations
+  get "/discover", to: "pages#discover", as: "landing_page"
 
   get 'invoice_paid/:id', to: 'invoices#invoice_paid', as: 'invoice_paid'
 

@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:home, :simulation]
+skip_before_action :authenticate_user!, only: [:discover]
 
   def home
     @invoices = Invoice.all
@@ -10,9 +10,7 @@ class PagesController < ApplicationController
     @income_values = @income_per_month.map { |income| income.total }
   end
 
-  def simulation
-  end
 
-  def test
+  def discover
   end
 end

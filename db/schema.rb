@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_180904) do
+ActiveRecord::Schema.define(version: 2019_08_31_125124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_08_28_180904) do
     t.bigint "invoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "amount"
     t.index ["invoice_id"], name: "index_missions_invoices_on_invoice_id"
     t.index ["mission_id"], name: "index_missions_invoices_on_mission_id"
   end
@@ -75,6 +76,18 @@ ActiveRecord::Schema.define(version: 2019_08_28_180904) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
+  create_table "simulations", force: :cascade do |t|
+    t.string "activity"
+    t.boolean "reglementary"
+    t.boolean "accre"
+    t.integer "year_existence"
+    t.float "result"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_simulations_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -107,4 +120,5 @@ ActiveRecord::Schema.define(version: 2019_08_28_180904) do
   add_foreign_key "missions_invoices", "invoices"
   add_foreign_key "missions_invoices", "missions"
   add_foreign_key "notifications", "users"
+  add_foreign_key "simulations", "users"
 end

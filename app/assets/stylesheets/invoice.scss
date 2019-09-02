@@ -1,0 +1,137 @@
+.invoice-box {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    padding: 80px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    font-size: 16px;
+    line-height: 24px;
+    font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+    color: #555;
+    background-color: white;
+}
+
+.infos_factures {
+  position: absolute;
+  right: 240px;
+  top: 80px;
+}
+
+.client {
+  position: absolute;
+  right: 300px;
+  top: 220px;
+}
+
+
+.content {
+  position: absolute;
+  top: 250px;
+}
+
+
+.button_pdf {
+  position: absolute;
+  top: 42px;
+  left: 260px;
+  font-size: 12px;
+}
+
+.button_envoi {
+  position: absolute;
+  top: 42px;
+  left: 330px;
+  font-size: 12px;
+}
+
+.invoice-box table {
+    width: 100%;
+    line-height: inherit;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+// table[Attributes Style] {
+//     -webkit-border-horizontal-spacing: 0px;
+//     -webkit-border-vertical-spacing: 0px;
+// }
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: grey;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.invoice-box table tr.top table td.title {
+    font-size: 45px;
+    line-height: 45px;
+    color: #333;
+}
+
+.invoice-box table tr.top table td {
+    padding-bottom: 20px;
+}
+.invoice-box table td {
+    padding: 5px;
+    vertical-align: middle;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+user agent stylesheet
+td {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.badge-primary {
+    color: #fff;
+    background-color: #007bff;
+}
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+.invoice-box table tr.heading td {
+    background: #eee;
+    border-bottom: 1px solid #ddd;
+    font-weight: bold;
+}
+

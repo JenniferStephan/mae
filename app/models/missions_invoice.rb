@@ -7,4 +7,5 @@ class MissionsInvoice < ApplicationRecord
   validates :man_day_quantity, presence: true, numericality: true
   validates :price_rate, presence: true, numericality: true
   validates :vat_rate, presence: true, inclusion: { in: VAT }, numericality: true
+
 end

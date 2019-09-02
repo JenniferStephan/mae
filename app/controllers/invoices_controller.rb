@@ -3,23 +3,54 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
 # skip_before_action :authenticate_user!
 
   def index
-    @invoice = Invoice.all
+    invoices = Invoice.where(user: current_user).order(created_at: :asc)
+    if params[:query].present?
+      sql_query = "invoices.title ILIKE :query OR clients.company_name ILIKE :query OR invoices.reference ILIKE :query"
+      @invoices = invoices.joins(:client).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @invoices = invoices.all
+    end
   end
 
   def new
     @invoice = Invoice.new
     @invoice.missions_invoices.build
+    @my_clients = current_user.clients
+
+
+    if params[:search]
+      @client_found = Client.find(params[:search][:client]) if Client.find(params[:search][:client]).present?
+    end
   end
 
+
+# I added in the show action of the invoices the method either to see the html version
+# of the invoice, or the pdf one.
+
+
   def show
+   respond_to do |format|
+      format.html
+      format.pdf do
+          render pdf: "Invoice No. #{@invoice.reference}",
+          page_size: 'A4',
+          template: "invoices/show.html.erb",
+          layout: "pdf.html",
+          orientation: "Landscape",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75
+      end
+    end
   end
 
   def create
     @invoice = Invoice.new(invoice_params)
     @invoice.user = current_user
+    @invoice.client = Client.find(params[:client])
+    @my_clients = current_user.clients
     if @invoice.save
-      # to be changed
-      render :new
+      render :show
     else
       render :new
     end
@@ -49,6 +80,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     @invoice = Invoice.find(params[:id])
   end
   def invoice_params
-    params.require(:invoice).permit(:client_id, :title, :creation_date, missions_invoices_attributes: [:id, :mission_id, :man_day_quantity, :price_rate, :vat_rate, :_destroy])
+    params.require(:invoice).permit(:client_id, :title, :creation_date, missions_invoices_attributes: [:id, :mission_id, :man_day_quantity, :price_rate, :vat_rate, :amount, :_destroy])
   end
 end

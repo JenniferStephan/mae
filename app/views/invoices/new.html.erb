@@ -1,48 +1,70 @@
-<div class= "container">
+<div class= "container py-5">
+
 
   <h1>Créer une facture</h1>
 
-  <div>
-    <%= simple_form_for [@user, @invoice] do |f| %>
-      <%= f.association :client, label_method: :company_name, value_method: :id, include_blank: false %>
-      <%#= f.input :creation_date, label: "Date de facturation", class: "datepicker"%>
-      <%= f.input :title, label: "Titre"%>
+  <div class="header-facture d-flex justify-content-between">
+    <div>
+      <%= current_user.first_name %>
+      <%= current_user.last_name %> <br/>
+      <%= current_user.address %> <br/>
+      <span> Numéro de Siret : <%= current_user.siret %> </span><br/>
+    </div>
+
+
+    <%= simple_form_for :search, url: new_invoice_path, method: :get do |f| %>
+        <div class="client p-2">
+          <%= f.input :client, label:"Sélectionnez un client", collection: @my_clients, label_method: :company_name, value_method: :id, include_blank: true, as: :select %>
+          <% if @client_found.present? %>
+            <%= @client_found.company_name %> <br/>
+            <%= @client_found.last_name %> <br/>
+            <%= @client_found.company_address %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= simple_form_for @invoice do |f| %>
+      <% if params[:search] %>
+        <%= hidden_field_tag :client, @client_found.id %>
+      <% end %>
+
+
+      <%#= f.input :creation_date, as: :string, required: false, label: "Date de facturation",input_html: {class: "datepicker d-inline-flex p-3"} %>
+
+      <div class="datepickere d-inline-flex p-2">
+      <%= f.input :creation_date, label: "Date de facturation" %>
+    </div>
+
+
+    <div class="titre p-2">
+      <%= f.input :title, label: "Titre" %>
+    </div>
 
         <h3>Missions</h3>
 
-        <div id="missions_invoices">
+        <div id="missions_invoices p-2">
             <%= f.fields_for :missions_invoices do |missions_invoice| %>
               <%= render 'missions_invoice_fields', f: missions_invoice %>
-            <% end %>
-          <div class="links">
-          <%= link_to_add_association 'add missions_invoice', f, :missions_invoices %>
-          </div>
-        </div>
-
-          <%= f.submit "valider", class: "btn btn-primary" %>
     <% end %>
+
+            <div class="links d-flex justify-content-between">
+              <%= link_to_add_association 'Ajouter une ligne', f, :missions_invoices, class:"bouton btn btn-dark" %>
+            </div>
+            <div class="calc-total d-flex align-items-end flex-column mb-3">
+              <div class="d-flex justify-content-around p-2">
+                <p>Montant total HT</p>
+                <div class="total-HT"> </div>
+              </div>
+              <div class="d-flex">
+                <p>Montant total TTC</p>
+                <div class="total-TTC"> </div>
+              </div>
+              <%= f.submit "valider", class: "btn btn-primary" %>
+            </div>
+        <% end %>
+    </div>
   </div>
-
-  <h2><%= @invoice.total_amount_ht %></h2>
-
-  <div>
-    <p><%= current_user.first_name %>
-    <%= current_user.last_name %>
-    <%= current_user.last_name %>
-    <%= current_user.address %>
-    <%= current_user.siret %>
-    </p>
-  </div>
-
-</div>
-<!--
-<div>
-<%#= simple_form_for(@invoice, method: :post) do |f| %>
-  <%#= f.input :comment, label: "Entrez un message pour votre client" %>
-  <%#= f.submit 'Confirmer' %>
-<%# end %>
-</div> -->
-
 
 
 
