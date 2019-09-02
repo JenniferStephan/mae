@@ -3,14 +3,6 @@
 
   <div class="search-invoice">
 
-
-  <!--   <label for="inp" class="inp">
-      <input type="text" id="inp" placeholder="&nbsp;" method="get">
-      <span class="label"><i class="fas fa-search"></i>Trouver une facture</span>
-      <span class="border"></span>
-    </label>
-   -->
-
   <%= form_tag invoices_path, method: :get, class: "form-inline" do %>
     <label for="inp" class="inp">
       <%= text_field_tag :query, params[:query], id: 'inp', placeholder: "  " %>
@@ -29,27 +21,21 @@
       <div class="array-header-column">
         <h4>Titre</h4>
       </div>
-
       <div class="array-header-column">
         <h4>Client</h4>
       </div>
-
       <div class="array-header-column">
         <h4>Date de création</h4>
       </div>
-
       <div class="array-header-column">
         <h4>Référence</h4>
       </div>
-
       <div class="array-header-column">
         <h4>Statut</h4>
       </div>
-
       <div class="array-header-column">
         <h4>Montant TTC</h4>
       </div>
-
       <div class="array-header-column invoice-actions">
       </div>
 
@@ -64,11 +50,7 @@
       </div>
 
       <div class="invoice-infos">
-
-
-  <%= invoice.client.company_name  %>
-
-
+        <%= invoice.client.company_name  %>
       </div>
 
       <div class="invoice-infos">
@@ -95,24 +77,46 @@
       <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
-        <button class="dropdown-item" type="button"><i class="fas fa-search-plus"></i>Apercu</button>
-        <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button>
+        <!-- Show -->
+        <%= link_to invoice_path(invoice.id), method: :get, class: 'dropdown-item' do %>
+            <i class="fas fa-search-plus"></i>Aperçu
+            <% end %>
 
-        <% if invoice.status == "draft" %>
-          <%= link_to edit_invoice_path(invoice.id), class: 'dropdown-item' do %>
-            <i class="fas fa-edit"></i>Editer
-          <% end %>
-        <% end %>
 
-        <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
-        <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
+
+        <!-- Send -->
+        <!-- <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button> -->
+        <%#= link_to invoice_path(@invoice, format: :pdf), target: "_blank", class: 'dropdown-item' do %>
+          <!-- <i class="fas fa-paper-plane"></i>Envoyer -->
+        <%# end %>
+
+
+
+        <!-- Edit -->
+        <%# if invoice.status == "draft" %>
+          <%#= link_to edit_invoice_path(invoice.id), class: 'dropdown-item' do %>
+            <!-- <i class="fas fa-edit"></i>Editer -->
+          <%# end %>
+        <%# end %>
+
+
+
+        <!-- Download -->
+        <!-- <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button> -->
+
+
+
+        <!-- Print -->
+        <!-- <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button> -->
+
+
+
         <!-- Delete -->
         <% if invoice.status == "draft" %>
           <%= link_to invoice_path(invoice.id), method: :delete, remote: true, data: { confirm: "Êtes vous sûr de vouloir supprimer : #{invoice.title} - #{invoice.reference}?" }, class: 'dropdown-item' do %>
-            <i class="far fa-trash-alt"></i>Supprimer
+              <i class="far fa-trash-alt"></i>Supprimer
             <% end %>
           <% end %>
-
 
         </div>
       </div>

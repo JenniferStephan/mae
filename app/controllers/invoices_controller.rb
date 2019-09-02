@@ -25,19 +25,18 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
 # I added in the show action of the invoices the method either to see the html version
 # of the invoice, or the pdf one.
 
-
   def show
-   respond_to do |format|
+    respond_to do |format|
       format.html
       format.pdf do
-          render pdf: "Invoice No. #{@invoice.reference}",
-          page_size: 'A4',
-          template: "invoices/show.html.erb",
-          layout: "pdf.html",
-          orientation: "Landscape",
-          lowquality: true,
-          zoom: 1,
-          dpi: 75
+        render pdf: "Invoice No. #{@invoice.reference}",
+        page_size: 'A4',
+        template: "invoices/show.html.erb",
+        layout: "pdf.html",
+        orientation: "Landscape",
+        lowquality: true,
+        zoom: 1,
+        dpi: 75
       end
     end
   end
@@ -55,7 +54,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   end
 
   def edit
-
   end
 
   def update
@@ -64,8 +62,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   def destroy
     @invoice.destroy
   end
-  # def invoice_
-
 
   private
 

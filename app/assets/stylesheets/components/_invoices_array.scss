@@ -148,13 +148,13 @@ p {
   font-size: 8px;
 }
 .invoices-card .infos-status .draft i {
-  color: rgba(250, 163, 6, .8);
+  color: $yellow;
 }
 .invoices-card .infos-status .draft {
-  color: rgba(250, 163, 6, .8);
+  color: $yellow;
 }
 .invoices-card .draft {
-  color: rgba(250, 163, 6, .8);
+  color: $yellow;
 }
 .invoices-card .infos-status .submitted i {
  color: rgba(250, 163, 6, .8);
