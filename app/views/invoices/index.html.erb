@@ -91,17 +91,31 @@
         <p><%=  number_with_delimiter(invoice.total_amount_ht, delimiter: " ") %> €</p>
       </div>
 
+
       <div class="invoice-infos invoice-actions dropdown">
 
       <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <%= link_to "Aperçu", invoices_path(@invoice), class: "dropdown-item fas fa-search-plus"%>
+
         <button class="dropdown-item" type="button"><i class="fas fa-search-plus"></i>Apercu</button>
         <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button>
-        <button class="dropdown-item" type="button"><i class="fas fa-edit"></i>Editer</button>
+
+        <% if invoice.status == "draft" %>
+          <%= button_to edit_invoice_path(invoice.id), class: 'dropdown-item' do %>
+            <i class="fas fa-edit"></i>Editer
+          <% end %>
+        <% end %>
+
         <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
         <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
-        <button class="dropdown-item" type="button"><i class="fas fa-trash-alt"></i>Supprimer</button>
+        <!-- Delete -->
+        <% if invoice.status == "draft" %>
+          <%= button_to invoice_path(invoice.id), method: :delete,  data: { confirm: "Êtes vous sûr de vouloir supprimer : #{invoice.title} - #{invoice.reference}?" }, class: 'dropdown-item' do %>
+            <i class="far fa-trash-alt"></i>Supprimer
+            <% end %>
+          <% end %>
+
+
         </div>
       </div>
 

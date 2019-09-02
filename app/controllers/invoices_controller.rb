@@ -22,8 +22,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
       @client_found = Client.find(params[:search][:client]) if Client.find(params[:search][:client]).present?
     end
   end
-
-
 # I added in the show action of the invoices the method either to see the html version
 # of the invoice, or the pdf one.
 
@@ -57,14 +55,18 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   end
 
   def edit
+     def update
+    @invoice = invoice.find(params[:id])
+  end
   end
 
   def update
   end
 
   def destroy
+    @invoice = Invoice.find(params[:id])
+    @invoice.destroy
   end
-
   # def invoice_
 
 
