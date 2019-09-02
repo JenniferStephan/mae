@@ -17,4 +17,13 @@ class User < ApplicationRecord
   validates :tax_rate, presence: true
   validates :vat, presence: true
   validates :address, presence: true
+
+  def total_paid_ht_per_month
+    # TODO: WORKS ONLY WITH ONE YEAR FOR NOW
+    invoices.
+      select("CAST (date_part('month', payment_date) AS Integer) AS month, SUM(total_amount_ht) AS total").
+      where(status: :paid).
+      group('month').
+      order('month')
+  end
 end

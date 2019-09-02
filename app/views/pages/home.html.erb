@@ -1,6 +1,14 @@
+<div class="d-flex">
 <div class="welcome-card">
   <h2>Bonjour <%= current_user.first_name %> !</h2>
   <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
+</div>
+
+<div class="turnover-chart-card" style="width: 410px">
+  <div class="turnover-chart chart">
+    <canvas id="chart-bars" class="chart-canvas chartjs-render-monitor" data-months="<%= @income_months.to_json %>" data-values="<%= @income_values.to_json %>"></canvas>
+  </div>
+</div>
 </div>
 
 <div class="invoices-cards">
@@ -22,6 +30,7 @@
                   <div class="invoice-infos">
                     <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
                     <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
+                    <%= link_to '', invoice_paid_path(invoice), class: "hidden-link", remote: true  %>
                   </div>
                 </div>
 
@@ -31,7 +40,6 @@
                   </div>
                 </div>
               </div>
-              <%#= link_to '', invoice_status_path(invoice), hidden: true, remote: true, class: "hidden-link" %>
             </li>
           <% end %>
         <% end %>
@@ -60,6 +68,7 @@
                     <small>
                       <%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €
                     </small>
+                    <%= link_to '', invoice_paid_path(invoice), class: 'hidden-link' %>
                   </div>
                 </div>
 

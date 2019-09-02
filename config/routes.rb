@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get "/simulate_my_rate", to: "pages#simulation", as: "simulate_my_rate"
   get "/test", to: "pages#test", as: "test"
 
+  get 'invoice_paid/:id', to: 'invoices#invoice_paid', as: 'invoice_paid'
 
   resources :invoices do
     resources :missions_invoices
