@@ -27,7 +27,7 @@
               <div class="checklist-item checklist-item-success">
                 <div class="checklist-info">
                   <i class="status-colored-circle sent fas fa-circle"></i>
-                  <div class="invoice-infos">
+                  <div class="homepage-invoice-infos">
                     <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
                     <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
                     <%= link_to '', invoice_paid_path(invoice), class: "hidden-link", remote: true  %>
@@ -63,7 +63,7 @@
               <div class="checklist-item checklist-item-success">
                 <div class="checklist-info">
                   <i class="status-colored-circle delayed fas fa-circle"></i>
-                  <div class="invoice-infos">
+                  <div class="homepage-invoice-infos">
                     <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
                     <small>
                       <%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €

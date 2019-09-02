@@ -1,5 +1,5 @@
 import "bootstrap";
-import "../plugins/flatpickr"
+// import "../plugins/flatpickr"
 import { loadDynamicBannerText } from '../components/banner';
 import {initNotificationBar} from "../components/notificationBar";
 import changeColumn from '../components/changeColumn';
