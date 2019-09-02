@@ -55,16 +55,13 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   end
 
   def edit
-     def update
-    @invoice = invoice.find(params[:id])
-  end
+
   end
 
   def update
   end
 
   def destroy
-    @invoice = Invoice.find(params[:id])
     @invoice.destroy
   end
   # def invoice_

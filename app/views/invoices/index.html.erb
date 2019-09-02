@@ -1,8 +1,6 @@
 
 <div class="container">
-  <!-- <div class="invoices_index_title">
-    <h1><i class="far fa-file-alt"></i>  Mes factures :</h1>
-  </div> -->
+
   <div class="search-invoice">
 
 
@@ -59,7 +57,7 @@
 
     <% @invoices.each do |invoice| %>
 
-    <div class="invoices-card d-flex">
+    <div class="invoices-card d-flex" id="invoice-div-<%= invoice.id %>">
 
       <div class="invoice-infos infos-titre">
        <%= invoice.title %>
@@ -101,7 +99,7 @@
         <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button>
 
         <% if invoice.status == "draft" %>
-          <%= button_to edit_invoice_path(invoice.id), class: 'dropdown-item' do %>
+          <%= link_to edit_invoice_path(invoice.id), class: 'dropdown-item' do %>
             <i class="fas fa-edit"></i>Editer
           <% end %>
         <% end %>
@@ -110,7 +108,7 @@
         <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
         <!-- Delete -->
         <% if invoice.status == "draft" %>
-          <%= button_to invoice_path(invoice.id), method: :delete,  data: { confirm: "Êtes vous sûr de vouloir supprimer : #{invoice.title} - #{invoice.reference}?" }, class: 'dropdown-item' do %>
+          <%= link_to invoice_path(invoice.id), method: :delete, remote: true, data: { confirm: "Êtes vous sûr de vouloir supprimer : #{invoice.title} - #{invoice.reference}?" }, class: 'dropdown-item' do %>
             <i class="far fa-trash-alt"></i>Supprimer
             <% end %>
           <% end %>
