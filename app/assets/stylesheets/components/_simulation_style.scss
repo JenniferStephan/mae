@@ -1,78 +1,51 @@
-/* Style the form */
-#regForm {
-  background-color: #ffffff;
-  margin: 100px auto;
-  padding: 40px;
-  width: 70%;
-  min-width: 300px;
-  border-radius: 20px;
+.show {
+  display: block;
 }
 
-/* Style the input fields */
-input {
-  padding: 10px;
-  width: 100%;
-  font-size: 17px;
-  font-family: Raleway;
-  border: 1px solid #aaaaaa;
-}
-
-/* Mark input boxes that gets an error on validation: */
-input.invalid {
-  background-color: #ffdddd;
-}
-
-/* Hide all steps by default: */
-.tab {
+.display-none {
   display: none;
 }
 
-/* Make circles that indicate the steps of the form: */
-.step {
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbbbbb;
-  border: none;
-  border-radius: 50%;
-  display: inline-block;
-  opacity: 0.5;
+.col-form-label {
+  display: none;
 }
 
-/* Mark the active step: */
-.step.active {
-  opacity: 1;
+// .tab-pane {
+//   background-color: white;
+//   border-radius: 6px;
+//   box-shadow: 0 10px 30px rgba(135, 129, 130, 0.5);
+//   padding: 40px;
+//   max-width: 900px;
+// }
+
+.tab-pane {
+  position: absolute;
+  top: 100px;
+  left: 400px;
+
 }
 
-/* Mark the steps that are finished and valid: */
-.step.finish {
-  background-color: #4CAF50;
+.nav {
+  position: absolute;
+  top: 60px;
+  left: 400px;
 }
 
-.button {
+.tab-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+#first-tab {
+  justify-content: flex-end;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: white;
-  font-family: $headers-font;
-  font-weight: 300;
-  font-size: 16px;
-  padding: 4px 12px;
-  border-radius: 40px;
-  background: $yellow;
-  text-align: center;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  border: solid;
-  border-color: $yellow;
-  border-width: 1px;
-}
-
-.button:hover {
-  background-color: white;
-  color: $purple;
-  border: solid;
-  border-width: 1px;
-  border-color: $purple;
-}
-
-.button a:hover {
-  transform: scale(1.2);
+  padding: 8px 24px;
+  border-radius: 5px;
+  background: $pink;
+  box-shadow: 0 10px 30px rgba(135, 129, 130, 0.5);
+  transition: background 0.1s ease;
+  transition: 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
 }

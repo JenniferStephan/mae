@@ -21,4 +21,4 @@ const changeColumn = () => {
   paidButtons.forEach(button => button.addEventListener('click', moveDiv))
 }
 
-export default changeColumn;
+export { changeColumn };
