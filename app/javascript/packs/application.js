@@ -5,15 +5,11 @@ import { initNotificationBar } from "../components/notificationBar";
 import { changeColumn } from '../components/changeColumn';
 import { initFacture } from '../components/facture';
 // import {formValidation} from "../components/formValidation";
-<<<<<<< HEAD
-import turnoverChart from '../components/analyticsCharts';
-
-=======
-import {initFullCalendar} from '../plugins/fullcalendar';
+// import {initFullCalendar} from '../plugins/fullcalendar';
 import { turnoverChart } from '../components/analyticsCharts';
 import { gaugeChart } from '../components/gaugeChart';
 import { donutChartbis } from '../components/donutChartbis';
->>>>>>> e53f0bec3ac39fcdd21761b04922854385b4d482
+
 
 
 if (document.querySelector('#new_invoice')) {
@@ -24,8 +20,8 @@ if (document.querySelector('#new_invoice')) {
 // loadDynamicBannerText();
 
 if (document.querySelector(".notification-bar")) {
-    initNotificationBar();
-    initFullCalendar();
+     initNotificationBar();
+
 }
 
 

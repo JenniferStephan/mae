@@ -8,17 +8,11 @@
     <%=   f.input :man_day_quantity, label: "Quantité", as: :integer, input_html: {class: "w-input"} %>
 <!--    </div> -->
 <!--   <div class="unit-price">  -->
-<<<<<<< HEAD
-    <%=   f.input :price_rate, label: "Prix unitaire", as: :integer, input_html: {class: "y-input"}%>
-<!--   </div>
-  <div class="tva"> -->
-    <%=   f.input :vat_rate, label: "Taux de TVA", collection: MissionsInvoice::VAT, input_html: {class: "z-input"} %>
-=======
     <%=   f.input :price_rate, label: "Prix unitaire", as: :integer, input_html: {class: "x-input"}%>
 <!--   </div>
   <div class="tva"> -->
     <%=   f.input :vat_rate, label: "Taux de TVA", collection: MissionsInvoice::VAT, include_blank: false, input_html: {class: "y-input"} %>
->>>>>>> e53f0bec3ac39fcdd21761b04922854385b4d482
+
 <!--  </div> -->
       <div class="montant d-flex flex-column">
         <p>Montant TTC</p>
