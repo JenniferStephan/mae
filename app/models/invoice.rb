@@ -32,7 +32,7 @@ class Invoice < ApplicationRecord
   def delayed
     if Date.today >= due_date
       self.status = "delayed"
-      new_notif_delayed = Notification.create(category: "Paiement de vos cotisations",
+      new_notif_delayed = Notification.create(category: "Paiement en retard",
         content: "Votre client #{self.client.company_name} ne vous a toujours pas réglé la facture numéro #{self.reference}, d'un montant de #{self.total_amount_ttc} euros. Le paiement était dû au #{self.due_date}." )
     end
   end

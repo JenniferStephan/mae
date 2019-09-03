@@ -2,6 +2,7 @@ MissionsInvoice.destroy_all
 Mission.destroy_all
 Invoice.destroy_all
 Client.destroy_all
+Notification.destroy_all
 User.destroy_all
 
 
