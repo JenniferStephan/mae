@@ -1,5 +1,5 @@
 class InvoicesController < ApplicationController
-before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_total_amount_ht]
+before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sent, :calcul_total_amount_ht]
 # skip_before_action :authenticate_user!
 
   def index
@@ -69,10 +69,21 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   def invoice_paid
     @invoice = Invoice.find(params[:id])
     @invoice.paid!
+    @invoice.update(payment_date: Date.today)
+    new_notif_paid = Notification.create(category: "Paiement reçu !",
+        content: "La facture numero #{@invoice.reference} vient d'être réglée par votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc} euros TTC." )
+
     respond_to do |format|
       format.js
       format.html { redirect_to :root }
     end
+  end
+
+  def invoice_sent
+    @invoice.sent!
+    new_notif_sent = Notification.create(category: "Facture envoyée",
+        content: "Vous venez d'envoyer la facture #{@invoice.reference} à votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc}. Votre client a jusqu'au #{@invoice.due_date} pour la régler.")
+    redirect_to invoice_path(@invoice)
   end
 
   private

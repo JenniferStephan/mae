@@ -7,8 +7,8 @@ class User < ApplicationRecord
   has_many :missions
   has_many :clients, dependent: :destroy
   has_many :invoices, dependent: :destroy
-  has_many :notifications
-  has_many :simulations
+  has_many :notifications, dependent: :destroy
+  has_many :simulations, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -18,7 +18,6 @@ class User < ApplicationRecord
   validates :tax_rate, presence: true
   validates :vat, presence: true
   validates :address, presence: true
-
 
   def get_total_submitted
     # self.invoices.where(status: "submitted").pluck(:total_amount_ttc).reduce(:+)
@@ -41,4 +40,5 @@ class User < ApplicationRecord
       group('month').
       order('month')
   end
+
 end

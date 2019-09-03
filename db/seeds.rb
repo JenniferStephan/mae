@@ -112,7 +112,7 @@ invoice1 = Invoice.new(user: user,
                       creation_date: Date.strptime("21-08-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("21-09-2019", '%d-%m-%Y'),
                       total_amount_ttc: "300",
-                      status: 0,
+                      status: 2,
                       client: le_wagon)
 
 
@@ -128,7 +128,7 @@ invoice2 = Invoice.new(user: user,
                       creation_date: Date.strptime("14-05-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("14-06-2019", '%d-%m-%Y'),
                       total_amount_ttc: "1000",
-                      status: 4,
+                      status: 2,
                       client: societe_generale)
 
 invoice2.save!
@@ -142,7 +142,7 @@ invoice3 = Invoice.new(user: user,
                       due_date: Date.strptime("05-04-2019", '%d-%m-%Y'),
                       payment_date: '2019-03-21',
                       total_amount_ttc: 2700,
-                      status: 3,
+                      status: 2,
                       client: collectionist)
 invoice3.save!
 
@@ -151,11 +151,10 @@ MissionsInvoice.create!(man_day_quantity: 6, price_rate: 450, vat_rate: 0, missi
 invoice3_1 = Invoice.new(user: user,
                       title: "Développement",
                       reference: "200319-AC0007",
-                      creation_date: Date.strptime("20-03-2019", '%d-%m-%Y'),
-                      due_date: Date.strptime("20-04-2019", '%d-%m-%Y'),
-                      payment_date: '2019-03-27',
+                      creation_date: Date.strptime("30-08-2019", '%d-%m-%Y'),
+                      due_date: Date.strptime("30-08-2019", '%d-%m-%Y'),
                       total_amount_ttc: 600,
-                      status: 3,
+                      status: 2,
                       client: collectionist)
 invoice3_1.save!
 MissionsInvoice.create!(man_day_quantity: 2, price_rate: 300, vat_rate: 0, mission: bus_dev, invoice: invoice3_1)
@@ -167,7 +166,7 @@ invoice4 = Invoice.new(user: user,
                       due_date: Date.strptime("12-01-2019", '%d-%m-%Y'),
                       payment_date: '2019-01-08',
                       total_amount_ttc: 1500,
-                      status: 3,
+                      status: 2,
                       client: france_inter)
 
 invoice4.save!
@@ -180,7 +179,7 @@ invoice5 = Invoice.new(user: user,
                       creation_date: Date.strptime("04-11-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("04-12-2018", '%d-%m-%Y'),
                       total_amount_ttc: "5500",
-                      status: 5,
+                      status: 2,
                       client: cic)
 
 invoice5.save!
@@ -192,7 +191,7 @@ invoice6 = Invoice.new(user: user,
                       creation_date: Date.strptime("30-10-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("30-11-2018", '%d-%m-%Y'),
                       total_amount_ttc: "1500",
-                      status: 1,
+                      status: 2,
                       client: buzzman)
 
 invoice6.save!
