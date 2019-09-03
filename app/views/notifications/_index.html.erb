@@ -1,4 +1,4 @@
-<% @notifications.each do |notif| %>
+<% notifications.each do |notif| %>
   <div class="notification-card">
     <div class="notification-card-title">
       <% if notif.category == "Paiement reçu !" %>
@@ -15,9 +15,9 @@
 
       <% end %>
 
-      <h3>notif.name</h3>
+      <h3><%= notif.category %></h3>
     </div>
-      <p>notif.content</p>
+      <p><%= notif.content %></p>
       <small class="notif-date-trigger">il y a 3 jours</small>
   </div>
 <% end %>

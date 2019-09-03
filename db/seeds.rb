@@ -236,10 +236,34 @@ invoice9.save!
 MissionsInvoice.create!(man_day_quantity: 15, price_rate: 700, vat_rate: 0, mission: maintenance_site4, invoice: invoice9)
 
 
-
 Invoice.all.each do |invoice|
   invoice.save!
   puts invoice.total_amount_ttc
 end
 
-puts "we create #{Invoice.count} invoices/10"
+puts "we created #{Invoice.count} invoices/10"
+
+notif1 = Notification.new(user: User.last,
+                  category: "Paiement reçu !",
+                  content: "La facture numero #34567 vient d'être réglée par votre client BNP, pour un montant total de 345678 euros TTC.")
+notif1.save!
+
+notif2 = Notification.new(
+                  user: User.last,
+                  category: "Facture envoyée",
+                  content: "Vous venez d'envoyer la facture #34556 à votre client Mme Michu, pour un montant total de 12 000 euros. Votre client a jusqu'au 13/12/2019 pour la régler.")
+notif2.save!
+
+notif3 = Notification.new(
+                  user: User.last,
+                  category: "Paiement en retard",
+                  content: "Votre client Bolloré ne vous a toujours pas réglé la facture numéro #67543, d'un montant de 456 euros. Le paiement était dû au 12/04/2019.")
+notif3.save!
+
+notif4 = Notification.new(
+                  user: User.last,
+                  category: "Paiement reçu !",
+                  content: "La facture numero #56789 vient d'être réglée par votre client Mère Michelle, pour un montant total de 10 euros TTC.")
+notif4.save!
+
+puts "we created #{Notification.count} notifications/4"
