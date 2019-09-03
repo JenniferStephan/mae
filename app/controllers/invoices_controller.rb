@@ -70,7 +70,8 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sen
     @invoice = Invoice.find(params[:id])
     @invoice.paid!
     @invoice.update(payment_date: Date.today)
-    new_notif_paid = Notification.create(category: "Paiement reçu !",
+    new_notif_paid = Notification.create(user: current_user,
+        category: "Paiement reçu !",
         content: "La facture numero #{@invoice.reference} vient d'être réglée par votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc} euros TTC." )
 
     respond_to do |format|
@@ -81,7 +82,8 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sen
 
   def invoice_sent
     @invoice.sent!
-    new_notif_sent = Notification.create(category: "Facture envoyée",
+    new_notif_sent = Notification.create(user: current_user,
+      category: "Facture envoyée",
         content: "Vous venez d'envoyer la facture #{@invoice.reference} à votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc}. Votre client a jusqu'au #{@invoice.due_date} pour la régler.")
     redirect_to invoice_path(@invoice)
   end
