@@ -241,8 +241,8 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.2.3)
-  redactor-rails!
   rails-i18n
+  redactor-rails!
   redis
   sassc-rails
   simple_form
