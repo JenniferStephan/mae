@@ -32,8 +32,8 @@
 
       <%#= f.input :creation_date, as: :string, required: false, label: "Date de facturation",input_html: {class: "datepicker d-inline-flex p-3"} %>
 
-    <div class="datepicke d-inline-flex-flex p-2">
-      <%= f.input :creation_date, label: "Date de facturation" %>
+    <div class="d-inline-flex p-2">
+      <%= f.input :creation_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date de facturation" %>
     </div>
 
 
