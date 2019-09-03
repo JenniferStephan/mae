@@ -20,7 +20,6 @@ class User < ApplicationRecord
   validates :vat, presence: true
   validates :address, presence: true
 
-
   def get_total_submitted
     # self.invoices.where(status: "submitted").pluck(:total_amount_ttc).reduce(:+)
     self.invoices.where(status: "sent").sum(:total_amount_ht)
@@ -43,6 +42,5 @@ class User < ApplicationRecord
       order('month')
   end
 
-  def total_paid_ht
-  end
+
 end

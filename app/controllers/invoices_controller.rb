@@ -1,9 +1,11 @@
 class InvoicesController < ApplicationController
-before_action :set_invoice, only: [:show, :edit, :update, :invoice_sent, :destroy, :calcul_total_amount_ht]
+
+before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sent, :calcul_total_amount_ht]
+
 # skip_before_action :authenticate_user!
 
   def index
-    invoices = Invoice.where(user: current_user).order(created_at: :asc)
+    invoices = Invoice.where(user: current_user).order(created_at: :desc)
     if params[:query].present?
       sql_query = "invoices.title ILIKE :query OR clients.company_name ILIKE :query OR invoices.reference ILIKE :query"
       @invoices = invoices.joins(:client).where(sql_query, query: "%#{params[:query]}%")
@@ -67,6 +69,9 @@ before_action :set_invoice, only: [:show, :edit, :update, :invoice_sent, :destro
     @invoice = Invoice.find(params[:id])
     @invoice.paid!
     @invoice.update(payment_date: Date.today)
+    new_notif_paid = Notification.create(user: current_user,
+        category: "Paiement reçu !",
+        content: "La facture numero #{@invoice.reference} vient d'être réglée par votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc} euros TTC." )
     respond_to do |format|
       format.js
       format.html { redirect_to :root }
@@ -74,10 +79,10 @@ before_action :set_invoice, only: [:show, :edit, :update, :invoice_sent, :destro
   end
 
   def invoice_sent
-    @invoice = Invoice.find(params[:id])
     @invoice.sent!
-    new_notif_sent = Notification.create(category: "Facture envoyée",
-    content: "Vous venez d'envoyer la facture #{@invoice.reference} à votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc}. Votre client a jusqu'au #{@invoice.due_date} pour la régler.")
+    new_notif_sent = Notification.create(user: current_user,
+      category: "Facture envoyée",
+        content: "Vous venez d'envoyer la facture #{@invoice.reference} à votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc}. Votre client a jusqu'au #{@invoice.due_date} pour la régler.")
     redirect_to invoice_path(@invoice)
   end
 

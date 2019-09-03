@@ -2,6 +2,7 @@ MissionsInvoice.destroy_all
 Mission.destroy_all
 Invoice.destroy_all
 Client.destroy_all
+Notification.destroy_all
 User.destroy_all
 
 
@@ -112,7 +113,7 @@ invoice1 = Invoice.new(user: user,
                       creation_date: Date.strptime("21-08-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("21-09-2019", '%d-%m-%Y'),
                       total_amount_ttc: "300",
-                      status: 0,
+                      status: 2,
                       client: le_wagon)
 
 
@@ -128,7 +129,8 @@ invoice2 = Invoice.new(user: user,
                       creation_date: Date.strptime("14-05-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("14-06-2019", '%d-%m-%Y'),
                       total_amount_ttc: "1000",
-                      status: 0,
+                      status: 2,
+
                       client: societe_generale)
 
 invoice2.save!
@@ -142,7 +144,7 @@ invoice3 = Invoice.new(user: user,
                       due_date: Date.strptime("05-04-2019", '%d-%m-%Y'),
                       payment_date: '2019-03-21',
                       total_amount_ttc: 2700,
-                      status: 3,
+                      status: 2,
                       client: collectionist)
 invoice3.save!
 
@@ -151,11 +153,10 @@ MissionsInvoice.create!(man_day_quantity: 6, price_rate: 450, vat_rate: 0, missi
 invoice3_1 = Invoice.new(user: user,
                       title: "Développement",
                       reference: "200319-AC0007",
-                      creation_date: Date.strptime("20-03-2019", '%d-%m-%Y'),
-                      due_date: Date.strptime("20-04-2019", '%d-%m-%Y'),
-                      payment_date: '2019-03-27',
+                      creation_date: Date.strptime("30-08-2019", '%d-%m-%Y'),
+                      due_date: Date.strptime("30-08-2019", '%d-%m-%Y'),
                       total_amount_ttc: 600,
-                      status: 3,
+                      status: 2,
                       client: collectionist)
 invoice3_1.save!
 MissionsInvoice.create!(man_day_quantity: 2, price_rate: 300, vat_rate: 0, mission: bus_dev, invoice: invoice3_1)
@@ -167,7 +168,7 @@ invoice4 = Invoice.new(user: user,
                       due_date: Date.strptime("12-01-2019", '%d-%m-%Y'),
                       payment_date: '2019-01-08',
                       total_amount_ttc: 1500,
-                      status: 3,
+                      status: 2,
                       client: france_inter)
 
 invoice4.save!
@@ -180,7 +181,7 @@ invoice5 = Invoice.new(user: user,
                       creation_date: Date.strptime("04-11-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("04-12-2018", '%d-%m-%Y'),
                       total_amount_ttc: "5500",
-                      status: 5,
+                      status: 2,
                       client: cic)
 
 invoice5.save!
@@ -192,7 +193,7 @@ invoice6 = Invoice.new(user: user,
                       creation_date: Date.strptime("30-10-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("30-11-2018", '%d-%m-%Y'),
                       total_amount_ttc: "1500",
-                      status: 1,
+                      status: 2,
                       client: buzzman)
 
 invoice6.save!
@@ -236,10 +237,34 @@ invoice9.save!
 MissionsInvoice.create!(man_day_quantity: 15, price_rate: 700, vat_rate: 0, mission: maintenance_site4, invoice: invoice9)
 
 
-
 Invoice.all.each do |invoice|
   invoice.save!
   puts invoice.total_amount_ttc
 end
 
-puts "we create #{Invoice.count} invoices/10"
+puts "we created #{Invoice.count} invoices/10"
+
+notif1 = Notification.new(user: User.last,
+                  category: "Paiement reçu !",
+                  content: "La facture numero #34567 vient d'être réglée par votre client BNP, pour un montant total de 345678 euros TTC.")
+notif1.save!
+
+notif2 = Notification.new(
+                  user: User.last,
+                  category: "Facture envoyée",
+                  content: "Vous venez d'envoyer la facture #34556 à votre client Mme Michu, pour un montant total de 12 000 euros. Votre client a jusqu'au 13/12/2019 pour la régler.")
+notif2.save!
+
+notif3 = Notification.new(
+                  user: User.last,
+                  category: "Paiement en retard",
+                  content: "Votre client Bolloré ne vous a toujours pas réglé la facture numéro #67543, d'un montant de 456 euros. Le paiement était dû au 12/04/2019.")
+notif3.save!
+
+notif4 = Notification.new(
+                  user: User.last,
+                  category: "Paiement reçu !",
+                  content: "La facture numero #56789 vient d'être réglée par votre client Mère Michelle, pour un montant total de 10 euros TTC.")
+notif4.save!
+
+puts "we created #{Notification.count} notifications/4"
