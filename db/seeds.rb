@@ -128,7 +128,7 @@ invoice2 = Invoice.new(user: user,
                       creation_date: Date.strptime("14-05-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("14-06-2019", '%d-%m-%Y'),
                       total_amount_ttc: "1000",
-                      status: 4,
+                      status: 0,
                       client: societe_generale)
 
 invoice2.save!
@@ -140,9 +140,14 @@ invoice3 = Invoice.new(user: user,
                       reference: "050319-AC0006",
                       creation_date: Date.strptime("05-03-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("05-04-2019", '%d-%m-%Y'),
+<<<<<<< HEAD
+                      total_amount_ttc: "2700",
+                      status: 0,
+=======
                       payment_date: '2019-03-21',
                       total_amount_ttc: 2700,
                       status: 3,
+>>>>>>> abdf22a99db23916bddb1947297ab4d4108244e9
                       client: collectionist)
 invoice3.save!
 

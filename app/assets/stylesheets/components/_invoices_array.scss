@@ -132,6 +132,7 @@ p {
   font-size: 8px;
 }
 .invoices-card .infos-status .draft i {
+
   color: #F9DC5C;
 }
 .invoices-card .infos-status .draft {
@@ -139,6 +140,7 @@ p {
 }
 .invoices-card .draft {
   color: #F9DC5C;
+
 }
 .invoices-card .infos-status .submitted i {
  color: $turquoise;
@@ -184,6 +186,15 @@ p {
 }
 .invoices-card .archived {
  color: #B8C5D6;
+}
+.invoices-card .infos-status .sent i {
+ color: rgba(250, 163, 6, .8);
+}
+.invoices-card .infos-status .sent {
+ color: rgba(250, 163, 6, .8);
+}
+.invoices-card .sent {
+ color: rgba(250, 163, 6, .8);
 }
 
 
