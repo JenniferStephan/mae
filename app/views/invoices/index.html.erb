@@ -22,7 +22,7 @@
   <% end %>
 </div>
 
-  <div class="color-line"></div>
+  <!-- <div class="color-line"></div> -->
 
   <div class="invoices-array">
 
@@ -66,11 +66,7 @@
       </div>
 
       <div class="invoice-infos">
-
-
-  <%= invoice.client.company_name  %>
-
-
+        <%= invoice.client.company_name  %>
       </div>
 
       <div class="invoice-infos">
@@ -84,25 +80,42 @@
       </div>
 
       <div class="invoice-infos infos-status">
-        <p class="<%= invoice.status.to_s %>"><i class="fas fa-circle"></i><%= invoice.status %></p>
+        <p class="<%= invoice.status.to_s %> mb-0">
+          <i class="fas fa-circle"></i> <%= invoice.status %>
+        </p>
       </div>
 
       <div class="invoice-infos">
-        <p><%=  number_with_delimiter(invoice.total_amount_ht, delimiter: " ") %> €</p>
+        <p class="mb-0">
+          <%=  number_with_delimiter(invoice.total_amount_ht, delimiter: " ") %> €
+        </p>
       </div>
 
       <div class="invoice-infos invoice-actions dropdown">
 
-      <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-        <%= link_to "Aperçu", invoices_path(@invoice), class: "dropdown-item fas fa-search-plus"%>
-        <button class="dropdown-item" type="button"><i class="fas fa-search-plus"></i>Apercu</button>
-        <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button>
-        <button class="dropdown-item" type="button"><i class="fas fa-edit"></i>Editer</button>
-        <button class="dropdown-item" type="button"><i class="fas fa-download"></i>Télécharger</button>
-        <button class="dropdown-item" type="button"><i class="fas fa-print"></i>Imprimer</button>
-        <button class="dropdown-item" type="button"><i class="fas fa-trash-alt"></i>Supprimer</button>
+        <i class="fas fa-ellipsis-h" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <%= link_to "Aperçu", invoices_path(@invoice), class: "dropdown-item fas fa-search-plus"%>
+          <button class="dropdown-item" type="button">
+            <i class="fas fa-search-plus"></i>Apercu
+          </button>
+          <button class="dropdown-item" type="button">
+            <i class="fas fa-paper-plane"></i>Envoyer
+          </button>
+          <button class="dropdown-item" type="button">
+            <i class="fas fa-edit"></i>Editer
+          </button>
+          <button class="dropdown-item" type="button">
+            <i class="fas fa-download"></i>Télécharger
+          </button>
+          <button class="dropdown-item" type="button">
+            <i class="fas fa-print"></i>Imprimer
+          </button>
+          <button class="dropdown-item" type="button">
+            <i class="fas fa-trash-alt"></i>Supprimer
+          </button>
         </div>
+
       </div>
 
     </div>
@@ -110,8 +123,8 @@
     <% end %>
 
   </div>
-  <div class="links">
-    <%= link_to "Nouvelle facture", new_invoice_path, class: "button" %>
+  <div class="invoices-index-buttons">
+    <%= link_to "Nouvelle facture", new_invoice_path, class: "button mr-3" %>
     <%= link_to "Retour", root_path, class: "button" %>
   </div>
 </div>

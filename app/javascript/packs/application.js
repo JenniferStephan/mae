@@ -5,7 +5,6 @@ import { initNotificationBar } from "../components/notificationBar";
 import { changeColumn } from '../components/changeColumn';
 import { initFacture } from '../components/facture';
 // import {formValidation} from "../components/formValidation";
-import changeColumn from '../components/changeColumn';
 import turnoverChart from '../components/analyticsCharts';
 
 

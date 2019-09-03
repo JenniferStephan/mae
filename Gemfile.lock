@@ -230,9 +230,8 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   cocoon
-  d3-rails
   coffee-rails
-
+  d3-rails
   devise
   devise-i18n
   dotenv-rails
@@ -245,9 +244,8 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.2.3)
-  redactor-rails!
-
   rails-i18n
+  redactor-rails!
   redis
   sassc-rails
   simple_form

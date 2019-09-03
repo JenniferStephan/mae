@@ -31,6 +31,7 @@ class User < ApplicationRecord
 
   def get_total_delayed
     self.invoices.where(status: "delayed").sum(:total_amount_ht)
+  end
 
   def total_paid_ht_per_month
     # TODO: WORKS ONLY WITH ONE YEAR FOR NOW

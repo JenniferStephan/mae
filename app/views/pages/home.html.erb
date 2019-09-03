@@ -23,8 +23,8 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures envoyées
-          <div class="total_submitted"> <%= current_user.get_total_submitted %> </div></h3>
+          <h3>Factures envoyées</h3>
+          <div class="total_submitted"><%= number_with_delimiter(current_user.get_total_submitted, delimiter: " ") %> €</div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -60,7 +60,8 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures en retard</h3> <div class="total_delayed"><%= current_user.get_total_delayed %> </div>
+          <h3>Factures en retard</h3>
+          <div class="total_delayed"><%= number_with_delimiter(current_user.get_total_delayed, delimiter: " ") %> €</div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -101,7 +102,8 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures payées</h3> <div class="total_paid"><%= current_user.get_total_paid %> </div>
+          <h3>Factures payées</h3>
+          <div class="total_paid"><%= number_with_delimiter(current_user.get_total_paid , delimiter: " ") %> €</div>
         </div>
 
         <% @invoices.each do |invoice| %>

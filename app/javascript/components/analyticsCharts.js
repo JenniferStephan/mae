@@ -8,9 +8,11 @@ const months = JSON.parse(canvas.dataset.months);
 const values = JSON.parse(canvas.dataset.values);
 
 var gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-gradient.addColorStop(0, '#f5365c');
-gradient.addColorStop(0.7, '#f56036');
-gradient.addColorStop(1, '#FAA306');
+gradient.addColorStop(0, '#6C16C7');
+gradient.addColorStop(0.4, '#221ECE');
+gradient.addColorStop(1, '#f31069');
+// gradient.addColorStop(0, '#007065');
+// gradient.addColorStop(1, '#64D286');
 
 const turnoverChart = new Chart(ctx, {
   type: 'bar',
@@ -38,7 +40,7 @@ const turnoverChart = new Chart(ctx, {
     scales: {
       xAxes: [{
         barPercentage: 0.5,
-        barThickness: 25,
+        barThickness: 27,
         minBarLength: 2,
         gridLines: {
           display: false,
@@ -49,6 +51,7 @@ const turnoverChart = new Chart(ctx, {
         ticks: {
           display: false,
           beginAtZero: true,
+          max: 4000
         },
         gridLines: {
           display: false,
