@@ -13,7 +13,7 @@
 
 
     <%= simple_form_for :search, url: new_invoice_path, method: :get do |f| %>
-        <div class="client p-2">
+        <div class="client-select p-2">
           <%= f.input :client, label:"Sélectionnez un client", collection: @my_clients, label_method: :company_name, value_method: :id, include_blank: true, as: :select %>
           <% if @client_found.present? %>
             <%= @client_found.company_name %> <br/>
@@ -32,7 +32,7 @@
 
       <%#= f.input :creation_date, as: :string, required: false, label: "Date de facturation",input_html: {class: "datepicker d-inline-flex p-3"} %>
 
-      <div class="datepickere d-inline-flex p-2">
+    <div class="datepicke d-inline-flex-flex p-2">
       <%= f.input :creation_date, label: "Date de facturation" %>
     </div>
 
@@ -54,13 +54,15 @@
             <div class="calc-total d-flex align-items-end flex-column mb-3">
               <div class="d-flex justify-content-around p-2">
                 <p>Montant total HT</p>
-                <div class="total-HT"> </div>
+                <div class="total-HT"> &nbsp; </div>
               </div>
               <div class="d-flex">
                 <p>Montant total TTC</p>
-                <div class="total-TTC"> </div>
+                <div class="total-TTC"> &nbsp;</div>
               </div>
-              <%= f.submit "valider", class: "btn btn-primary" %>
+              <!-- <div class="btn btn-dark"> -->
+                <%= f.submit "valider" %>
+<!--               </div> -->
             </div>
         <% end %>
     </div>

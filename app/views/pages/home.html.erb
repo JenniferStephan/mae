@@ -4,12 +4,17 @@
   <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
 </div>
 
+
+<div id="my_dataviz"></div>
+<div id="my_treemap"></div>
+
 <div class="turnover-chart-card" style="width: 410px">
   <div class="turnover-chart chart">
     <canvas id="chart-bars" class="chart-canvas chartjs-render-monitor" data-months="<%= @income_months.to_json %>" data-values="<%= @income_values.to_json %>"></canvas>
   </div>
 </div>
 </div>
+
 
 <div class="invoices-cards">
 
@@ -18,7 +23,8 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures envoyées</h3>
+          <h3>Factures envoyées
+          <div class="total_submitted"> <%= current_user.get_total_submitted %> </div></h3>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -54,7 +60,7 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures en retard</h3>
+          <h3>Factures en retard</h3> <div class="total_delayed"><%= current_user.get_total_delayed %> </div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -95,7 +101,7 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures payées</h3>
+          <h3>Factures payées</h3> <div class="total_paid"><%= current_user.get_total_paid %> </div>
         </div>
 
         <% @invoices.each do |invoice| %>

@@ -19,6 +19,19 @@ class User < ApplicationRecord
   validates :vat, presence: true
   validates :address, presence: true
 
+
+  def get_total_submitted
+    # self.invoices.where(status: "submitted").pluck(:total_amount_ttc).reduce(:+)
+    self.invoices.where(status: "submitted").sum(:total_amount_ht)
+  end
+
+  def get_total_paid
+    self.invoices.where(status: "paid").sum(:total_amount_ht)
+  end
+
+  def get_total_delayed
+    self.invoices.where(status: "delayed").sum(:total_amount_ht)
+
   def total_paid_ht_per_month
     # TODO: WORKS ONLY WITH ONE YEAR FOR NOW
     invoices.

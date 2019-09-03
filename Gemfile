@@ -23,6 +23,7 @@ gem "cocoon"
 gem 'flatpickr'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+gem 'd3-rails'
 
 
 group :development do
