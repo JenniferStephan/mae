@@ -10,6 +10,7 @@ import '@fullcalendar/daygrid/main.css';
   var calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin ]
   });
+  calendar.setOption('locale', 'fr');
   calendar.render();
  }
 
