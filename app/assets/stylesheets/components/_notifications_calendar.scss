@@ -5,6 +5,7 @@
   border-radius: 5px;
   border-color: rgb(232, 232, 232);
   border-width: 1px;
+  box-shadow: 1px 1px 2px grey;
 }
 td .fc-day .fc-widget-content {
   height: 2px;
@@ -15,12 +16,10 @@ td .fc-day .fc-widget-content {
 }
 
 .fc td {
-  // height: 8px;
   border: none !important;
 }
 
 .fc th {
-  // height: 8px;
   border: none !important;
 }
 
@@ -49,10 +48,6 @@ button.fc-next-button.fc-button.fc-button-primary {
   display: none;
 }
 
-th.fc-day-header.fc-widget-header {
-  // color: red;
-}
-
 .fc-content-skeleton {
   height: 100%;
 }
@@ -63,17 +58,10 @@ th.fc-day-header.fc-widget-header {
   background-color: $yellow;
 }
 
-// .fc-day-top.fc-tue.fc-today {
-//   border-style: solid;
-//   border-width: 1px;
-//   border-color: #ddd;
+.fc-unthemed td.fc-day.fc-widget-content.fc-tue.fc-today.fc-day-number {
+  color: white;
+}
 
-// }
-
-
-// .fc-day-top.fc-sun.fc-past {
-//   height: 100%;
-// }
 
 
 .fc-day-header.fc-widget-header {
@@ -87,4 +75,11 @@ th.fc-day-header.fc-widget-header {
   background-color: #fcf8e3;
 }
 
+.fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number {
+  float: left !important;
+}
+
+.fc-today span {
+  color: white;
+}
 
