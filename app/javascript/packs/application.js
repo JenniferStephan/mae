@@ -61,7 +61,7 @@ initNotificationBar();
 
 
 if (document.querySelector('#search_client')) {
-  let clientOption =document.querySelector('#search_client');
+  let clientOption = document.querySelector('#search_client');
   const form = document.querySelector('.search');
   clientOption.addEventListener('change', (event) => {
     form.submit();
