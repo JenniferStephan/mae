@@ -4,7 +4,7 @@ const changeColumn = () => {
   const paidInvoicesList = paidInvoices.querySelector('ul');
 
   const moveDiv = (event) => {
-    const invoiceDiv = event.currentTarget.parentElement.previousElementSibling.querySelector('.invoice-infos');
+    const invoiceDiv = event.currentTarget.parentElement.previousElementSibling.querySelector('.homepage-invoice-infos');
     const hiddenLink = invoiceDiv.querySelector('.hidden-link');
 
     paidInvoicesList.insertAdjacentHTML('beforeend', `
