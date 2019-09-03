@@ -3,6 +3,9 @@
   <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
 </div>
 
+<div id="my_dataviz"></div>
+<div id="my_treemap"></div>
+
 <div class="invoices-cards">
 
   <div class="invoices-status">
@@ -10,7 +13,8 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures envoyées</h3>
+          <h3>Factures envoyées
+          <div class="total_submitted"> <%= current_user.get_total_submitted %> </div></h3>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -46,7 +50,7 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures en retard</h3>
+          <h3>Factures en retard</h3> <div class="total_delayed"><%= current_user.get_total_delayed %> </div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -86,7 +90,7 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures payées</h3>
+          <h3>Factures payées</h3> <div class="total_paid"><%= current_user.get_total_paid %> </div>
         </div>
 
         <% @invoices.each do |invoice| %>

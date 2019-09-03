@@ -15,7 +15,7 @@
                     <br>
                     Créée le : <b><%= @invoice.creation_date %></b>
                     <br>
-                    A payer avant le : <b><%= @invoice.creation_date %></b>
+                    A payer avant le : <b><%= @invoice.set_due_date %></b>
                     <br>
                     Statut : <span class="badge badge-primary"><%= @invoice.status %></span>
                   </td>
@@ -124,79 +124,5 @@
 <%= link_to "Envoyer", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_envoi" %>
 
 
-<!--
-
-<div class="container  p-5">
-  <h1> Ma facture </h1>
-
-  <div class="header-facture-created d-flex justify-content-between">
-    <div class="invoice-client">
-      <div> <%= @invoice.client.company_name %></div>
-      <div>
-        <%= @invoice.client.first_name %>
-        <%= @invoice.client.last_name %>
-      </div>
-      <div> <%= @invoice.client.company_address %></div>
-    </div>
-
-    <div class="current_freelance">
-        <%= current_user.first_name %>
-        <%= current_user.last_name %> <br/>
-        <%= current_user.address %> <br/>
-        <span> Numéro de Siret : <%= current_user.siret %> </span><br/>
-    </div>
-   </div>
-
-    <div class="creation-date-created d-inline-flex py-5">
-      <p> Date de facturation  : <%= @invoice.creation_date %> </p>
-    </div>
-    <div class="title-invoice-created d-flex py-5">
-      <%= @invoice.title %>
-    </div>
-
-    <div class="missions lines d-flex justify-content-between align-items-start">
-      <div class="description">
-        <div class="header-invoice-created"> Description </div>
-        <% @invoice.missions_invoices.each do |missions_invoice| %>
-        <div>
-          <%= missions_invoice.mission.name %>
-        </div>
-        <% end %>
-      </div>
-      <div class="quantité-created">
-        <div class="header-invoice-created">Quantité </div>
-        <% @invoice.missions_invoices.each do |missions_invoice| %>
-        <div>
-          <%= missions_invoice.man_day_quantity %>
-        </div>
-        <% end %>
-      </div>
-      <div class="unit-price-created">
-        <div class="header-invoice-created"> Prix unitaire</div>
-        <% @invoice.missions_invoices.each do |missions_invoice| %>
-        <div>
-          <%= missions_invoice.price_rate %>
-        </div>
-        <% end %>
-      </div>
-      <div class="tva-created">
-        <div class="header-invoice-created"> Taux de TVA</div>
-        <% @invoice.missions_invoices.each do |missions_invoice| %>
-        <div>
-          <%= missions_invoice.vat_rate %>
-        </div>
-        <% end %>
-      </div>
-        <div class="total-TTC-created">
-          <div class="header-invoice-created"> Montant </div>
-          <div> </div>
-        </div>
-      </div>
-
-
-    <div class="total-created d-flex flex-column align-items-end py-5">
-      <div>Total HT : <%= @invoice.total_amount_ht %> </div>
-      <div>Total TTC : <%= @invoice.total_amount_ttc %></div>
-    </div> -->
 
 

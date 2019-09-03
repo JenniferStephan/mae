@@ -55,12 +55,16 @@ GEM
     coderay (1.1.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    d3-rails (5.9.2)
+      railties (>= 3.1)
     devise (4.7.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-i18n (1.8.1)
+      devise (>= 4.6)
     dotenv (2.7.5)
     dotenv-rails (2.7.5)
       dotenv (= 2.7.5)
@@ -131,6 +135,9 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.2.0)
       loofah (~> 2.2, >= 2.2.2)
+    rails-i18n (5.1.3)
+      i18n (>= 0.7, < 2)
+      railties (>= 5.0, < 6)
     railties (5.2.3)
       actionpack (= 5.2.3)
       activesupport (= 5.2.3)
@@ -199,7 +206,9 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   cocoon
+  d3-rails
   devise
+  devise-i18n
   dotenv-rails
   flatpickr
   font-awesome-sass (~> 5.6.1)
@@ -210,6 +219,7 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.2.3)
+  rails-i18n
   redis
   sassc-rails
   simple_form
