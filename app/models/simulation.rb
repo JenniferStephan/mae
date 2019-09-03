@@ -10,11 +10,10 @@ class Simulation < ApplicationRecord
   validates :accre, presence: true
 
   def set_result
-    if self.activity = "liberale" && self.year_existence = 2 && self.accre == true
+    if activity == "liberale" && year_existence == 2 && accre == true
       self.result = 0.12
     else
       self.result = 0.23
     end
-    self.save
   end
 end

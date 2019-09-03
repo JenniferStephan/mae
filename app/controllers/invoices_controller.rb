@@ -36,6 +36,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
           page_size: 'A4',
           template: "invoices/show.html.erb",
           layout: "pdf.html",
+          encoding: 'utf-8',
           orientation: "Landscape",
           lowquality: true,
           zoom: 1,

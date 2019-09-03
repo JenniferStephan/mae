@@ -10,6 +10,8 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'rails-i18n'
 gem 'redis'
+gem 'simple_form_extension'
+gem 'coffee-rails'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
@@ -21,6 +23,7 @@ gem "cocoon"
 gem 'flatpickr'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
+
 
 group :development do
   gem 'web-console', '>= 3.3.0'
@@ -34,3 +37,5 @@ group :development, :test do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'dotenv-rails'
 end
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

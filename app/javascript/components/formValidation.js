@@ -1,19 +1,3 @@
-import "bootstrap";
-// import "../plugins/flatpickr"
-import { loadDynamicBannerText } from '../components/banner';
-import {initNotificationBar} from "../components/notificationBar";
-import { changeColumn } from '../components/changeColumn';
-// import {formValidation} from "../components/formValidation";
-import changeColumn from '../components/changeColumn';
-import turnoverChart from '../components/analyticsCharts';
-
-
-
-
-initNotificationBar();
-
-// loadDynamicBannerText();
-
 const formValidation = () => {
   const steps = [...document.querySelectorAll('a.step')];
   const tabButtonsDivs = document.querySelectorAll('.tab-buttons');
@@ -48,18 +32,4 @@ const displayErrors = () => {
   console.log("Form isn't completed");
 }
 
-formValidation();
-
-if (document.querySelector('#search_client')) {
-  let clientOption =document.querySelector('#search_client');
-  const form = document.querySelector('.search');
-  clientOption.addEventListener('change', (event) => {
-    form.submit();
-  });
-}
-
-
-
-if (document.querySelector(".checklist-entry")) {
-  changeColumn();
-}
+export default formValidation;
