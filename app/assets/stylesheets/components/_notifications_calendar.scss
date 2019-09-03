@@ -1,0 +1,85 @@
+#calendar {
+  margin: 10px;
+  padding: 5px;
+  border: solid;
+  border-radius: 5px;
+  border-color: rgb(232, 232, 232);
+  border-width: 1px;
+  box-shadow: 1px 1px 2px grey;
+}
+td .fc-day .fc-widget-content {
+  height: 2px;
+}
+
+.fc-day-number {
+  font-size: 12px;
+}
+
+.fc td {
+  border: none !important;
+}
+
+.fc th {
+  border: none !important;
+}
+
+.fc-right {
+text-align: center;
+display: none;
+}
+
+.fc-toolbar.fc-header-toolbar {
+  text-align: center;
+  justify-content: space-around;
+  margin-left: 32px;
+  font-size: 12px;
+  font-family: $headers-font;
+}
+
+button.fc-today-button.fc-button.fc-button-primary {
+  display: none;
+}
+
+button.fc-prev-button.fc-button.fc-button-primary {
+  display: none;
+}
+
+button.fc-next-button.fc-button.fc-button-primary {
+  display: none;
+}
+
+.fc-content-skeleton {
+  height: 100%;
+}
+
+
+// Bien garder toutes les classes!!
+.fc-unthemed td.fc-day.fc-widget-content.fc-tue.fc-today {
+  background-color: $yellow;
+}
+
+.fc-unthemed td.fc-day.fc-widget-content.fc-tue.fc-today.fc-day-number {
+  color: white;
+}
+
+
+
+.fc-day-header.fc-widget-header {
+  font-weight: normal;
+  font-family: $headers-font;
+  font-size: 10px;
+}
+
+.fc-past {
+  opacity: .3;
+  background-color: #fcf8e3;
+}
+
+.fc-ltr .fc-dayGrid-view .fc-day-top .fc-day-number {
+  float: left !important;
+}
+
+.fc-today span {
+  color: white;
+}
+
