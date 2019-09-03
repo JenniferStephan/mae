@@ -3,16 +3,8 @@
   <!-- <div class="invoices_index_title">
     <h1><i class="far fa-file-alt"></i>  Mes factures :</h1>
   </div> -->
+
   <div class="search-invoice">
-
-
-  <!--   <label for="inp" class="inp">
-      <input type="text" id="inp" placeholder="&nbsp;" method="get">
-      <span class="label"><i class="fas fa-search"></i>Trouver une facture</span>
-      <span class="border"></span>
-    </label>
-   -->
-
   <%= form_tag invoices_path, method: :get, class: "form-inline" do %>
     <label for="inp" class="inp">
       <%= text_field_tag :query, params[:query], id: 'inp', placeholder: "  " %>
