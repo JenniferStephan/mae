@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'invoice_paid/:id', to: 'invoices#invoice_paid', as: 'invoice_paid'
   post 'invoice_sent/:id', to: 'invoices#invoice_sent', as: 'invoice_sent'
 
+
   resources :invoices do
     resources :missions_invoices
   end

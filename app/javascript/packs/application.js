@@ -5,18 +5,23 @@ import { initNotificationBar } from "../components/notificationBar";
 import { changeColumn } from '../components/changeColumn';
 import { initFacture } from '../components/facture';
 // import {formValidation} from "../components/formValidation";
+import {initFullCalendar} from '../plugins/fullcalendar';
 import { turnoverChart } from '../components/analyticsCharts';
-
+import { gaugeChart } from '../components/gaugeChart';
+import { donutChartbis } from '../components/donutChartbis';
 
 
 if (document.querySelector('#new_invoice')) {
   initFacture();
 }
 
-initNotificationBar();
 
+// loadDynamicBannerText();
 
-// turnoverChart();
+if (document.querySelector(".notification-bar")) {
+    initNotificationBar();
+    initFullCalendar();
+}
 
 
 
@@ -61,7 +66,7 @@ initNotificationBar();
 
 
 if (document.querySelector('#search_client')) {
-  let clientOption =document.querySelector('#search_client');
+  let clientOption = document.querySelector('#search_client');
   const form = document.querySelector('.search');
   clientOption.addEventListener('change', (event) => {
     form.submit();

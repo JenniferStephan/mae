@@ -1,5 +1,7 @@
 class InvoicesController < ApplicationController
+
 before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sent, :calcul_total_amount_ht]
+
 # skip_before_action :authenticate_user!
 
   def index
@@ -22,25 +24,21 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sen
       @client_found = Client.find(params[:search][:client]) if Client.find(params[:search][:client]).present?
     end
   end
-
-
 # I added in the show action of the invoices the method either to see the html version
 # of the invoice, or the pdf one.
 
-
   def show
-   respond_to do |format|
+    respond_to do |format|
       format.html
       format.pdf do
-          render pdf: "Invoice No. #{@invoice.reference}",
-          page_size: 'A4',
-          template: "invoices/show.html.erb",
-          layout: "pdf.html",
-          encoding: 'utf-8',
-          orientation: "Landscape",
-          lowquality: true,
-          zoom: 1,
-          dpi: 75
+        render pdf: "Invoice No. #{@invoice.reference}",
+        page_size: 'A4',
+        template: "invoices/show.html.erb",
+        layout: "pdf.html",
+        orientation: "Landscape",
+        lowquality: true,
+        zoom: 1,
+        dpi: 75
       end
     end
   end
@@ -64,6 +62,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sen
   end
 
   def destroy
+    @invoice.destroy
   end
 
   def invoice_paid
@@ -73,7 +72,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sen
     new_notif_paid = Notification.create(user: current_user,
         category: "Paiement reçu !",
         content: "La facture numero #{@invoice.reference} vient d'être réglée par votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc} euros TTC." )
-
     respond_to do |format|
       format.js
       format.html { redirect_to :root }

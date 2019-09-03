@@ -130,6 +130,7 @@ invoice2 = Invoice.new(user: user,
                       due_date: Date.strptime("14-06-2019", '%d-%m-%Y'),
                       total_amount_ttc: "1000",
                       status: 2,
+
                       client: societe_generale)
 
 invoice2.save!

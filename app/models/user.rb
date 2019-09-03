@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -21,7 +22,7 @@ class User < ApplicationRecord
 
   def get_total_submitted
     # self.invoices.where(status: "submitted").pluck(:total_amount_ttc).reduce(:+)
-    self.invoices.where(status: "submitted").sum(:total_amount_ht)
+    self.invoices.where(status: "sent").sum(:total_amount_ht)
   end
 
   def get_total_paid
@@ -40,5 +41,6 @@ class User < ApplicationRecord
       group('month').
       order('month')
   end
+
 
 end
