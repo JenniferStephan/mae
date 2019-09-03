@@ -29,7 +29,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     respond_to do |format|
       format.html
       format.pdf do
-<<<<<<< HEAD
         render pdf: "Invoice No. #{@invoice.reference}",
         page_size: 'A4',
         template: "invoices/show.html.erb",
@@ -38,17 +37,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
         lowquality: true,
         zoom: 1,
         dpi: 75
-=======
-          render pdf: "Invoice No. #{@invoice.reference}",
-          page_size: 'A4',
-          template: "invoices/show.html.erb",
-          layout: "pdf.html",
-          encoding: 'utf-8',
-          orientation: "Landscape",
-          lowquality: true,
-          zoom: 1,
-          dpi: 75
->>>>>>> abdf22a99db23916bddb1947297ab4d4108244e9
       end
     end
   end
@@ -75,8 +63,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     @invoice.destroy
   end
 
-<<<<<<< HEAD
-=======
   def invoice_paid
     @invoice = Invoice.find(params[:id])
     @invoice.paid!
@@ -86,7 +72,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
     end
   end
 
->>>>>>> abdf22a99db23916bddb1947297ab4d4108244e9
   private
 
   def set_invoice
