@@ -1,30 +1,33 @@
+const width = 300;
+const height = 240;
+const margin = 50;
 
+const radius = Math.min(width, height) / 2 - margin;
 
-
-var width = 450
-    height = 450
-    margin = 40
-
-var radius = Math.min(width, height) / 2 - margin;
-
-var svg = d3.select("#my_dataviz")
+const svg = d3.select("#my_dataviz")
   .append("svg")
     .attr("width", width)
     .attr("height", height)
   .append("g")
     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+const total_submitted = document.querySelector('.total_submitted').innerHTML;
+const total_paid = document.querySelector('.total_paid').innerHTML;
+const total_delayed = document.querySelector('.total_delayed').innerHTML;
 
-var data = {a: 9, b: 20, c:30}
+const data = {a: total_submitted, b: total_paid, c: total_delayed};
 
-var color = d3.scaleOrdinal()
+
+const color = d3.scaleOrdinal()
   .domain(data)
-  .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56"])
+  .range(["#221ECE", "#64D286", "#BE0C62"])
+
 
 // Compute the position of each group on the pie:
-var pie = d3.pie()
+const pie = d3.pie()
   .value(function(d) {return d.value; })
-var data_ready = pie(d3.entries(data))
+
+const data_ready = pie(d3.entries(data))
 
 // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
 svg
@@ -41,5 +44,6 @@ svg
   .style("stroke-width", "2px")
   .style("opacity", 0.8)
 
-
-
+const div = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);

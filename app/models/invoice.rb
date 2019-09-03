@@ -10,11 +10,13 @@ class Invoice < ApplicationRecord
   before_save :generate_reference
   before_save :set_total_amounts
   before_save :set_due_date
-  before_save :delayed
+  # before_save :delayed
 
   validates :title, presence: true
   validates :creation_date, presence: true
   validates :status, presence: true
+
+  scope :to_be_delayed, -> { where('due_date < ?', Date.today).where.not(status: :paid) }
 
   def generate_reference
     reference = "JS-BG-#{id}"
@@ -27,11 +29,5 @@ class Invoice < ApplicationRecord
 
   def set_due_date
     self.due_date = creation_date + 30.days
-  end
-
-  def delayed
-    if Date.today >= due_date
-      self.status = "delayed"
-    end
   end
 end
