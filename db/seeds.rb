@@ -140,14 +140,9 @@ invoice3 = Invoice.new(user: user,
                       reference: "050319-AC0006",
                       creation_date: Date.strptime("05-03-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("05-04-2019", '%d-%m-%Y'),
-<<<<<<< HEAD
-                      total_amount_ttc: "2700",
-                      status: 0,
-=======
                       payment_date: '2019-03-21',
                       total_amount_ttc: 2700,
                       status: 3,
->>>>>>> abdf22a99db23916bddb1947297ab4d4108244e9
                       client: collectionist)
 invoice3.save!
 
