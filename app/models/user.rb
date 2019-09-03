@@ -8,11 +8,7 @@ class User < ApplicationRecord
   has_many :missions
   has_many :clients, dependent: :destroy
   has_many :invoices, dependent: :destroy
-<<<<<<< HEAD
-  has_many :notifications
-=======
   has_many :notifications, dependent: :destroy
->>>>>>> e53f0bec3ac39fcdd21761b04922854385b4d482
   has_many :simulations, dependent: :destroy
 
   validates :first_name, presence: true
