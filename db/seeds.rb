@@ -197,7 +197,7 @@ invoice6 = Invoice.new(user: user,
                       creation_date: Date.strptime("30-10-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("30-11-2018", '%d-%m-%Y'),
                       total_amount_ttc: "1500",
-                      status: 5,
+                      status: 1,
                       client: buzzman)
 
 invoice6.save!
@@ -210,7 +210,7 @@ invoice7 = Invoice.new(user: user,
                       creation_date: Date.strptime("22-09-2018", '%d-%m-%Y'),
                       due_date: Date.strptime("22-10-2018", '%d-%m-%Y'),
                       total_amount_ttc: "4500",
-                      status: 5,
+                      status: 1,
                       client: kitchen_terre)
 
 invoice7.save!

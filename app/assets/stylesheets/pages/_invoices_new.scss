@@ -5,4 +5,42 @@
   padding: 10px 15px;
 }
 
+.w-input {
+  width: 80px;
+}
+
+.x-input {
+  width: 90px;
+}
+.y-input {
+  width: 60px;
+}
+
+.mission-name {
+  width: 250px;
+}
+
+.total-line-TTC {
+  padding: 8px 10px;
+  background-color: white;
+  border: 1px solid rgba(40, 40, 40, 0.2);
+  border-radius: 4px;
+}
+
+.montant p {
+  margin-bottom: 8px;
+}
+
+.total-HT, .total-TTC {
+  padding: 8px 10px;
+  background-color: white;
+  border: 1px solid rgba(40, 40, 40, 0.2);
+  border-radius: 4px;
+  width: 70px;
+  margin-left: 15px;
+  margin-right: 0px;
+  margin-bottom: 15px;
+}
+
+
 

@@ -1,8 +1,12 @@
 
 <div class="container">
 
-  <div class="search-invoice">
+  <!-- <div class="invoices_index_title">
+    <h1><i class="far fa-file-alt"></i>  Mes factures :</h1>
+  </div> -->
 
+
+  <div class="search-invoice">
   <%= form_tag invoices_path, method: :get, class: "form-inline" do %>
     <label for="inp" class="inp">
       <%= text_field_tag :query, params[:query], id: 'inp', placeholder: "  " %>
