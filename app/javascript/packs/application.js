@@ -1,16 +1,21 @@
 import "bootstrap";
 // import "../plugins/flatpickr"
 import { loadDynamicBannerText } from '../components/banner';
-import {initNotificationBar} from "../components/notificationBar";
+import { initNotificationBar } from "../components/notificationBar";
 import { changeColumn } from '../components/changeColumn';
+import { initFacture } from '../components/facture';
 // import {formValidation} from "../components/formValidation";
 import changeColumn from '../components/changeColumn';
 import turnoverChart from '../components/analyticsCharts';
 
 
 
+if (document.querySelector('#new_invoice')) {
+  initFacture();
+}
 
 initNotificationBar();
+
 
 // loadDynamicBannerText();
 
@@ -48,7 +53,11 @@ const displayErrors = () => {
   console.log("Form isn't completed");
 }
 
+
+loadDynamicBannerText();
+
 formValidation();
+
 
 if (document.querySelector('#search_client')) {
   let clientOption = document.querySelector('#search_client');
@@ -57,8 +66,6 @@ if (document.querySelector('#search_client')) {
     form.submit();
   });
 }
-
-
 
 if (document.querySelector(".checklist-entry")) {
   changeColumn();

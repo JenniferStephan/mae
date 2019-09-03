@@ -21,7 +21,7 @@
                     <br>
                     Créée le : <b><%= @invoice.creation_date %></b>
                     <br>
-                    A payer avant le : <b><%= @invoice.creation_date %></b>
+                    A payer avant le : <b><%= @invoice.set_due_date %></b>
                     <br>
                     Statut : <span class="badge badge-primary"><%= @invoice.status %></span>
                   </td>
@@ -128,5 +128,7 @@
 
 <%= link_to "PDF", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_pdf" %>
 <%= link_to "Envoyer", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_envoi" %>
+
 </body>
+
 

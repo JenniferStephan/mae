@@ -70,6 +70,8 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
     crass (1.0.4)
+    d3-rails (5.9.2)
+      railties (>= 3.1)
     devise (4.7.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -228,7 +230,9 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   cocoon
+  d3-rails
   coffee-rails
+
   devise
   devise-i18n
   dotenv-rails
@@ -241,6 +245,11 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.2.3)
+<<<<<<< HEAD
+=======
+  redactor-rails!
+
+>>>>>>> 431b3af13412cf6c44abf9ddc5a0fc108c0a1ef1
   rails-i18n
   redactor-rails!
   redis
