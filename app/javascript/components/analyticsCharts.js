@@ -1,6 +1,7 @@
 import Chart from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
+if (document.querySelector(".chart-canvas")) {
 const canvas = document.querySelector(".chart-canvas");
 const ctx = canvas.getContext("2d");
 
@@ -64,3 +65,4 @@ const turnoverChart = new Chart(ctx, {
     }
   }
 });
+}

@@ -10,7 +10,7 @@ gem 'puma'
 gem 'rails', '5.2.3'
 gem 'rails-i18n'
 gem 'redis'
-gem 'simple_form_extension'
+# gem 'simple_form_extension'
 gem 'coffee-rails'
 
 gem 'autoprefixer-rails'

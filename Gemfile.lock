@@ -178,15 +178,9 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    selectize-rails (0.12.6)
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
-    simple_form_extension (1.4.18)
-      rails (>= 3.1)
-      redactor-rails
-      selectize-rails
-      simple_form
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -230,9 +224,8 @@ DEPENDENCIES
   autoprefixer-rails
   bootsnap
   cocoon
-  d3-rails
   coffee-rails
-
+  d3-rails
   devise
   devise-i18n
   dotenv-rails
@@ -245,13 +238,11 @@ DEPENDENCIES
   pry-rails
   puma
   rails (= 5.2.3)
-  redactor-rails!
-
   rails-i18n
+  redactor-rails!
   redis
   sassc-rails
   simple_form
-  simple_form_extension
   spring
   spring-watcher-listen (~> 2.0.0)
   uglifier
