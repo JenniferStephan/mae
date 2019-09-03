@@ -66,8 +66,14 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :calcul_tota
   def destroy
   end
 
-  # def invoice_
-
+  def invoice_paid
+    @invoice = Invoice.find(params[:id])
+    @invoice.paid!
+    respond_to do |format|
+      format.js
+      format.html { redirect_to :root }
+    end
+  end
 
   private
 
