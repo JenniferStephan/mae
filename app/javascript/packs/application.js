@@ -7,7 +7,8 @@ import { initFacture } from '../components/facture';
 // import {formValidation} from "../components/formValidation";
 import {initFullCalendar} from '../plugins/fullcalendar';
 import { turnoverChart } from '../components/analyticsCharts';
-
+import { gaugeChart } from '../components/gaugeChart';
+import { donutChartbis } from '../components/donutChartbis';
 
 
 if (document.querySelector('#new_invoice')) {
@@ -21,10 +22,6 @@ if (document.querySelector(".notification-bar")) {
     initNotificationBar();
     initFullCalendar();
 }
-
-
-
-// turnoverChart();
 
 
 

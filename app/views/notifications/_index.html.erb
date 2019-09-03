@@ -1,0 +1,25 @@
+<% notifications.each do |notif| %>
+  <div class="notification-card">
+    <div class="notification-card-title">
+      <% if notif.category == "Paiement reçu !" %>
+        <i class="fas fa-wallet notif-icon-cotisations"></i>
+
+      <% elsif notif.category == "Facture envoyée" %>
+        <i class="far fa-paper-plane notif-icon-sent"></i>
+
+      <% elsif notif.category == "Paiement reçu !" %>
+        <i class="fas fa-hand-holding-usd notif-icon-paid"></i>
+
+      <% elsif notif.category == "Paiement en retard" %>
+      <i class="far fa-clock notif-icon-delayed"></i>
+
+      <% end %>
+
+      <h3><%= notif.category %></h3>
+    </div>
+      <p><%= notif.content %></p>
+      <small class="notif-date-trigger">il y a 3 jours</small>
+  </div>
+<% end %>
+
+
