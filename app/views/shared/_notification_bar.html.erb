@@ -1,7 +1,9 @@
 <div class="notification-bar">
 
-    <%= render 'notifications/index.html.erb', notifications: current_user.notifications %>
+  <div id="calendar">
+  </div>
 
+    <%= render 'notifications/index.html.erb', notifications: current_user.notifications %>
 
 
 </div>
