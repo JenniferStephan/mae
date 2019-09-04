@@ -1,7 +1,9 @@
 .welcome-card {
-  margin-top: 120px;
+  margin-top: 170px;
   margin-left: 50px;
-  background: #ffcb3f;
+  // background: $yellow;
+  // background: #F64451;
+  background: #f9454b;
   border-radius: 10px;
   h2 {
     color: white;
@@ -10,18 +12,7 @@
   }
 }
 
-.notification-bar {
-  background: white;
-  border-left: 1px solid rgba(0,0,0,0.1);
-  display: flex;
-  align-items: center;
-}
-
-// .calendar {
-//    important day color : #FB9D56
-// }
-
-.invoice-infos {
+.homepage-invoice-infos {
   flex-grow: 1;
   text-align: left;
 }
@@ -39,7 +30,7 @@
   &:first-child {
     margin-left: 0px;
   }
-  margin-left: 50px;
+  margin-left: 40px;
   h5 {
     font-size: 15px;
   }
@@ -72,28 +63,29 @@
 }
 
 .status-colored-circle {
-  font-size: 10px;
+  font-size: 12px;
   margin-right: 10px;
 }
 
 .status-colored-circle.sent {
-  color: $turquoise;
+  color: $dark-blue;
   line-height: 1.9;
 }
 
 .status-colored-circle.paid {
-  color: #64D286;
+  color: $paid;
   line-height: 1.9;
 }
 
 .status-colored-circle.delayed {
-  color: $pink;
+  color: $delayed;
   line-height: 1.9;
 }
 
 .mark-as-paid-button {
   border-radius: 5px;
-  background: #FFC108;
+  // background: #FFC108;
+  background: $yellow;
   box-shadow: 0px 2px 2px rgba(50,50,93,.11);
   color: white;
   text-align: center;
@@ -115,7 +107,8 @@
 .late-client-button {
   margin-top: 7px;
   border-radius: 5px;
-  background: #FFC108;
+  // background: #FFC108;
+  background: $yellow;
   box-shadow: 0px 2px 2px rgba(50,50,93,.11);
   color: white;
   text-align: center;

@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :simulations
   get "/discover", to: "pages#discover", as: "landing_page"
 
+  get 'invoice_paid/:id', to: 'invoices#invoice_paid', as: 'invoice_paid'
+  post 'invoice_sent/:id', to: 'invoices#invoice_sent', as: 'invoice_sent'
+
 
   resources :invoices do
     resources :missions_invoices
@@ -12,7 +15,6 @@ Rails.application.routes.draw do
 
   resources :clients, only: [:show, :new, :create, :edit, :update]
   resources :missions, only: [:new, :create]
-
-
+  resources :notifications, only: [:show, :index, :new, :create]
 
 end

@@ -1,14 +1,15 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
   has_many :missions
   has_many :clients, dependent: :destroy
   has_many :invoices, dependent: :destroy
-  has_many :notifications
-  has_many :simulations
+  has_many :notifications, dependent: :destroy
+  has_many :simulations, dependent: :destroy
 
   validates :first_name, presence: true
   validates :last_name, presence: true
@@ -18,4 +19,28 @@ class User < ApplicationRecord
   validates :tax_rate, presence: true
   validates :vat, presence: true
   validates :address, presence: true
+
+  def get_total_submitted
+    # self.invoices.where(status: "submitted").pluck(:total_amount_ttc).reduce(:+)
+    self.invoices.where(status: "sent").sum(:total_amount_ht)
+  end
+
+  def get_total_paid
+    self.invoices.where(status: "paid").sum(:total_amount_ht)
+  end
+
+  def get_total_delayed
+    self.invoices.where(status: "delayed").sum(:total_amount_ht)
+  end
+
+  def total_paid_ht_per_month
+    # TODO: WORKS ONLY WITH ONE YEAR FOR NOW
+    invoices.
+      select("CAST (date_part('month', payment_date) AS Integer) AS month, SUM(total_amount_ht) AS total").
+      where(status: :paid).
+      group('month').
+      order('month')
+  end
+
+
 end

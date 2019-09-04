@@ -28,7 +28,7 @@
 
 
     <!-- SIMPLE FORM -->
-    <%= simple_form_for(@simulation) do |f| %>
+    <%#= simple_form_for(@simulation) do |f| %>
       <div class="tab-content" id="pills-tabContent">
         <!-- START -->
 
@@ -39,7 +39,7 @@
 
                 <%#= f.input :activity, as: :select, collection: Simulation::ACTIVITIES, label: false, prompt: "Quelle est votre catégorie d'activité ?", :class => 'mt-4' %>
                  <%#= f.input :activity, label: false, collection: Simulation::ACTIVITIES, as: :check_boxes, :class => "check_boxes"  %>
-
+              <form action="/simulations/create" method="post">
                 <div class="form-group">
                     <div class="activity-choices">
                       <% Simulation::ACTIVITIES.each do |activity| %>
@@ -63,7 +63,13 @@
               <fieldset>
 
                 <%#= f.input :reglementary, as: :select, label: false, prompt: "Est-ce une activité libérale règlementée ?", :class => 'mt-4' %>
-                <%= f.input :reglementary, :class => 'check_boxes', label: false, as: :check_boxes %>
+                <%#= f.input :reglementary, :class => 'check_boxes', label: false, as: :check_boxes %>
+                <div class="form-group">
+                    <div class="reglementary-choices">
+                        <input type="checkbox" class="hidden" value="reglementary" name="simulation[reglementary][]">
+                      <%# end %>
+                    </div>
+                </div>
 
               </fieldset>
 
@@ -78,7 +84,7 @@
             <h3 class="mb-4">🎂 Quel est l'âge à votre entreprise ?</h3>
               <fieldset>
 
-                <%= f.input :year_existence, as: :select, label: false, prompt: "Quel est l'âge à votre entreprise ?", :class => 'check_boxes', collection: Simulation::YEAREXISTENCE %>
+                <%#= f.input :year_existence, as: :select, label: false, prompt: "Quel est l'âge à votre entreprise ?", :class => 'check_boxes', collection: Simulation::YEAREXISTENCE %>
 
               </fieldset>
 
@@ -95,16 +101,18 @@
 
 
                   <%#= f.input :accre, as: :select, :label => "Avez-vous obtenu l'ACCRE lors de votre création d'entreprise ?"%>
-                  <%= f.input :accre, label: false, as: :check_boxes, :class => 'check_boxes' %>
+                  <%#= f.input :accre, label: false, as: :check_boxes, :class => 'check_boxes' %>
 
               </fieldset>
               <div class="tab-buttons">
                 <button class="btn btn-primary previous-btn mt-2" href="#">Précédent</button>
-                <%= f.submit "Créer", class:"btn-primary"%>
+                <%#= f.submit "Créer", class:"btn-primary"%>
+                <input type="submit">
+              </form>
               </div>
           </div>
       </div>
-    <% end %>
+    <%# end %>
 
 
 
