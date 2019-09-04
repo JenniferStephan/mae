@@ -18,6 +18,9 @@ module Mae
 
     config.i18n.default_locale = :fr
 
+    config.action_mailer.delivery_method = :postmark
+    config.action_mailer.postmark_settings = { :api_token => "7ced1da5-48b9-4f15-976f-54da0d74865a" }
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading

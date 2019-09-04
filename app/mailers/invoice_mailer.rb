@@ -46,4 +46,13 @@ class InvoiceMailer < ApplicationMailer
 
     return tempfile.path
   end
+
+  def hello
+    mail(
+      :subject => 'Facturation',
+      :to  => 'jennifer.stephan@beta.gouv.fr',
+      :from => 'jennifer@mae.com',
+      :html_body => '<strong>Hello</strong> dear Postmark user.',
+      :track_opens => 'true')
+  end
 end

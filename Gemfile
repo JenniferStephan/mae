@@ -24,6 +24,7 @@ gem 'flatpickr'
 gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'd3-rails'
+gem 'postmark-rails'
 
 
 group :development do
