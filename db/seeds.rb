@@ -90,7 +90,7 @@ invoice2 = Invoice.new(user: user,
                       creation_date: Date.strptime("14-05-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("14-06-2019", '%d-%m-%Y'),
                       payment_date: Date.strptime("09-06-2019", '%d-%m-%Y'),
-                      total_amount_ttc: 3 000,
+                      total_amount_ttc: 3000,
                       status: 3,
                       client: typology)
 
@@ -144,7 +144,7 @@ invoice6 = Invoice.new(user: user,
 
 invoice6.save!
 
-invoice6 = Invoice.new(user: user,
+invoice7 = Invoice.new(user: user,
                       title: "Constitution de portfolio",
                       reference: "121218-AC0005",
                       creation_date: Date.strptime("09-07-2019", '%d-%m-%Y'),
@@ -154,7 +154,7 @@ invoice6 = Invoice.new(user: user,
                       status: 3,
                       client: superman)
 
-invoice6.save!
+invoice7.save!
 
 MissionsInvoice.create!(man_day_quantity: 10, price_rate: 550, vat_rate: 0, mission: proto_web, invoice: invoice4)
 
