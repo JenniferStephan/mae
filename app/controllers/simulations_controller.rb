@@ -6,7 +6,6 @@ class SimulationsController < ApplicationController
   end
 
   def create
-    raise
     @simulation = Simulation.new(simulation_params)
     @simulation.activity = params["simulation"]["activity_ids"][1]
     @simulation.accre = params["simulation"]["accre_ids"][1]  == 'true' ? true : false
