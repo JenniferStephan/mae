@@ -1,22 +1,29 @@
 <div class="d-flex">
-<div class="welcome-card">
-  <h2>Bonjour <%= current_user.first_name %> !</h2>
-  <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
-</div>
+  <div class="welcome-card">
+    <h2>Bonjour <%= current_user.first_name %> !</h2>
+    <p>Que voulez-vous faire aujourd'hui ?</p>
+    <div class="two-actions-from-homepage-card">
+      <%= link_to "Créer une nouvelle facture", new_invoice_path, class: "button" %>
+      <%= link_to "Gérer mes factures", invoices_path, class: "button second-button-on-the-right" %>
+    </div>
+    <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
+  </div>
 
+  <div class="timer-cotisations-chart">
+    <!-- futur chart Aurore -->
+  </div>
 
+<div class="d-flex">
+  <div class="turnover-chart-card" style="width: 600px">
+    <div class="turnover-chart chart">
+      <canvas id="chart-bars" class="chart-canvas chartjs-render-monitor" data-months="<%= @income_months.to_json %>" data-values="<%= @income_values.to_json %>"></canvas>
+    </div>
+  </div>
 
-<div class="turnover-chart-card" style="width: 410px">
-  <div class="turnover-chart chart">
-    <canvas id="chart-bars" class="chart-canvas chartjs-render-monitor" data-months="<%= @income_months.to_json %>" data-values="<%= @income_values.to_json %>"></canvas>
+  <div class="mes-factures-chart-card" style="width: 330px">
+    <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted %>" data-delayed="<%=current_user.get_total_delayed %>" data-paid="<%= current_user.get_total_paid %>"></canvas>
   </div>
 </div>
-</div>
-
-<div class="mes-factures-chart-card" style="width: 500px">
-    <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted %>" data-delayed="<%=current_user.get_total_delayed %>" data-paid="<%= current_user.get_total_paid %>"></canvas>
-</div>
-
 
 <div class="invoices-cards">
 
@@ -26,12 +33,12 @@
 
         <div class="column-title">
           <h3>Factures envoyées</h3>
-          <div class="d-flex justify-content-between">
-            <div class="total_submitted">
-              <%=current_user.get_total_submitted %> €
+            <div class="d-flex justify-content-between">
+              <div class="total_submitted">
+                <%=current_user.get_total_submitted %> €
+              </div>
+              <div class="invoices-counted-with-circle-blue"> <%= @invoices.sent.count %> </div>
             </div>
-            <div class="invoices-counted-with-circle-blue"> <%= @invoices.sent.count %> </div>
-          </div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -68,12 +75,12 @@
 
         <div class="column-title">
           <h3>Factures en retard</h3>
-          <div class="d-flex justify-content-between">
-            <div class="total_delayed">
-              <%=current_user.get_total_delayed %> €
+            <div class="d-flex justify-content-between">
+              <div class="total_delayed">
+                <%=current_user.get_total_delayed %> €
+              </div>
+                <div class="invoices-counted-with-circle-pink"> <%= @invoices.delayed.count %> </div>
             </div>
-              <div class="invoices-counted-with-circle-pink"> <%= @invoices.delayed.count %> </div>
-          </div>
         </div>
 
         <% @invoices.each do |invoice| %>
