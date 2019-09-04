@@ -15,6 +15,7 @@ const sumAll = () => {
   });
 }
 
+
 const calculate = (event) => {
     const line = event.target.closest('.nested-fields');
     if (line) {
@@ -35,7 +36,6 @@ const initFacture = () => {
   bigForm.addEventListener('keyup', calculate);
   bigForm.addEventListener('change', calculate);
 }
-
 
 
 

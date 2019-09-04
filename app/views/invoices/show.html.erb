@@ -127,7 +127,9 @@
     </div>
 
 <%= link_to "PDF", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_pdf" %>
-<%= link_to "Envoyer", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_envoi" %>
+
+<%= link_to 'Envoyer', invoice_sent_path(@invoice), method: :post, class: 'button button_envoi hidden-link' %>
+
 
 </body>
 

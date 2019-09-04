@@ -5,8 +5,6 @@
 </div>
 
 
-<div id="my_dataviz"></div>
-<div id="my_treemap"></div>
 
 <div class="turnover-chart-card" style="width: 410px">
   <div class="turnover-chart chart">
@@ -14,6 +12,11 @@
   </div>
 </div>
 </div>
+
+<div class="mes-factures-chart-card" style="width: 500px">
+<canvas id="doughnut-chart"></canvas>
+</div>
+<svg id="fillgauge1" width="97%" height="250"></svg>
 
 
 <div class="invoices-cards">
@@ -23,8 +26,9 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures envoyées
-          <div class="total_submitted"> <%= current_user.get_total_submitted %> </div></h3>
+          <h3>Factures envoyées</h3>
+          <div class="total_submitted"><%= number_with_delimiter(current_user.get_total_submitted, delimiter: " ") %> €</div>
+
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -36,7 +40,7 @@
                   <div class="homepage-invoice-infos">
                     <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
                     <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
-                    <%= link_to '', invoice_paid_path(invoice), class: "hidden-link", remote: true  %>
+                    <%= link_to '', invoice_paid_path(invoice), class: "hidden-link"  %>
                   </div>
                 </div>
 
@@ -60,7 +64,8 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures en retard</h3> <div class="total_delayed"><%= current_user.get_total_delayed %> </div>
+          <h3>Factures en retard</h3>
+          <div class="total_delayed"><%= number_with_delimiter(current_user.get_total_delayed, delimiter: " ") %> €</div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -101,7 +106,8 @@
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
         <div class="column-title">
-          <h3>Factures payées</h3> <div class="total_paid"><%= current_user.get_total_paid %> </div>
+          <h3>Factures payées</h3>
+          <div class="total_paid"><%= number_with_delimiter(current_user.get_total_paid , delimiter: " ") %> €</div>
         </div>
 
         <% @invoices.each do |invoice| %>
