@@ -3,9 +3,10 @@
   padding: 5px;
   border: solid;
   border-radius: 5px;
-  border-color: rgb(232, 232, 232);
+  border-color: rgba(232, 232, 232, .2);
   border-width: 1px;
-  box-shadow: 1px 1px 2px grey;
+  box-shadow: 1px 1px 2px rgba(232, 232, 232, .2);
+  background: rgba(232, 232, 232, .1)
 }
 td .fc-day .fc-widget-content {
   height: 2px;
