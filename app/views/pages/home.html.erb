@@ -3,18 +3,20 @@
   <h2>Bonjour <%= current_user.first_name %> !</h2>
   <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
 </div>
+  <canvas id="chart-area"></canvas>
 
 
+
+</div>
+
+<div class="mes-factures-chart-card" style="width: 500px">
+    <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted %>" data-delayed="<%=current_user.get_total_delayed %>" data-paid="<%= current_user.get_total_paid %>"></canvas>
+</div>
 
 <div class="turnover-chart-card" style="width: 410px">
   <div class="turnover-chart chart">
     <canvas id="chart-bars" class="chart-canvas chartjs-render-monitor" data-months="<%= @income_months.to_json %>" data-values="<%= @income_values.to_json %>"></canvas>
   </div>
-</div>
-</div>
-
-<div class="mes-factures-chart-card" style="width: 500px">
-    <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted %>" data-delayed="<%=current_user.get_total_delayed %>" data-paid="<%= current_user.get_total_paid %>"></canvas>
 </div>
 
 
