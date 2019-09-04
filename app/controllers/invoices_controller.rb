@@ -36,6 +36,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sen
         template: "invoices/show.html.erb",
         layout: "pdf.html",
         orientation: "Landscape",
+        encoding: 'utf-8',
         lowquality: true,
         zoom: 1,
         dpi: 75

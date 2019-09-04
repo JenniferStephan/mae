@@ -109,10 +109,11 @@ invoice3 = Invoice.new(user: user,
                       client: algolia)
 invoice3.save!
 
-MissionsInvoice.create!(man_day_quantity: 6, price_rate: 300, vat_rate: 0, mission: seo_test, invoice: invoice2)
-MissionsInvoice.create!(man_day_quantity: 6, price_rate: 200, vat_rate: 0, mission: ab_test, invoice: invoice2)
+MissionsInvoice.create!(man_day_quantity: 6, price_rate: 300, vat_rate: 0, mission: seo_test, invoice: invoice3)
+MissionsInvoice.create!(man_day_quantity: 6, price_rate: 200, vat_rate: 0, mission: ab_test, invoice: invoice3)
+
 invoice4 = Invoice.new(user: user,
-                      title: "Tests sur les features de paiement",
+                      title: "Conseil pour l'équipe de Business Béveloppement",
                       reference: "PDLP-023457",
                       creation_date: Date.strptime("28-05-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("28-06-2019", '%d-%m-%Y'),
@@ -120,6 +121,8 @@ invoice4 = Invoice.new(user: user,
                       status: 2,
                       client: algolia)
 invoice4.save!
+MissionsInvoice.create!(man_day_quantity: 10, price_rate: 260, vat_rate: 0, mission: exp_user, invoice: invoice4)
+
 
 invoice5 = Invoice.new(user: user,
                       title: "Focus group utilisateurs app",
@@ -131,7 +134,7 @@ invoice5 = Invoice.new(user: user,
                       status: 3,
                       client: frichti)
 invoice5.save!
-MissionsInvoice.create!(man_day_quantity: 10, price_rate: 250, vat_rate: 0, mission: exp_user, invoice: invoice3)
+MissionsInvoice.create!(man_day_quantity: 10, price_rate: 250, vat_rate: 0, mission: exp_user, invoice: invoice5)
 
 invoice6 = Invoice.new(user: user,
                       title: "Maintenance de site internet",
@@ -156,7 +159,7 @@ invoice7 = Invoice.new(user: user,
 
 invoice7.save!
 
-MissionsInvoice.create!(man_day_quantity: 10, price_rate: 550, vat_rate: 0, mission: proto_web, invoice: invoice4)
+MissionsInvoice.create!(man_day_quantity: 10, price_rate: 550, vat_rate: 0, mission: proto_web, invoice: invoice7)
 
 # invoice5 = Invoice.new(user: user,
 #                       title: "Consulting",
