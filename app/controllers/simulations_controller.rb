@@ -6,6 +6,7 @@ class SimulationsController < ApplicationController
   end
 
   def create
+    raise
     @simulation = Simulation.new(simulation_params)
     @simulation.activity = params[:simulation][:activity]
     @simulation.accre = params[:simulation][:accre]
