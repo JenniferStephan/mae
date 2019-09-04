@@ -75,7 +75,7 @@ invoice1 = Invoice.new(user: user,
                       creation_date: Date.strptime("24-04-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("24-05-2019", '%d-%m-%Y'),
                       payment_date: Date.strptime("22-05-2019", '%d-%m-%Y'),
-                      total_amount_ttc: "900",
+                      total_amount_ttc: 900,
                       status: 3,
                       client: botify)
 
@@ -90,7 +90,7 @@ invoice2 = Invoice.new(user: user,
                       creation_date: Date.strptime("14-05-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("14-06-2019", '%d-%m-%Y'),
                       payment_date: Date.strptime("09-06-2019", '%d-%m-%Y'),
-                      total_amount_ttc: "3 000",
+                      total_amount_ttc: 3 000,
                       status: 3,
                       client: typology)
 

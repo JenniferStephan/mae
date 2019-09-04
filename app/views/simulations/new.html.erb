@@ -3,23 +3,23 @@
       <!-- STEP 1 -->
       <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
         <li class="nav-item nav-bar">
-          <a class="nav-link active step pills-color" id="pills-first-tab" data-toggle="pill" href="#pills-first" role="tab" aria-controls="pills-first" aria-selected="true">1. Activité</a>
+          <a class="nav-link active step pills-color" id="pills-first-tab" data-toggle="pill" href="#pills-first" role="tab" aria-controls="pills-first" aria-selected="true">Votre activité</a>
         </li>
 
       <!-- STEP 2 -->
         <li class="nav-item nav-bar">
-          <a class="nav-link step pills-color" id="pills-second-tab" data-toggle="pill" href="#pills-second" role="tab" aria-controls="pills-second" aria-selected="false">2. Réglementation</a>
+          <a class="nav-link step pills-color" id="pills-second-tab" data-toggle="pill" href="#pills-second" role="tab" aria-controls="pills-second" aria-selected="false">Réglementation</a>
         </li>
 
 
       <!-- STEP .. -->
         <li class="nav-item nav-bar">
-          <a class="nav-link step pills-color" id="pills-third-tab" data-toggle="pill" href="#pills-third" role="tab" aria-controls="pills-third" aria-selected="false">3. Age</a>
+          <a class="nav-link step pills-color" id="pills-third-tab" data-toggle="pill" href="#pills-third" role="tab" aria-controls="pills-third" aria-selected="false">Age</a>
         </li>
 
       <!-- STEP .. -->
         <li class="nav-item nav-bar">
-          <a class="nav-link step pills-color" id="pills-fourth-tab" data-toggle="pill" href="#pills-fourth" role="tab" aria-controls="pills-fourth" aria-selected="false">4. Accre</a>
+          <a class="nav-link step pills-color" id="pills-fourth-tab" data-toggle="pill" href="#pills-fourth" role="tab" aria-controls="pills-fourth" aria-selected="false">Accre</a>
         </li>
 
       <!-- STEP .. -->
@@ -28,30 +28,36 @@
 
 
     <!-- SIMPLE FORM -->
-    <%#= simple_form_for(@simulation) do |f| %>
+    <%= simple_form_for(@simulation) do |f| %>
       <div class="tab-content" id="pills-tabContent">
         <!-- START -->
 
         <!-- PAGE ...-->
           <div class="tab-pane fade mt-3 show active" id="pills-first" role="tabpanel" aria-labelledby="pills-first-tab">
             <h3 class="mb-4"> Quelle est votre catégorie d'activité ? </h3>
-              <fieldset>
 
-                <%#= f.input :activity, as: :select, collection: Simulation::ACTIVITIES, label: false, prompt: "Quelle est votre catégorie d'activité ?", :class => 'mt-4' %>
+                <%#= f.input :activity, as: :check_boxes, collection: Simulation::ACTIVITIES, label: false, prompt: "Quelle est votre catégorie d'activité ?", :class => 'mt-4' %>
                  <%#= f.input :activity, label: false, collection: Simulation::ACTIVITIES, as: :check_boxes, :class => "check_boxes"  %>
-              <form action="/simulations/create" method="post">
+                <%# Simulation::ACTIVITIES.each do |activity| %>
+                  <%#= f.input :activity  %>
+                <%# end %>
+
                 <div class="form-group">
-                    <div class="activity-choices">
-                      <% Simulation::ACTIVITIES.each do |activity| %>
-                        <input type="checkbox" class="hidden" value="<%= activity %>" name="simulation[activity][]" id="simulation_activity<%= activity %>">
-                        <label for="simulation_activity<%= activity %>" class="activity-card">
+                  <label class="control-label check_boxes optional"></label>
+                  <input type="hidden" name="simulation[activity_ids][]" value="">
+                  <div class="category-choices">
+                    <% Simulation::ACTIVITIES.each_with_index do |activity, index| %>
+                      <input type="checkbox" class="hidden" value="<%= index %>" name="simulation[activity_ids][]" id="simulation_activity_ids_<%= index %>">
+                      <label for="simulation_activity_ids_<%= index %>" class="category-choice">
                         <%= activity %>
-                        </label>
-                      <% end %>
-                    </div>
+<!--                         <i class="fa fa-check"></i> -->
+                      </label>
+                    <% end %>
+                   </div>
                 </div>
 
-              </fieldset>
+
+
               <div class="tab-buttons text-right" id="first-tab">
                 <button class="btn btn-primary next-btn mt-2" href="#">Suivant</button>
               </div>
@@ -60,18 +66,12 @@
           <!-- PAGE ...-->
           <div class="tab-pane mt-3 fade" id="pills-second" role="tabpanel" aria-labelledby="pills-second-tab">
             <h3 class="mb-4"> Est-ce une activité libérale règlementée ?</h3>
-              <fieldset>
+
 
                 <%#= f.input :reglementary, as: :select, label: false, prompt: "Est-ce une activité libérale règlementée ?", :class => 'mt-4' %>
-                <%#= f.input :reglementary, :class => 'check_boxes', label: false, as: :check_boxes %>
-                <div class="form-group">
-                    <div class="reglementary-choices">
-                        <input type="checkbox" class="hidden" value="reglementary" name="simulation[reglementary][]">
-                      <%# end %>
-                    </div>
-                </div>
+                <%= f.input :reglementary, :class => 'check_boxes', label: false, as: :check_boxes %>
 
-              </fieldset>
+
 
               <div class="tab-buttons">
                 <button class="btn btn-primary previous-btn mt-2" href="#">Précédent</button>
@@ -88,6 +88,20 @@
 
               </fieldset>
 
+              <div class="form-group">
+                <label class="control-label check_boxes optional"></label>
+                <input type="hidden" name="simulation[activity_ids][]" value="">
+                <div class="category-choices">
+                  <% Simulation::YEAREXISTENCE.each_with_index do |year, index| %>
+                    <input type="checkbox" class="hidden" value="<%= index %>" name="simulation[year_ids][]" id="simulation_year_ids_<%= index %>">
+                    <label for="simulation_year_ids_<%= index %>" class="category-choice">
+                      <%= year %>
+        <!--               <i class="fa fa-check"></i> -->
+                    </label>
+                  <% end %>
+                 </div>
+              </div>
+
               <div class="tab-buttons">
                 <button class="btn btn-primary previous-btn mt-2" href="#">Précédent</button>
                 <button class="btn btn-primary next-btn mt-2" href="#">Suivant</button>
@@ -101,18 +115,17 @@
 
 
                   <%#= f.input :accre, as: :select, :label => "Avez-vous obtenu l'ACCRE lors de votre création d'entreprise ?"%>
-                  <%#= f.input :accre, label: false, as: :check_boxes, :class => 'check_boxes' %>
+                  <%= f.input :accre, label: false, as: :check_boxes, :class => 'check_boxes' %>
 
               </fieldset>
               <div class="tab-buttons">
                 <button class="btn btn-primary previous-btn mt-2" href="#">Précédent</button>
-                <%#= f.submit "Créer", class:"btn-primary"%>
-                <input type="submit">
-              </form>
+                <%= f.submit "Créer", class:"btn-primary"%>
+
               </div>
           </div>
       </div>
-    <%# end %>
+    <% end %>
 
 
 
