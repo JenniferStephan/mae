@@ -14,9 +14,8 @@
 </div>
 
 <div class="mes-factures-chart-card" style="width: 500px">
-<canvas id="doughnut-chart"></canvas>
+    <canvas id="myChart" ></canvas>
 </div>
-<svg id="fillgauge1" width="97%" height="250"></svg>
 
 
 <div class="invoices-cards">
@@ -27,7 +26,7 @@
 
         <div class="column-title">
           <h3>Factures envoyées</h3>
-          <div class="total_submitted"><%= number_with_delimiter(current_user.get_total_submitted, delimiter: " ") %> €</div>
+          <div align-items> <div class="total_submitted"><%=current_user.get_total_submitted %></div> </div>
 
         </div>
 
@@ -65,7 +64,7 @@
 
         <div class="column-title">
           <h3>Factures en retard</h3>
-          <div class="total_delayed"><%= number_with_delimiter(current_user.get_total_delayed, delimiter: " ") %> €</div>
+          <div class="total_delayed"><%=current_user.get_total_delayed %> </div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -107,7 +106,7 @@
 
         <div class="column-title">
           <h3>Factures payées</h3>
-          <div class="total_paid"><%= number_with_delimiter(current_user.get_total_paid , delimiter: " ") %> €</div>
+          <div class="total_paid"><%= current_user.get_total_paid %> </div>
         </div>
 
         <% @invoices.each do |invoice| %>
