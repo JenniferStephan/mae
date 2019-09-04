@@ -1,0 +1,46 @@
+<div style="width: 100%; height: 40px; background-color: #ffcb3f; opacity: .5"> </div>
+<div style="padding: 50px;">
+
+  <div>
+  <img src="<%= image_url 'logo-mae.png' %>" alt="">
+
+  <%#= image_tag('logo-mae.png') %>
+  </div>
+
+  <div style="display: flex">
+    <h1 style= "font-family: 'Open Sans', sans-serif; font-size: 20px;">Bonjour <%= @invoice.client.first_name %> <%= @invoice.client.last_name %>
+    </h1>
+  </div>
+
+  <div style="width: 50%; height: 2px; background-color: #ffcb3f; opacity: .5"> </div>
+
+  <p style="font-family:'Open Sans', sans-serif; font-weight: normal; opacity: .7">
+    <br>Votre prestataire <%= @invoice.user.first_name %> <%= @invoice.user.last_name %> vous transmet ci-joint la facture concernant la prestation :
+    <h3 style="font-size: 15px; font-family:'Open Sans', sans-serif;">"<%= @invoice.title %>"</h3><p style="font-family:'Open Sans', sans-serif; font-weight: normal; opacity: .7"> pour la société :
+    </p>
+    <h3 style="font-size: 15px; font-family:'Open Sans', sans-serif;"><%= @invoice.client.company_name %></h3>
+    <p style="font-family:'Open Sans', sans-serif; font-weight: normal; opacity: .7"> d'un montant de : </p>
+    <h3 style="font-size: 15px; font-family:'Open Sans', sans-serif;"><%= @invoice.total_amount_ttc  %> TTC</h3>
+    <br>
+    <br>
+    <p style="font-family:'Open Sans', sans-serif; font-weight: normal; opacity: .7">Veuillez noter que les délais de paiement ont pour référence la date de réception de la facture. A compter de la réception de ce mail, vous avez 1 mois pour honorer votre paiement. <br>
+    <br>
+  </p>
+
+  <div style="width: 50%; height: 2px; background-color: #ffcb3f; opacity: .5"> </div>
+
+  <div style="line-height: 2px; padding: 20px;">
+    <h4 style="font-family:'Open Sans', sans-serif; font-weight: lighter; opacity: .5"><%= @invoice.user.first_name %> <%= @invoice.user.last_name %></h4>
+    <h5 style="font-family:'Open Sans', sans-serif; font-weight: lighter; opacity: .5"><%= @invoice.user.email %></h5>
+    <h5 style="font-family:'Open Sans', sans-serif; font-weight: lighter; opacity: .5">Numéro de SIRET : <%= @invoice.user.siret %></h5>
+    <h5 style="font-family:'Open Sans', sans-serif; font-weight: lighter; opacity: .5"><%= @invoice.user.address %></h5>
+    <h5 style="font-family:'Open Sans', sans-serif; font-weight: lighter; opacity: .5"><%= @invoice.user.phone_number %></h5>
+  </div>
+
+  <p style="font-family:'Open Sans', sans-serif; font-weight: normal; opacity: .7; font-size: 10px; color: #ffcb3f; opacity: .8; margin-top: 30px; text-align: right;">MAE, gestionnaire d'activité pour les Freelancer.<br></p>
+  <p style="font-family:'Open Sans', sans-serif; font-weight: normal; opacity: .7; font-size: 10px; opacity: .4; text-align: right;">Ce mail vous a été envoyé par MAE.<br>
+  Pour plus d'information : https://mae-wagon.herokuapp.com/</p>
+</div>
+
+
+
