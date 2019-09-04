@@ -47,6 +47,13 @@ const displayErrors = () => {
 
 formValidation();
 
+$(document).ready(function(){
+  $(".checkbox-choice").click(function(){
+    $(this).toggleClass("active");
+  });
+});
+
+
 if (document.querySelector('#search_client')) {
   let clientOption =document.querySelector('#search_client');
   const form = document.querySelector('.search');
