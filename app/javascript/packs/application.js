@@ -4,13 +4,15 @@ import { loadDynamicBannerText } from '../components/banner';
 import { initNotificationBar } from "../components/notificationBar";
 import { changeColumn } from '../components/changeColumn';
 import { initFacture } from '../components/facture';
-// import {formValidation} from "../components/formValidation";
+import {formValidation} from "../components/formValidation";
+
 // import {initFullCalendar} from '../plugins/fullcalendar';
 import { turnoverChart } from '../components/analyticsCharts';
-import { gaugeChart } from '../components/gaugeChart';
+// import { gaugeChart } from '../components/gaugeChart';
 import { donutChartbis } from '../components/donutChartbis';
+import { permit } from '../components/permitAuthorization';
 
-
+permit();
 
 if (document.querySelector('#new_invoice')) {
   initFacture();
@@ -21,7 +23,6 @@ if (document.querySelector('#new_invoice')) {
 
 if (document.querySelector(".notification-bar")) {
      initNotificationBar();
-
 }
 
 
@@ -61,7 +62,6 @@ const displayErrors = () => {
 }
 
 
-// // loadDynamicBannerText();
 
 formValidation();
 

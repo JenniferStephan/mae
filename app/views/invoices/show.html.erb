@@ -29,7 +29,7 @@
               <table>
                 <tr>
                   <td>
-                    <b><%= @invoice.user.first_name + " " + @invoice.user.first_name %></b><br>
+                    <b><%= @invoice.user.first_name + " " + @invoice.user.last_name %></b><br>
                     <b><%= @invoice.user.siret %></b><br>
                     <%= @invoice.user.address %><br>
                     <i class="far fa-envelope"></i> <%= @invoice.user.email %><br>
@@ -37,7 +37,7 @@
                   </td>
 
                   <td class="client pb-3">
-                    <b><%= @invoice.client.first_name + " " + @invoice.client.first_name %></b><br>
+                    <b><%= @invoice.client.first_name + " " + @invoice.client.last_name %></b><br>
                     <%= @invoice.client.company_name %><br>
                     <%= @invoice.client.company_address %><br>
                     <i class="far fa-envelope"></i> <%= @invoice.client.email %><br>
