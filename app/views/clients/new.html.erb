@@ -1,11 +1,4 @@
-<%= simple_form_for(@client) do |f| %>
-  <%= f.input :company_name, label: 'Description'  %>
-  <%= f.input :first_name, label: 'Prénom du client' %>
-  <%= f.input :last_name, label: 'Nom du client' %>
-  <%= f.input :company_address, label: 'Adresse du client' %>
-  <%= f.input :email, label: 'Email du client' %>
-  <%= f.input :company_siret, label: 'Siret du client' %>
-
-  <%= f.submit "Ajoutez un nouveau client", class: "button"  %>
-  <% end %>
-
+<div class="container p-5">
+  <h2> Ajoutez un nouveau client</h2>
+  <%= render 'form', client: @client %>
+</div>
