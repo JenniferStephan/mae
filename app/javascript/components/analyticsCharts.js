@@ -1,8 +1,8 @@
 import Chart from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
-if (document.querySelector(".chart-canvas")) {
-const canvas = document.querySelector(".chart-canvas");
+if (document.querySelector("#chart-bars")) {
+const canvas = document.querySelector("#chart-bars");
 const ctx = canvas.getContext("2d");
 
 const months = JSON.parse(canvas.dataset.months);
@@ -36,7 +36,7 @@ const turnoverChart = new Chart(ctx, {
   },
   options: {
     title: {
-      display: true,
+    display: true,
       text: 'CA/mois'
     },
     scales: {

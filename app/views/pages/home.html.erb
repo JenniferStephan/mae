@@ -13,8 +13,6 @@
     <!-- futur chart Aurore -->
   </div>
 
-</div>
-
 <div class="d-flex">
     <div class="turnover-chart-card" style="width: 600px">
       <div class="turnover-chart chart">
@@ -22,8 +20,8 @@
       </div>
     </div>
 
-  <div class="mes-factures-chart-card" style="width: 330px">
-    <canvas id="doughnut-chart"></canvas>
+ <div class="mes-factures-chart-card" style="width: 330px">
+    <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted %>" data-delayed="<%=current_user.get_total_delayed %>" data-pa
   </div>
 </div>
 
@@ -35,7 +33,7 @@
 
         <div class="column-title">
           <h3>Factures envoyées</h3>
-          <div class="total_submitted"><%= number_with_delimiter(current_user.get_total_submitted, delimiter: " ") %> €</div>
+          <div align-items> <div class="total_submitted"><%=current_user.get_total_submitted %></div> </div>
 
         </div>
 
@@ -73,7 +71,7 @@
 
         <div class="column-title">
           <h3>Factures en retard</h3>
-          <div class="total_delayed"><%= number_with_delimiter(current_user.get_total_delayed, delimiter: " ") %> €</div>
+          <div class="total_delayed"><%=current_user.get_total_delayed %> </div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -115,7 +113,7 @@
 
         <div class="column-title">
           <h3>Factures payées</h3>
-          <div class="total_paid"><%= number_with_delimiter(current_user.get_total_paid , delimiter: " ") %> €</div>
+          <div class="total_paid"><%= current_user.get_total_paid %> </div>
         </div>
 
         <% @invoices.each do |invoice| %>
