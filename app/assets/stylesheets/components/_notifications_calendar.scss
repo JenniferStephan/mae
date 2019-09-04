@@ -29,6 +29,10 @@ text-align: center;
 display: none;
 }
 
+.fc-toolbar h2 {
+  color: $pink;
+}
+
 .fc-toolbar.fc-header-toolbar {
   text-align: center;
   justify-content: space-around;
@@ -58,7 +62,9 @@ button.fc-next-button.fc-button.fc-button-primary {
 .fc-unthemed td.fc-day.fc-widget-content.fc-tue.fc-today {
   background-color: $yellow;
 }
-
+.fc-unthemed td.fc-today {
+  background-color: $pink;
+}
 .fc-unthemed td.fc-day.fc-widget-content.fc-tue.fc-today.fc-day-number {
   color: white;
 }
@@ -69,6 +75,7 @@ button.fc-next-button.fc-button.fc-button-primary {
   font-weight: normal;
   font-family: $headers-font;
   font-size: 10px;
+  color: $pink;
 }
 
 .fc-past {
