@@ -42,13 +42,13 @@
                   <%#= f.input :activity  %>
                 <%# end %>
 
-                <div class="form-group">
+                <div class="form-group simul">
                   <label class="control-label check_boxes optional"></label>
                   <input type="hidden" name="simulation[activity_ids][]" value="">
                   <div class="category-choices">
                     <% Simulation::ACTIVITIES.each_with_index do |activity, index| %>
-                      <input type="checkbox" class="hidden" value="<%= index %>" name="simulation[activity_ids][]" id="simulation_activity_ids_<%= index %>">
-                      <label for="simulation_activity_ids_<%= index %>" class="category-choice">
+                      <input type="checkbox" class="hidden" value="<%= activity %>" name="simulation[activity_ids][]" id="simulation_activity_ids_<%= activity %>">
+                      <label for="simulation_activity_ids_<%= activity %>" class="category-choice">
                         <%= activity %>
 <!--                         <i class="fa fa-check"></i> -->
                       </label>
@@ -59,7 +59,7 @@
 
 
               <div class="tab-buttons text-right" id="first-tab">
-                <button class="btn btn-primary next-btn mt-2" href="#">Suivant</button>
+                <button class="button next-btn mt-2" href="#">Suivant</button>
               </div>
           </div>
 
@@ -67,60 +67,94 @@
           <div class="tab-pane mt-3 fade" id="pills-second" role="tabpanel" aria-labelledby="pills-second-tab">
             <h3 class="mb-4"> Est-ce une activité libérale règlementée ?</h3>
 
-
                 <%#= f.input :reglementary, as: :select, label: false, prompt: "Est-ce une activité libérale règlementée ?", :class => 'mt-4' %>
-                <%= f.input :reglementary, :class => 'check_boxes', label: false, as: :check_boxes %>
+                <%#= f.input :reglementary, :class => 'check_boxes', label: false, as: :check_boxes %>
 
+                  <div class="form-group simul">
 
+                    <label class="control-label check_boxes optional"></label>
+                    <input type="hidden" name="simulation[reglementary_ids][]" value="">
+
+                    <div class="category-choices">
+
+                      <input type="checkbox" class="hidden" value="true" name="simulation[reglementary_ids][]" id="simulation_reglementary_ids_true">
+
+                        <label for="simulation_reglementary_ids_true" class="category-choice">
+                         Oui
+                        </label>
+
+                      <input type="checkbox" class="hidden" value="false" name="simulation[reglementary_ids][]" id="simulation_reglementary_ids_false">
+
+                        <label for="simulation_reglementary_ids_false" class="category-choice">
+                          Non
+                        </label>
+
+                     </div>
+
+                  </div>
 
               <div class="tab-buttons">
-                <button class="btn btn-primary previous-btn mt-2" href="#">Précédent</button>
-                <button class="btn btn-primary next-btn mt-2" href="#">Suivant</button>
+                <button class="button previous-btn mt-2" href="#">Précédent</button>
+                <button class="button next-btn mt-2" href="#">Suivant</button>
               </div>
           </div>
 
           <!-- PAGE ...-->
           <div class="tab-pane mt-3 fade" id="pills-third" role="tabpanel" aria-labelledby="pills-third-tab">
-            <h3 class="mb-4">🎂 Quel est l'âge à votre entreprise ?</h3>
-              <fieldset>
+            <h3 class="mb-4"> Quel est l'âge à votre entreprise ?</h3>
 
                 <%#= f.input :year_existence, as: :select, label: false, prompt: "Quel est l'âge à votre entreprise ?", :class => 'check_boxes', collection: Simulation::YEAREXISTENCE %>
-
-              </fieldset>
-
-              <div class="form-group">
+              <div class="form-group simul">
                 <label class="control-label check_boxes optional"></label>
-                <input type="hidden" name="simulation[activity_ids][]" value="">
-                <div class="category-choices">
+                <input type="hidden" name="simulation[year_ids][]" value="">
+                <div class="category-choices year-choices">
                   <% Simulation::YEAREXISTENCE.each_with_index do |year, index| %>
+
                     <input type="checkbox" class="hidden" value="<%= index %>" name="simulation[year_ids][]" id="simulation_year_ids_<%= index %>">
-                    <label for="simulation_year_ids_<%= index %>" class="category-choice">
+                    <label for="simulation_year_ids_<%= index %>" class="category-choice year">
                       <%= year %>
         <!--               <i class="fa fa-check"></i> -->
                     </label>
+
+
+
                   <% end %>
                  </div>
               </div>
 
               <div class="tab-buttons">
-                <button class="btn btn-primary previous-btn mt-2" href="#">Précédent</button>
-                <button class="btn btn-primary next-btn mt-2" href="#">Suivant</button>
+                <button class="button previous-btn mt-2" href="#">Précédent</button>
+                <button class="button next-btn mt-2" href="#">Suivant</button>
               </div>
           </div>
 
           <!-- PAGE ...-->
           <div class="tab-pane fade mt-3 " id="pills-fourth" role="tabpanel" aria-labelledby="pills-fourth-tab">
             <h3 class="mb-4"> Avez-vous obtenu l'ACCRE lors de votre création d'entreprise ?</h3>
-              <fieldset>
-
 
                   <%#= f.input :accre, as: :select, :label => "Avez-vous obtenu l'ACCRE lors de votre création d'entreprise ?"%>
-                  <%= f.input :accre, label: false, as: :check_boxes, :class => 'check_boxes' %>
+                  <%#= f.input :accre, label: false, as: :check_boxes, :class => 'check_boxes' %>
 
-              </fieldset>
+              <div class="form-group simul">
+                <label class="control-label check_boxes optional"></label>
+                <input type="hidden" name="simulation[accre_ids][]" value="">
+                <div class="category-choices">
+                  <input type="checkbox" class="hidden" value="true" name="simulation[accre_ids][]" id="simulation_accre_ids_true">
+                    <label for="simulation_accre_ids_true" class="category-choice">
+                     Oui
+                    </label>
+
+                  <input type="checkbox" class="hidden" value="false" name="simulation[accre_ids][]" id="simulation_accre_ids_false">
+                    <label for="simulation_accre_ids_false" class="category-choice">
+                      Non
+                    </label>
+
+                 </div>
+              </div>
+
               <div class="tab-buttons">
-                <button class="btn btn-primary previous-btn mt-2" href="#">Précédent</button>
-                <%= f.submit "Créer", class:"btn-primary"%>
+                <button class="button previous-btn mt-2" href="#">Précédent</button>
+                <%= f.submit "Créer", class:"button"%>
 
               </div>
           </div>
