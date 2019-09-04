@@ -14,7 +14,7 @@
 </div>
 
 <div class="mes-factures-chart-card" style="width: 500px">
-    <canvas id="myChart" ></canvas>
+    <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted %>" data-delayed="<%=current_user.get_total_delayed %>" data-paid="<%= current_user.get_total_paid %>"></canvas>
 </div>
 
 
