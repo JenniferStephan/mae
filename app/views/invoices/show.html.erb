@@ -1,9 +1,3 @@
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-</head>
-
-<body>
-
 <div class="container mt-3">
 
 <div class="invoice-box">
@@ -35,62 +29,20 @@
               <table>
                 <tr>
                   <td>
-                    <b><%= current_user.first_name + " " + current_user.first_name %></b><br>
-                    <b><%= current_user.siret %></b><br>
-                    <%= current_user.address %><br>
-                    <i class="far fa-envelope"></i> <%= current_user.email %><br>
- <!--                    <i class="fas fa-phone"></i> <%= current_user.phone_number %> -->
+                    <b><%= @invoice.user.first_name + " " + @invoice.user.last_name %></b><br>
+                    <b><%= @invoice.user.siret %></b><br>
+                    <%= @invoice.user.address %><br>
+                    <i class="far fa-envelope"></i> <%= @invoice.user.email %><br>
+ <!--                    <i class="fas fa-phone"></i> <%= @invoice.user.phone_number %> -->
                   </td>
 
                   <td class="client pb-3">
-                    <b><%= @invoice.client.first_name + " " + @invoice.client.first_name %></b><br>
+                    <b><%= @invoice.client.first_name + " " + @invoice.client.last_name %></b><br>
                     <%= @invoice.client.company_name %><br>
                     <%= @invoice.client.company_address %><br>
                     <i class="far fa-envelope"></i> <%= @invoice.client.email %><br>
 <!--                     <i class="fas fa-phone"></i> <%= @invoice.client.company_address %> -->
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
-          <tr class="heading">
-            <td colspan="6 titre">Titre</td>
-            <!-- <td class="right"><%= @invoice.title %></td> -->
-          </tr>
-
-          <tr class="details">
-            <td><%= @invoice.title %></td>
-          </tr>
-
-          <tr class="heading">
-            <td>Livrables</td>
-            <td class="right">TJH</td>
-            <td class="right">Qté</td>
-            <td>Total HT</td>
-          </tr>
-
-
-
-            <tr class="item">
-             <% @invoice.missions_invoices.each do |missions_invoice| %>
-                    <td>
-                        <%= missions_invoice.mission.name %><br>
-                        <small><%= missions_invoice.mission.description %></small>
-                    </td>
-
-                    <td class="right">
-                        <%= missions_invoice.price_rate %> €
-                    </td>
-
-                    <td class="right">
-                        <%= missions_invoice.man_day_quantity %>
-                    </td>
-
-                    <td>
-                        <%= missions_invoice.man_day_quantity * missions_invoice.price_rate %> €
-                    </td>
-              <% end %>
+              </td>
             </tr>
 
           <tr>
@@ -126,11 +78,7 @@
     </div>
     </div>
 
-<%= link_to "PDF", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_pdf" %>
-
-<%= link_to 'Envoyer', invoice_sent_path(@invoice), method: :post, class: 'button button_envoi hidden-link' %>
-
-
-</body>
-
-
+<% unless @format == 'pdf' %>
+  <%= link_to "PDF", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_pdf" %>
+  <%= link_to 'Envoyer', send_to_client_invoice_path(@invoice), method: :post, class: 'button button_envoi hidden-link' %>
+<% end %>

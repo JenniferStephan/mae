@@ -1,6 +1,6 @@
 class InvoicesController < ApplicationController
 
-before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sent, :calcul_total_amount_ht]
+before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_to_client, :calcul_total_amount_ht]
 
 # skip_before_action :authenticate_user!
 
@@ -31,14 +31,24 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sen
     respond_to do |format|
       format.html
       format.pdf do
+        @format = 'pdf'
+
         render pdf: "Invoice No. #{@invoice.reference}",
-        page_size: 'A4',
-        template: "invoices/show.html.erb",
-        layout: "pdf.html",
-        orientation: "Landscape",
-        lowquality: true,
-        zoom: 1,
-        dpi: 75
+          page_size: 'A4',
+          template: "invoices/show.html.erb",
+          layout: "pdf.html",
+          orientation: "Landscape",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75,
+          page_size: 'A4',
+          template: "invoices/show.html.erb",
+          layout: "pdf.html",
+          orientation: "Portrait",
+          lowquality: true,
+          zoom: 1,
+          dpi: 75,
+          encoding: 'utf-8'
       end
     end
   end
@@ -78,11 +88,14 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sen
     end
   end
 
-  def invoice_sent
+  def send_to_client
     @invoice.sent!
     new_notif_sent = Notification.create(user: current_user,
       category: "Facture envoyée",
         content: "Vous venez d'envoyer la facture #{@invoice.reference} à votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc}. Votre client a jusqu'au #{@invoice.due_date} pour la régler.")
+
+    InvoiceMailer.send_to_client(@invoice).deliver_now
+
     redirect_to invoice_path(@invoice)
   end
 

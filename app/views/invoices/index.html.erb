@@ -58,7 +58,7 @@
       </div>
 
       <div class="invoice-infos">
-        <%= invoice.creation_date %>
+        <%= invoice.get_creation_date %>
       </div>
 
       <div class="invoice-infos">
@@ -82,23 +82,20 @@
 
       <div class="invoice-infos invoice-actions dropdown">
 
-      <i class="fas fa-ellipsis-h" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+      <i class="fas fa-ellipsis-h" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
       <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
 
-        <!-- Show -->
-        <%= link_to invoice_path(invoice.id), method: :get, class: 'dropdown-item' do %>
-            <i class="fas fa-search-plus"></i>Aperçu
-            <% end %>
+      <!-- Show -->
+      <%= link_to invoice_path(invoice.id), method: :get, class: 'dropdown-item' do %>
+          <i class="fas fa-search-plus"></i>Aperçu
+      <% end %>
 
 
 
-        <!-- Send -->
-        <!-- <button class="dropdown-item" type="button"><i class="fas fa-paper-plane"></i>Envoyer</button> -->
-        <%#= link_to invoice_path(@invoice, format: :pdf), target: "_blank", class: 'dropdown-item' do %>
-          <!-- <i class="fas fa-paper-plane"></i>Envoyer -->
-        <%# end %>
-
-
+      <!-- Send -->
+      <%= link_to send_to_client_invoice_path(invoice.id), method: :post, class: 'dropdown-item' do %>
+        <i class="far fa-paper-plane"></i>Envoyer
+      <% end %>
 
         <!-- Edit -->
         <%# if invoice.status == "draft" %>
@@ -136,8 +133,7 @@
 
   </div>
   <div class="invoices-index-buttons">
-    <%= link_to "Nouvelle facture", new_invoice_path, class: "button mr-3" %>
-    <%= link_to "Retour", root_path, class: "button" %>
+    <%= link_to "Nouvelle facture", new_invoice_path, class: "button" %>
   </div>
 </div>
 
