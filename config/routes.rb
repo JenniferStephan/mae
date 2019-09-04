@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   get "/discover", to: "pages#discover", as: "landing_page"
 
   get 'invoice_paid/:id', to: 'invoices#invoice_paid', as: 'invoice_paid'
-  post 'invoice_sent/:id', to: 'invoices#invoice_sent', as: 'invoice_sent'
-
 
   resources :invoices do
+    member do
+      post :send_to_client
+    end
+
     resources :missions_invoices
   end
 
