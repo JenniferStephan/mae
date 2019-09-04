@@ -26,8 +26,12 @@
 
         <div class="column-title">
           <h3>Factures envoyées</h3>
-          <div align-items> <div class="total_submitted"><%=current_user.get_total_submitted %></div> </div>
-
+          <div class="d-flex justify-content-between">
+            <div class="total_submitted">
+              <%=current_user.get_total_submitted %> €
+            </div>
+            <div class="invoices-counted-with-circle-blue"> <%= @invoices.sent.count %> </div>
+          </div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -64,7 +68,12 @@
 
         <div class="column-title">
           <h3>Factures en retard</h3>
-          <div class="total_delayed"><%=current_user.get_total_delayed %> </div>
+          <div class="d-flex justify-content-between">
+            <div class="total_delayed">
+              <%=current_user.get_total_delayed %> €
+            </div>
+              <div class="invoices-counted-with-circle-pink"> <%= @invoices.delayed.count %> </div>
+          </div>
         </div>
 
         <% @invoices.each do |invoice| %>
@@ -106,7 +115,7 @@
 
         <div class="column-title">
           <h3>Factures payées</h3>
-          <div class="total_paid"><%= current_user.get_total_paid %> </div>
+          <div class="d-flex justify-content-between"> <div class="total_paid"><%= current_user.get_total_paid %> €</div> <div class="invoices-counted-with-circle-green"> <%= @invoices.paid.count %> </div> </div>
         </div>
 
         <% @invoices.each do |invoice| %>

@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
   # TODO: move this into a scheduled background job!!
   before_action :check_delayed_invoices
 
+  # def configured_...
+
+
+  # end
+
   private
 
   def check_delayed_invoices
