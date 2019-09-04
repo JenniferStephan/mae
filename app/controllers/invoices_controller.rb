@@ -35,10 +35,11 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :invoice_sen
         page_size: 'A4',
         template: "invoices/show.html.erb",
         layout: "pdf.html",
-        orientation: "Landscape",
+        orientation: "Portrait",
         lowquality: true,
         zoom: 1,
-        dpi: 75
+        dpi: 75,
+        encoding: 'utf-8'
       end
     end
   end
