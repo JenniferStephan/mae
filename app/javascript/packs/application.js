@@ -26,7 +26,7 @@ if (document.querySelector(".notification-bar")) {
 
 
 
-const newFormValidation = () => {
+const formValidation = () => {
   const steps = [...document.querySelectorAll('a.step')];
   const tabButtonsDivs = document.querySelectorAll('.tab-buttons');
   let buttons = [];
@@ -63,7 +63,7 @@ const displayErrors = () => {
 
 // // loadDynamicBannerText();
 
-newFormValidation();
+formValidation();
 
 if (document.querySelector('#search_client')) {
   let clientOption = document.querySelector('#search_client');
