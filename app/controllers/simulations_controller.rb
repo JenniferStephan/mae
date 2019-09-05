@@ -13,7 +13,8 @@ class SimulationsController < ApplicationController
     @simulation.year_existence = params["simulation"]["year_ids"][1].to_i + 1
     @simulation.user = current_user
     @simulation.save
-    render :show
+
+    redirect_to root_path
   end
 
   def index

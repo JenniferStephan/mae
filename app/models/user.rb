@@ -42,5 +42,37 @@ class User < ApplicationRecord
       order('month')
   end
 
+  def total_paid_ht_per_quarter
+    invoices.
+      select("
+        CASE
+          WHEN CAST (date_part('month', payment_date) AS Integer) BETWEEN 1 AND 3 THEN 1
+          WHEN CAST (date_part('month', payment_date) AS Integer) BETWEEN 4 AND 6 THEN 2
+          WHEN CAST (date_part('month', payment_date) AS Integer) BETWEEN 7 AND 9 THEN 3
+          ELSE 4
+        END
+        AS quarter,
+        SUM(total_amount_ht) AS total
+      ").
+      where(status: :paid).
+      group('quarter').
+      order('quarter')
+  end
 
+
+  def total_paid_for_current_quarter
+    quarter = Date.today.month / 3
+
+    return invoices.
+      where(status: :paid).
+      where("
+        CASE
+          WHEN CAST (date_part('month', payment_date) AS Integer) BETWEEN 1 AND 3 THEN 1
+          WHEN CAST (date_part('month', payment_date) AS Integer) BETWEEN 4 AND 6 THEN 2
+          WHEN CAST (date_part('month', payment_date) AS Integer) BETWEEN 7 AND 9 THEN 3
+          ELSE 4
+        END = #{quarter}
+      ").
+      sum('total_amount_ht')
+  end
 end

@@ -60,3 +60,10 @@
   transition: all ease 0.2s;
   transform: scale(1.02);
 }
+
+.button-big:hover {
+  color: rgba(255, 255, 255, 1);
+  transition: all ease 0.2s;
+  transform: scale(1.02);
+  opacity: 1;
+}

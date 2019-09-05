@@ -9,10 +9,10 @@ import { initFacture } from '../components/facture';
 // import {initFullCalendar} from '../plugins/fullcalendar';
 import { turnoverChart } from '../components/analyticsCharts';
 import { donutChartbis } from '../components/donutChartbis';
-import { gaugeChart } from '../components/gaugeChart';
+// import { gaugeChart } from '../components/gaugeChart';
 
 import { permit } from '../components/permitAuthorization';
-
+import { showDate } from '../components/showDate';
 permit();
 
 
@@ -26,6 +26,8 @@ if (document.querySelector('#new_invoice')) {
 if (document.querySelector(".notification-bar")) {
      initNotificationBar();
 }
+
+
 
 
 

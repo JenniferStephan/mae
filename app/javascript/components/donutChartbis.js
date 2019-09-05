@@ -16,9 +16,9 @@ if (document.querySelector('#myChart')) {
       labels: ["Factures en attente", "Factures payées", "Factures en retard"],
       datasets: [{
         backgroundColor: [
-          "#221ECE",
-          "#64D286",
-          "#BE0C62"
+          "rgba(34, 30, 206, 0.8)",
+          "rgba(100, 210, 134, 0.8)",
+          "rgba(245,54,92, 0.8)"
         ],
         data: [totalSubmitted, totalPaid, totalDelayed]
       }]
