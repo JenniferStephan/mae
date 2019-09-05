@@ -208,3 +208,16 @@
   font-weight: 700;
   font-size: 26px;
 }
+
+.payment-date a {
+  text-decoration: none;
+  color: rgba(98, 0, 239, 0.7);
+}
+
+.payment-date a:hover {
+  text-decoration: none;
+  font-size: 26px;
+  color: rgba(98, 0, 239, 1);
+  transition: all ease 0.2s;
+  transform: scale(1.1);
+}
