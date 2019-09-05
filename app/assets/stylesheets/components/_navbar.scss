@@ -10,7 +10,6 @@ li {
 .navigation-icons {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   a {
     color: black;
     opacity: 0.7;
@@ -29,6 +28,7 @@ li {
 .icon-and-title {
   display: flex;
   align-items: center;
+  margin-bottom: 90px;
   p {
     margin: 0px 0px 0px 7px;
   }
