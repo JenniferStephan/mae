@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>MAE</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
+    <link rel="stylesheet" href="font-awesome-animation.min.css">
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
 
@@ -28,5 +29,43 @@
 
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
+    <script>
+      App['user_notif_<%= current_user.id %>'] = App.cable.subscriptions.create(
+        { channel: 'UserNotifChannel', user_id: <%= current_user.id %> },
+        {
+          received: (data) => {
+            var notifBar = document.querySelector(".notification-bar");
+            notifBar.insertAdjacentHTML('afterbegin', data['notif_partial']);
+            var bell = document.querySelector('.fa-bell');
+            bell.classList.add('animated');
+            // if (window.Notification && Notification.permission === "granted") {
+            //       var n = new Notification("Coucou !");
+            //     }
+            // // Si l'utilisateur n'a pas choisi s'il accepte d'être notifié
+            // // Note: à cause de Chrome, nous ne sommes pas certains que la propriété permission soit définie, par conséquent il n'est pas sûr de vérifier la valeur par défaut.
+            // else if (window.Notification && Notification.permission !== "denied") {
+            //   Notification.requestPermission(function (status) {
+            //     if (Notification.permission !== status) {
+            //       Notification.permission = status;
+            //     }
+            //     // Si l'utilisateur est OK
+            //     if (status === "granted") {
+            //       var n = new Notification("Coucou !");
+            //     }
+            //     // Sinon, revenons en à un mode d'alerte classique
+            //     else {
+            //       alert("Hello !");
+            //     }
+            //   });
+            // }
+            // // Si l'utilisateur refuse d'être notifié
+            // else {
+            //   // We can fallback to a regular modal alert
+            //   alert("Coucou !");
+            // }
+          }
+        }
+      )
+    </script>
   </body>
 </html>

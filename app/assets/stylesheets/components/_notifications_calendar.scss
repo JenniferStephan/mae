@@ -3,9 +3,10 @@
   padding: 5px;
   border: solid;
   border-radius: 5px;
-  border-color: rgb(232, 232, 232);
+  border-color: rgba(232, 232, 232, .2);
   border-width: 1px;
-  box-shadow: 1px 1px 2px grey;
+  box-shadow: 1px 1px 2px rgba(232, 232, 232, .2);
+  background: rgba(232, 232, 232, .1)
 }
 td .fc-day .fc-widget-content {
   height: 2px;
@@ -26,6 +27,10 @@ td .fc-day .fc-widget-content {
 .fc-right {
 text-align: center;
 display: none;
+}
+
+.fc-toolbar h2 {
+  color: $pink;
 }
 
 .fc-toolbar.fc-header-toolbar {
@@ -57,7 +62,9 @@ button.fc-next-button.fc-button.fc-button-primary {
 .fc-unthemed td.fc-day.fc-widget-content.fc-tue.fc-today {
   background-color: $yellow;
 }
-
+.fc-unthemed td.fc-today {
+  background-color: $pink;
+}
 .fc-unthemed td.fc-day.fc-widget-content.fc-tue.fc-today.fc-day-number {
   color: white;
 }
@@ -68,6 +75,7 @@ button.fc-next-button.fc-button.fc-button-primary {
   font-weight: normal;
   font-family: $headers-font;
   font-size: 10px;
+  color: $pink;
 }
 
 .fc-past {
