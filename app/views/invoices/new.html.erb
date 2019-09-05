@@ -1,7 +1,7 @@
 <div class= "container py-5" style="width: 80%">
 
 
-  <h1>Créer une facture</h1>
+  <h1 class="mb-4">Créer une facture</h1>
 
   <div class="header-facture d-flex justify-content-between">
     <div>
@@ -60,16 +60,17 @@
             </div>
             <div class="calc-total d-flex align-items-end flex-column mb-3">
               <div class="d-flex">
-                <p>MONTANT TOTAL HT</p>
+                <p style="padding-top: 8px">
+                MONTANT TOTAL HT</p>
                 <div class="total-HT"> &nbsp; </div>
               </div>
               <div class="d-flex">
-                <p>MONTANT TOTAL TTC</p>
+                <p style="padding-top: 8px">MONTANT TOTAL TTC</p>
                 <div class="total-TTC"> &nbsp;</div>
               </div>
-              <!-- <div class="btn btn-dark"> -->
-                <%= f.submit "valider", class:"button" %>
-<!--               </div> -->
+              <!-- <div class=""> -->
+                <%= f.submit "valider", class:"bouton-valider-form-invoice" %>
+             <!--  </div> -->
             </div>
         <% end %>
     </div>

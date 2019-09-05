@@ -13,6 +13,7 @@ user = User.create!(email: "contact@paula.com",
                     username: "PaulaDesign",
                     siret: "54645643",
                     vat: 0,
+                    tax_rate: 0,
                     address: "13 rue Morand, 75011 Paris")
 
 botify = Client.create!(user: user,
