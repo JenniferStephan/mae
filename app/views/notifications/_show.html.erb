@@ -1,7 +1,7 @@
 <div class="notification-card">
 
   <div class="notification-card-title">
-    <% if notif.category == "Paiement reçu !" %>
+    <% if notif.category == "Paiement des cotisations !" %>
       <i class="fas fa-wallet notif-icon-cotisations"></i>
 
     <% elsif notif.category == "Facture envoyée" %>
@@ -19,6 +19,6 @@
   </div>
 
     <p><%= notif.content %></p>
-    <small class="notif-date-trigger">il y a 3 jours</small>
+    <small class="notif-date-trigger"><%= notif.created_at %></small>
 
 </div>

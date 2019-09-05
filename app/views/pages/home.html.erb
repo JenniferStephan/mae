@@ -1,137 +1,131 @@
-<div class="d-flex">
+<div class="homepage-container">
 
-  <div class="welcome-card">
-    <h2>Bonjour <%= current_user.first_name %> !</h2>
-    <p>Que voulez-vous faire aujourd'hui ?</p>
-    <div class="two-actions-from-homepage-card">
-      <%= link_to "Créer une nouvelle facture", new_invoice_path, class: "button" %>
-      <%= link_to "Gérer mes factures", invoices_path, class: "button second-button-on-the-right" %>
-    </div>
-    <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
-  </div>
-
-  <div class="cotisations-time d-flex flex-column">
-    <h2> Mes cotisations </h2>
-    <div class="d-flex justify-content-between">
-      <span class="mt-1"> Vous devez régler </span>
-      <div class="sum-to-pay"><%= @income_per_current_quarter_to_pay.round %> </div> <span class="sum-to-pay"> € </span>
+  <div class="top-div-homepage">
+    <div class="welcome-card">
+      <h2>Bonjour <%= current_user.first_name %> !</h2>
+      <p>Que voulez-vous faire aujourd'hui ?</p>
+      <div class="two-actions-from-homepage-card">
+        <%= link_to "Créer une nouvelle facture", new_invoice_path, class: "button" %>
+        <%= link_to "Gérer mes factures", invoices_path, class: "second-button-on-the-right button-white-background-and-yellow-text" %>
+      </div>
+      <img class="illustration" src="<%= image_path('undraw_balloons_vxx5.svg') %>"/>
     </div>
 
-      <div class="payment-date"></div>
+    <div class="cotisations-time d-flex flex-column">
+      <h2> Mes cotisations </h2>
+      <div class="d-flex justify-content-between">
+        <span class="mt-1"> Vous devez régler </span>
+        <div class="sum-to-pay"><%= @income_per_current_quarter_to_pay.round %> </div> <span class="sum-to-pay"> € </span>
+      </div>
 
-    <div class="small">Votre taux actuel : <%= current_user.tax_rate %></div>
+        <div class="payment-date"></div>
+
+      <div class="small">Votre taux actuel : <%= current_user.tax_rate %></div>
+    </div>
   </div>
 
- <!--  <div class="timer-cotisations-chart"> -->
-    <!-- futur chart Aurore
-  </div> -->
+  <div class="second-div-homepage">
+    <div class="turnover-chart-card" style="width: 470px">
+      <div class="turnover-chart chart">
+        <canvas id="chart-bars" class="chart-canvas chartjs-render-monitor" data-months="<%= @income_months.to_json %>" data-values="<%= @income_values.to_json %>"></canvas>
+      </div>
+    </div>
 
-
-</div>
-<div class="d-flex">
-
-  <div class="mes-factures-chart-card" style="width: 500px">
-    <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted.to_json %>" data-delayed="<%=current_user.get_total_delayed.to_json %>" data-paid="<%= current_user.get_total_paid.to_json %>"></canvas>
-  </div>
-</div>
-
-  <div class="turnover-chart-card" style="width: 570px">
-    <div class="turnover-chart chart">
-      <canvas id="chart-bars" class="chart-canvas chartjs-render-monitor" data-months="<%= @income_months.to_json %>" data-values="<%= @income_values.to_json %>"></canvas>
+    <div class="mes-factures-chart-card" style="width: 500px">
+      <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted.to_json %>" data-delayed="<%=current_user.get_total_delayed.to_json %>" data-paid="<%= current_user.get_total_paid.to_json %>"></canvas>
     </div>
   </div>
 
 
-<div class="invoices-cards">
+  <div class="invoices-cards-div">
 
-  <div class="invoices-status">
-    <div class="invoices-sent">
-      <ul class="list-group list-group-flush" data-toggle="checklist">
+    <div class="invoices-status">
+      <div class="invoices-sent">
+        <ul class="list-group list-group-flush" data-toggle="checklist">
 
-        <div class="column-title">
-          <h3>Factures envoyées</h3>
-            <div class="d-flex justify-content-between">
-              <div class="total_submitted">
-                <%=current_user.get_total_submitted.round %> €
+          <div class="column-title">
+            <h3>Factures envoyées</h3>
+              <div class="d-flex justify-content-between">
+                <div class="total_submitted">
+                  <%=current_user.get_total_submitted.round %> €
+                </div>
+                <div class="invoices-counted-with-circle-blue"> <%= @invoices.sent.count %> </div>
               </div>
-              <div class="invoices-counted-with-circle-blue"> <%= @invoices.sent.count %> </div>
-            </div>
-        </div>
+          </div>
 
-        <% @invoices.each do |invoice| %>
-          <% if invoice.sent? %>
-            <li class="checklist-entry list-group-item flex-column align-items-start">
-              <div class="checklist-item checklist-item-success">
-                <div class="checklist-info">
-                  <i class="status-colored-circle sent fas fa-circle"></i>
-                  <div class="homepage-invoice-infos">
-                    <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
-                    <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
-                    <%= link_to '', invoice_paid_path(invoice), class: "hidden-link"  %>
+          <% @invoices.each do |invoice| %>
+            <% if invoice.sent? %>
+              <li class="checklist-entry list-group-item flex-column align-items-start">
+                <div class="checklist-item checklist-item-success">
+                  <div class="checklist-info">
+                    <i class="status-colored-circle sent fas fa-circle"></i>
+                    <div class="homepage-invoice-infos">
+                      <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
+                      <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
+                      <%= link_to '', invoice_paid_path(invoice), class: "hidden-link"  %>
+                    </div>
+                  </div>
+
+                  <div class="actions-on-invoices-buttons">
+                    <div class="mark-as-paid-button">
+                      <i class="mark-as-paid-icon fas fa-check" title="Marquer comme payée"></i>
+                    </div>
                   </div>
                 </div>
-
-                <div class="actions-on-invoices-buttons">
-                  <div class="mark-as-paid-button">
-                    <i class="mark-as-paid-icon fas fa-check" title="Marquer comme payée"></i>
-                  </div>
-                </div>
-              </div>
-            </li>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
 
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
 
 
-  <div class="invoices-status">
-    <div class="invoices-delayed">
-      <ul class="list-group list-group-flush" data-toggle="checklist">
+    <div class="invoices-status">
+      <div class="invoices-delayed">
+        <ul class="list-group list-group-flush" data-toggle="checklist">
 
-        <div class="column-title">
-          <h3>Factures en retard</h3>
-            <div class="d-flex justify-content-between">
-              <div class="total_delayed">
-                <%=current_user.get_total_delayed.round %> €
+          <div class="column-title">
+            <h3>Factures en retard</h3>
+              <div class="d-flex justify-content-between">
+                <div class="total_delayed">
+                  <%=current_user.get_total_delayed.round %> €
+                </div>
+                  <div class="invoices-counted-with-circle-pink"> <%= @invoices.delayed.count %> </div>
               </div>
-                <div class="invoices-counted-with-circle-pink"> <%= @invoices.delayed.count %> </div>
-            </div>
-        </div>
+          </div>
 
-        <% @invoices.each do |invoice| %>
-          <% if invoice.delayed? %>
-            <li class="checklist-entry list-group-item flex-column align-items-start">
-              <div class="checklist-item checklist-item-success">
-                <div class="checklist-info">
-                  <i class="status-colored-circle delayed fas fa-circle"></i>
-                  <div class="homepage-invoice-infos">
-                    <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
-                    <small>
-                      <%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €
-                    </small>
-                    <%= link_to '', invoice_paid_path(invoice), class: 'hidden-link' %>
+          <% @invoices.each do |invoice| %>
+            <% if invoice.delayed? %>
+              <li class="checklist-entry list-group-item flex-column align-items-start">
+                <div class="checklist-item checklist-item-success">
+                  <div class="checklist-info">
+                    <i class="status-colored-circle delayed fas fa-circle"></i>
+                    <div class="homepage-invoice-infos">
+                      <h5 class="checklist-title mb-0"><%= invoice.title %> - <%= invoice.client.company_name %></h5>
+                      <small>
+                        <%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €
+                      </small>
+                      <%= link_to '', invoice_paid_path(invoice), class: 'hidden-link' %>
+                    </div>
+                  </div>
+
+                  <div class="actions-on-invoices-buttons">
+                    <div class="mark-as-paid-button">
+                      <i class="mark-as-paid-icon fas fa-check" title="Marquer comme payée"></i>
+                    </div>
+                    <div class="late-client-button">
+                      <i class="late-client-icon fas fa-user-clock" title="Relancer"></i>
+                    </div>
                   </div>
                 </div>
-
-                <div class="actions-on-invoices-buttons">
-                  <div class="mark-as-paid-button">
-                    <i class="mark-as-paid-icon fas fa-check" title="Marquer comme payée"></i>
-                  </div>
-                  <div class="late-client-button">
-                    <i class="late-client-icon fas fa-user-clock" title="Relancer"></i>
-                  </div>
-                </div>
-              </div>
-            </li>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
 
-      </ul>
+        </ul>
+      </div>
     </div>
-  </div>
-
 
   <div class="invoices-status">
     <div class="invoices-paid">
@@ -153,14 +147,14 @@
                     <small><%=  number_with_delimiter(invoice.total_amount_ttc.round, delimiter: " ") %> €</small>
                   </div>
                 </div>
-              </div>
-            </li>
+              </li>
+            <% end %>
           <% end %>
-        <% end %>
 
-      </ul>
+        </ul>
+      </div>
     </div>
+
+
   </div>
-
-
 </div>
