@@ -2,8 +2,9 @@
 
   <div id="calendar">
   </div>
-
-  <%= render 'notifications/index.html.erb', notifications: current_user.notifications %>
+  <% if current_user %>
+    <%= render 'notifications/index.html.erb', notifications: current_user.notifications %>
+  <% end %>
 
 
 </div>

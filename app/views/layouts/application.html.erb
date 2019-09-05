@@ -18,7 +18,9 @@
     <%= render 'shared/flashes' %>
     <%= render 'shared/notification_bar' %>
     <div class="page-layout">
-      <%= render 'shared/sidebar' %>
+      <% unless (params[:controller] == 'pages' && params[:action] == 'discover') %>
+        <%= render 'shared/sidebar' %>
+        <% end %>
       <div class="page-container">
         <%= yield %>
       </div>
