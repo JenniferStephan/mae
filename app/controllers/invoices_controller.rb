@@ -84,7 +84,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_to_cli
         content: "La facture numero #{@invoice.reference} vient d'être réglée par votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc} euros TTC." )
     respond_to do |format|
       format.js
-      format.html { redirect_to :root }
+      format.html { redirect_to root_path }
     end
   end
 
