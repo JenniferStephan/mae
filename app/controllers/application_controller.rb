@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   before_action :check_delayed_invoices
 
   # def configured_...
-
+  def default_url_options
+    { host: ENV["www.mae-compta.com"] || "localhost:3000" }
+  end
 
   # end
 
