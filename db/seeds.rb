@@ -48,6 +48,14 @@ algolia = Client.create!(user: user,
                     company_name: "Algolia",
                     company_address: "55 Rue d'Amsterdam, 75008 Paris")
 
+mae = Client.create!(user: user,
+                    email: "lewagon@mae.com",
+                    first_name: "Clarisse",
+                    last_name: "MARTIN",
+                    category: "professionelle",
+                    company_name: "MAE - Mon auto-entreprise",
+                    company_address: "16 villa Gaudelet, 75011 Paris")
+
 alan = Client.create!(user: user,
                     email: "alan@alan.com",
                     first_name: "Alan",
