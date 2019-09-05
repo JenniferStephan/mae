@@ -1,3 +1,7 @@
+.form-to-simulate-daily-rate {
+  margin-top: 90px;
+}
+
 .show {
   display: block;
 }
@@ -16,9 +20,8 @@
 /////
 
 .tab-pane {
-  position: absolute;
-  top: 120px;
-  left: 400px;
+  margin: 0 auto;
+  margin-top: 40px;
   background-color: white;
   padding: 30px;
   border-radius: 5px;
@@ -28,16 +31,23 @@
     }
 }
 
-.nav {
-  position: absolute;
-  top: 60px;
-  left: 400px;
-}
+// .nav {
+//   position: absolute;
+//   top: 60px;
+//   left: 400px;
+// }
 
 #pills-tab {
-  width: 630px;
-  display: inline-flex;
-  justify-content: space-between;
+  // width: 630px;
+  display: flex;
+  justify-content: center;
+  li {
+    margin-right: 50px;
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
 }
 
 .tab-buttons {
@@ -55,7 +65,7 @@
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
   color: $pink;
-  padding: 8px 24px;
+  // padding: 8px 24px;
   // border-radius: 5px;
   background: transparent;
   box-shadow: 0 4px 0px $pink;

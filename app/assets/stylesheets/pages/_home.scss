@@ -1,6 +1,15 @@
+.homepage-container {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.top-div-homepage {
+  display: flex;
+  margin-top: 90px;
+  justify-content: space-between;
+}
+
 .welcome-card {
-  margin-top: 70px;
-  margin-left: 50px;
   // background: $yellow;
   // background: #F64451;
   // background: #f9454b;
@@ -16,9 +25,6 @@
   }
   .second-button-on-the-right {
     margin-left: 15px;
-    background: white;
-    color: $yellow;
-    border: 2px solid $yellow;
   }
 }
 
@@ -27,29 +33,29 @@
   border-radius: 10px;
   height: 200px;
   width: 365px;
-  margin-top: 70px;
-  margin-left: 40px;
 }
 
-.homepage-invoice-infos {
-  flex-grow: 1;
-  text-align: left;
-}
-
-.invoices-cards{
+.second-div-homepage {
   display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.invoices-cards-div {
+  display: flex;
+  justify-content: space-between;
   align-items: flex-start;
-  margin-top: 25px;
-  margin-left: 50px;
+  margin-top: 30px;
+  margin-bottom: 40px;
 }
 
 .invoices-status {
   overflow: hidden;
   border-radius: 10px;
-  &:first-child {
-    margin-left: 0px;
-  }
-  margin-left: 40px;
+  // &:first-child {
+  //   margin-left: 0px;
+  // }
+  // margin-left: 40px;
   h5 {
     font-size: 15px;
   }
@@ -101,6 +107,11 @@
   line-height: 1.9;
 }
 
+.homepage-invoice-infos {
+  flex-grow: 1;
+  text-align: left;
+}
+
 .mark-as-paid-button {
   border-radius: 5px;
   // background: #FFC108;
@@ -147,7 +158,7 @@
 }
 
 .invoices-counted-with-circle-blue{
-  background-color: #221ECE;
+  background-color: $dark-blue;
   border-radius: 50%;
   color: white;
   width: 30px;
@@ -157,7 +168,7 @@
 }
 
 .invoices-counted-with-circle-green{
-  background-color: #64D286;
+  background-color: $paid;
   border-radius: 50%;
   color: white;
   width: 30px;
@@ -167,7 +178,7 @@
 }
 
 .invoices-counted-with-circle-pink{
-  background-color: #BE0C62;
+  background-color: $delayed;
   border-radius: 50%;
   color: white;
   width: 30px;
@@ -175,7 +186,4 @@
   text-align: center;
   padding-top: 2px;
 }
-
-
-
 
