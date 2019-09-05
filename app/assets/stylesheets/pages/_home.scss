@@ -167,13 +167,37 @@
 }
 
 .invoices-counted-with-circle-pink{
-  background-color: #BE0C62;
+  background-color: #F5365C;
   border-radius: 50%;
   color: white;
   width: 30px;
   height: 30px;
   text-align: center;
   padding-top: 2px;
+}
+
+.cotisations-time {
+  margin-top: 70px;
+  margin-left: 90px;
+  margin-right: 70px;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: #FFC108;
+  padding: 30px 45px;
+  border-radius: 10px;
+  color: white;
+}
+
+.sum-to-pay {
+  color: #6200EF;
+  font-weight: 700;
+  font-size: 26px;
+}
+
+.payment-date {
+  color: #6200EF;
+  font-weight: 700;
+  font-size: 26px;
 }
 
 
