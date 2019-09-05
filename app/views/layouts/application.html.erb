@@ -35,10 +35,15 @@
         { channel: 'UserNotifChannel', user_id: <%= current_user.id %> },
         {
           received: (data) => {
+            console.log('hello')
             var notifBar = document.querySelector(".notification-bar");
             notifBar.insertAdjacentHTML('afterbegin', data['notif_partial']);
             var bell = document.querySelector('.fa-bell');
+
             bell.classList.add('animated');
+
+            const audio = new Audio("<%= asset_path 'alert2.mp3' %>");
+            audio.play();
             // if (window.Notification && Notification.permission === "granted") {
             //       var n = new Notification("Coucou !");
             //     }
