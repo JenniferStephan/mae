@@ -53,7 +53,7 @@ const turnoverChart = new Chart(ctx, {
         ticks: {
           display: false,
           beginAtZero: true,
-          max: 9000
+          max: 10000
         },
         gridLines: {
           display: false,

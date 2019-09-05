@@ -16,6 +16,15 @@ user = User.create!(email: "contact@paula.com",
                     tax_rate: 0,
                     address: "13 rue Morand, 75011 Paris")
 
+mae = Client.create!(user: user,
+                    email: "lewagon@mae.com",
+                    first_name: "Clarisse",
+                    last_name: "MARTIN",
+                    category: "professionelle",
+                    company_name: "MAE - Mon auto-entreprise",
+                    company_address: "16 villa Gaudelet, 75011 Paris")
+
+
 botify = Client.create!(user: user,
                         email: "aurore@botify.com",
                         first_name: "Aurore",
@@ -115,7 +124,7 @@ MissionsInvoice.create!(man_day_quantity: 6, price_rate: 300, vat_rate: 0, missi
 MissionsInvoice.create!(man_day_quantity: 6, price_rate: 200, vat_rate: 0, mission: ab_test, invoice: invoice3)
 
 invoice4 = Invoice.new(user: user,
-                      title: "Conseil pour l'équipe de Business Béveloppement",
+                      title: "Conseil pour l'équipe de Business Developpement",
                       reference: "PDLP-023457",
                       creation_date: Date.strptime("28-05-2019", '%d-%m-%Y'),
                       due_date: Date.strptime("28-06-2019", '%d-%m-%Y'),
@@ -149,6 +158,7 @@ invoice6 = Invoice.new(user: user,
                       client: superman)
 
 invoice6.save!
+MissionsInvoice.create!(man_day_quantity: 10, price_rate: 550, vat_rate: 0, mission: exp_user, invoice: invoice6)
 
 invoice7 = Invoice.new(user: user,
                       title: "Constitution de portfolio",
