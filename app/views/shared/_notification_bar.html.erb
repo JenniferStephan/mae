@@ -1,10 +1,7 @@
 <div class="notification-bar">
 
-  <div id="calendar">
-  </div>
-  <% if current_user %>
-    <%= render 'notifications/index.html.erb', notifications: current_user.notifications %>
+  <% current_user.notifications.each do |notif| %>
+    <%= render 'notifications/show.html.erb', notif: notif %>
   <% end %>
-
 
 </div>

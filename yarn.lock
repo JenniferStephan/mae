@@ -1579,6 +1579,11 @@ chart.js@^2.8.0:
     chartjs-color "^2.1.0"
     moment "^2.10.2"
 
+chartjs-chart-radial-gauge@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/chartjs-chart-radial-gauge/-/chartjs-chart-radial-gauge-1.0.3.tgz#13233f7439d511740155af7469b70396f590d18e"
+  integrity sha512-orm3XGWww46rmsKvAnwyOhXA5MtVfjsxfD463iE/gBBVOfozeFnsydZWx8Rqj5fy3DoxZROYUCR02RexvoMsHQ==
+
 chartjs-color-string@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/chartjs-color-string/-/chartjs-color-string-0.6.0.tgz#1df096621c0e70720a64f4135ea171d051402f71"
@@ -2802,6 +2807,11 @@ follow-redirects@^1.0.0:
   integrity sha512-m/pZQy4Gj287eNy94nivy5wchN3Kp+Q5WgUPNy5lJSZ3sgkVKSYV/ZChMAQVIgx1SqfZ2zBZtPA2YlXIWxxJOQ==
   dependencies:
     debug "^3.2.6"
+
+font-awesome-animation@^0.2.1:
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/font-awesome-animation/-/font-awesome-animation-0.2.1.tgz#38f1c323ce9baf0932a5dc5596ece762e42f58b0"
+  integrity sha512-kOLT6yuQG06xRrjLoI1cCVrmMyREnKIk7TCkdRd4nQtHnSue4pRxvyTKN3SVV4Zs/pasfMxd296a11u7uSBI3A==
 
 for-in@^1.0.2:
   version "1.0.2"

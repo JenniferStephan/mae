@@ -1,0 +1,5 @@
+meta_product_name: "MAE Dashboard"
+meta_title: "MAE, Mon auto-entreprise - La vie de freelance sans contrainte"
+meta_description: "Grâce à votre coach administratif et comptable, gérez vos factures, cotisations sociales..."
+meta_image: "logo-mae.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards

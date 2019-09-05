@@ -1,34 +1,27 @@
 import Chart from 'chart.js';
 import ChartDataLabels from 'chartjs-plugin-datalabels';
 
+if (document.querySelector('#myChart')) {
+  const canvas = document.getElementById("myChart");
 
-if (document.querySelector('#doughnut-chart')) {
+  const totalDelayed = JSON.parse(canvas.dataset.delayed);
+  const totalPaid = JSON.parse(canvas.dataset.paid);
+  const totalSubmitted = JSON.parse(canvas.dataset.submitted);
+  console.log(canvas);
 
-const total_submitted = document.querySelector('.total_submitted').innerHTML;
-const total_paid = document.querySelector('.total_paid').innerHTML;
-const total_delayed = document.querySelector('.total_delayed').innerHTML;
-
-new Chart(document.getElementById("doughnut-chart"), {
+  const ctx = canvas.getContext('2d');
+  const myChart = new Chart(ctx, {
     type: 'doughnut',
     data: {
       labels: ["Factures en attente", "Factures payées", "Factures en retard"],
-      datasets: [
-        {
-          label: "Factures (en euros)",
-          backgroundColor: ["#221ECE", "#64D286","#BE0C62"],
-          data: [total_submitted, total_paid, total_delayed]
-        }
-      ]
-    },
-    options: {
-      title: {
-        display: false,
-        text: 'Mes factures'
-      },
-      legend: {
-            display: true,
-            position: 'right',
-        }
+      datasets: [{
+        backgroundColor: [
+          "rgba(34, 30, 206, 0.8)",
+          "rgba(100, 210, 134, 0.8)",
+          "rgba(245,54,92, 0.8)"
+        ],
+        data: [totalSubmitted, totalPaid, totalDelayed]
+      }]
     }
-});
+  });
 }

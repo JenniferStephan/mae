@@ -71,6 +71,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
     crass (1.0.4)
     d3-rails (5.9.2)
       railties (>= 3.1)
@@ -144,6 +145,8 @@ GEM
     puma (4.1.0)
       nio4r (~> 2.0)
     rack (2.0.7)
+    rack-protection (2.0.7)
+      rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -191,6 +194,13 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sidekiq (6.0.0)
+      connection_pool (>= 2.2.2)
+      rack (>= 2.0.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
+    sidekiq-failures (1.0.0)
+      sidekiq (>= 4.0.0)
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
@@ -257,6 +267,8 @@ DEPENDENCIES
   redactor-rails!
   redis
   sassc-rails
+  sidekiq
+  sidekiq-failures (~> 1.0)
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)

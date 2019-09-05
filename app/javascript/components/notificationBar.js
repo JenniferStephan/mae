@@ -3,7 +3,8 @@ const initNotificationBar = () => {
   const notifBar = document.querySelector(".notification-bar");
 
   notifButton.addEventListener('click', (event) => {
-    notifBar.classList.toggle("open")
+    notifBar.classList.toggle("open");
+    document.querySelector('.fa-bell').classList.remove('animated');
   })
 }
 

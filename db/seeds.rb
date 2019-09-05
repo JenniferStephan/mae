@@ -13,6 +13,7 @@ user = User.create!(email: "contact@paula.com",
                     username: "PaulaDesign",
                     siret: "54645643",
                     vat: 0,
+                    tax_rate: 0,
                     address: "13 rue Morand, 75011 Paris")
 
 botify = Client.create!(user: user,
@@ -109,6 +110,7 @@ invoice3 = Invoice.new(user: user,
                       client: algolia)
 invoice3.save!
 
+
 MissionsInvoice.create!(man_day_quantity: 6, price_rate: 300, vat_rate: 0, mission: seo_test, invoice: invoice3)
 MissionsInvoice.create!(man_day_quantity: 6, price_rate: 200, vat_rate: 0, mission: ab_test, invoice: invoice3)
 
@@ -121,7 +123,8 @@ invoice4 = Invoice.new(user: user,
                       status: 2,
                       client: algolia)
 invoice4.save!
-MissionsInvoice.create!(man_day_quantity: 10, price_rate: 260, vat_rate: 0, mission: exp_user, invoice: invoice4)
+
+MissionsInvoice.create!(man_day_quantity: 10, price_rate: 270, vat_rate: 0, mission: exp_user, invoice: invoice4)
 
 
 invoice5 = Invoice.new(user: user,
