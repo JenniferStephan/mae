@@ -7,21 +7,36 @@ class InvoiceMailer < ApplicationMailer
   #
   #   en.invoice_mailer.send_to_client.subject
   #
-  def send_to_client(invoice)
-    @invoice = invoice
-    @client = invoice.client
+  def send_to_client(invoice_id)
+    @invoice = Invoice.find(invoice_id)
+    attachments["facture-#{@invoice.id}.pdf"] = File.read(generate_invoice_pdf_file(@invoice))
 
-    attachments["facture-#{invoice.id}.pdf"] = File.read(generate_invoice_pdf_file)
+    mail(
+      :subject => 'Facturation',
+      :to  => 'jennifer.stephan@beta.gouv.fr',
+      :from => 'jennifer@mae.com',
+      :html_body => '<strong>Hello</strong> dear Postmark user.',
+      :track_opens => 'true'
+    )
 
-    mail to: invoice.client.email
+    mail to: @invoice.client.email
   end
+
+  #  def postmark_to_client(invoice)
+  #   mail(
+  #     :subject => 'Facturation',
+  #     :to  => 'jennifer.stephan@beta.gouv.fr',
+  #     :from => 'jennifer@mae.com',
+  #     :html_body => '<strong>Hello</strong> dear Postmark user.',
+  #     :track_opens => 'true')
+  # end
 
   private
 
-  def generate_invoice_pdf_file
+  def generate_invoice_pdf_file(invoice)
     pdf_html = ApplicationController.render(
       assigns: {
-        invoice: @invoice,
+        invoice: invoice,
         format: 'pdf'
       },
       template: 'invoices/show',
@@ -36,7 +51,7 @@ class InvoiceMailer < ApplicationMailer
       dpi: 75
     )
 
-    tempfile = Tempfile.new("facture-#{@invoice.id}.pdf")
+    tempfile = Tempfile.new("facture-#{invoice.id}.pdf")
 
     File.open(tempfile.path, 'wb') do |file|
       file << pdf
@@ -46,4 +61,6 @@ class InvoiceMailer < ApplicationMailer
 
     return tempfile.path
   end
+
+
 end

@@ -1,8 +1,5 @@
 <div class="notification-bar">
 
-<!--   <div id="calendar">
-  </div> -->
-
   <% current_user.notifications.each do |notif| %>
     <%= render 'notifications/show.html.erb', notif: notif %>
   <% end %>

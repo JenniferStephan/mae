@@ -92,10 +92,10 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_to_cli
     @invoice.sent!
     new_notif_sent = Notification.create(user: current_user,
       category: "Facture envoyée",
-        content: "Vous venez d'envoyer la facture #{@invoice.reference} à votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc}. Votre client a jusqu'au #{@invoice.due_date} pour la régler.")
-
-    InvoiceMailer.send_to_client(@invoice).deliver_now
-
+      content: "Vous venez d'envoyer la facture #{@invoice.reference} à votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc}. Votre client a jusqu'au #{@invoice.due_date} pour la régler."
+    )
+    # InvoiceMailer.send_to_client(@invoice).deliver_now
+    InvoiceMailer.send_to_client(@invoice.id).deliver_now
     redirect_to invoice_path(@invoice)
   end
 
