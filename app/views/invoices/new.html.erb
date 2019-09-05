@@ -1,4 +1,4 @@
-<div class= "container py-5">
+<div class= "container py-5" style="width: 80%">
 
 
   <h1>Créer une facture</h1>
@@ -13,14 +13,20 @@
 
 
     <%= simple_form_for :search, url: new_invoice_path, method: :get do |f| %>
-        <div class="client-select p-2">
+        <div class="client-select">
           <%= f.input :client, label:"Sélectionnez un client", collection: @my_clients, label_method: :company_name, value_method: :id, include_blank: true, as: :select %>
           <% if @client_found.present? %>
             <%= @client_found.company_name %> <br/>
             <%= @client_found.last_name %> <br/>
-            <%= @client_found.company_address %>
+            <%= @client_found.company_address %> <br/>
           <% end %>
+    <%#= link_to 'Ajouter un nouveau client', new_client_path, class:"button-big" %>
+
+    <!-- Button trigger modal -->
         </div>
+    <button type="button" class="button-big" data-toggle="modal" data-target=".bd-example-modal-lg">
+      Ajouter un nouveau client
+    </button>
       </div>
     <% end %>
 
@@ -30,44 +36,68 @@
       <% end %>
 
 
+
+
       <%#= f.input :creation_date, as: :string, required: false, label: "Date de facturation",input_html: {class: "datepicker d-inline-flex p-3"} %>
+    <div style="width: 30%">
+      <%= f.input :creation_date, as: :string, required: false, input_html: {class: "datepicker"}, placeholder: "Date de facturation", label: false %>
 
-    <div class="d-inline-flex p-2">
-      <%= f.input :creation_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date de facturation" %>
+
+      <%= f.input :title, placeholder: "Titre de la facture",label: false %>
     </div>
 
 
-    <div class="titre p-2">
-      <%= f.input :title, label: "Titre" %>
-    </div>
 
-        <h3>Missions</h3>
+        <h3 class="mt-5">Missions</h3>
 
-        <div id="missions_invoices p-2">
+        <div id="missions_invoices">
             <%= f.fields_for :missions_invoices do |missions_invoice| %>
               <%= render 'missions_invoice_fields', f: missions_invoice %>
-    <% end %>
+            <% end %>
 
             <div class="links d-flex justify-content-between">
-              <%= link_to_add_association 'Ajouter une ligne', f, :missions_invoices, class:"bouton btn btn-dark" %>
+              <%= link_to_add_association 'Ajouter une ligne', f, :missions_invoices, class:"button-big" %>
             </div>
             <div class="calc-total d-flex align-items-end flex-column mb-3">
-              <div class="d-flex justify-content-around p-2">
-                <p>Montant total HT</p>
+              <div class="d-flex">
+                <p>MONTANT TOTAL HT</p>
                 <div class="total-HT"> &nbsp; </div>
               </div>
               <div class="d-flex">
-                <p>Montant total TTC</p>
+                <p>MONTANT TOTAL TTC</p>
                 <div class="total-TTC"> &nbsp;</div>
               </div>
               <!-- <div class="btn btn-dark"> -->
-                <%= f.submit "valider" %>
+                <%= f.submit "valider", class:"button" %>
 <!--               </div> -->
             </div>
         <% end %>
     </div>
   </div>
 
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Ajouter un nouveau client</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render '/clients/form', client: Client.new %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 

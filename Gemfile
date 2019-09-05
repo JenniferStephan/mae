@@ -12,6 +12,8 @@ gem 'rails-i18n'
 gem 'redis'
 # gem 'simple_form_extension'
 gem 'coffee-rails'
+gem 'sidekiq'
+gem 'sidekiq-failures', '~> 1.0'
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'

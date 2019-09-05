@@ -17,12 +17,14 @@
 }
 
 .mission-name {
-  width: 250px;
+  width: 260px;
 }
 
-.total-line-TTC {
+
+
+.total-line-TTC, .total-line-HT {
   padding: 8px 10px;
-  background-color: white;
+  background-color: rgba(40, 40, 40, 0.2);
   border: 1px solid rgba(40, 40, 40, 0.2);
   border-radius: 4px;
 }
@@ -36,10 +38,22 @@
   background-color: white;
   border: 1px solid rgba(40, 40, 40, 0.2);
   border-radius: 4px;
-  width: 70px;
+  width: 100px;
   margin-left: 15px;
-  margin-right: 0px;
+  margin-right: 52px;
   margin-bottom: 15px;
+}
+
+.client-select {
+  margin-bottom: 20px;
+}
+
+#invoice_title {
+  width: 100%;
+}
+
+#invoice_creation_date {
+  width: 100%;
 }
 
 

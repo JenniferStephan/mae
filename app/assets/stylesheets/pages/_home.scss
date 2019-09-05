@@ -1,15 +1,34 @@
 .welcome-card {
-  margin-top: 170px;
+  margin-top: 70px;
   margin-left: 50px;
   // background: $yellow;
   // background: #F64451;
-  background: #f9454b;
+  // background: #f9454b;
+  background: #6200EF;
   border-radius: 10px;
-  h2 {
-    color: white;
-    opacity: 0.9;
-    padding: 25px;
+  color: rgb(255, 255, 255);
+  padding: 20px;
+  p {
+    font-size: 18px;
   }
+  .two-actions-from-homepage-card {
+    padding-top: 7px;
+  }
+  .second-button-on-the-right {
+    margin-left: 15px;
+    background: white;
+    color: $yellow;
+    border: 2px solid $yellow;
+  }
+}
+
+.timer-cotisations-chart {
+  background: white;
+  border-radius: 10px;
+  height: 200px;
+  width: 365px;
+  margin-top: 70px;
+  margin-left: 40px;
 }
 
 .homepage-invoice-infos {
@@ -20,7 +39,7 @@
 .invoices-cards{
   display: flex;
   align-items: flex-start;
-  margin-top: 40px;
+  margin-top: 25px;
   margin-left: 50px;
 }
 
@@ -126,3 +145,37 @@
     opacity: 1;
   }
 }
+
+.invoices-counted-with-circle-blue{
+  background-color: #221ECE;
+  border-radius: 50%;
+  color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding-top: 2px;
+}
+
+.invoices-counted-with-circle-green{
+  background-color: #64D286;
+  border-radius: 50%;
+  color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding-top: 2px;
+}
+
+.invoices-counted-with-circle-pink{
+  background-color: #BE0C62;
+  border-radius: 50%;
+  color: white;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding-top: 2px;
+}
+
+
+
+

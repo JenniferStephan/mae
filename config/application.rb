@@ -18,9 +18,9 @@ module Mae
 
     config.i18n.default_locale = :fr
 
-    # postmark mailer
-    config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { :api_token => ENV['POSTMARK_API_TOKEN'] }
+    config.assets.initialize_on_precompile = false
+
+    config.active_job.queue_adapter = :sidekiq
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

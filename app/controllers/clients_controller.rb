@@ -10,6 +10,13 @@ class ClientsController < ApplicationController
   end
 
   def create
+    @client = Client.new(client_params)
+    @client.user = current_user
+    if @client.save
+      redirect_to new_invoice_path
+    else
+      render :new
+    end
   end
 
   def edit
@@ -23,7 +30,8 @@ class ClientsController < ApplicationController
   def set_client
     @client = Client.find(params[:id])
   end
+
   def client_params
-    params.require(:client).permit(:first_last, :last_name)
+    params.require(:client).permit(:first_name, :last_name, :email, :company_name, :company_address, :company_siret)
   end
 end
