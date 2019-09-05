@@ -1,4 +1,4 @@
-<div class= "container py-5">
+<div class= "container py-5" style="width: 80%">
 
 
   <h1>Créer une facture</h1>
@@ -39,25 +39,24 @@
 
 
       <%#= f.input :creation_date, as: :string, required: false, label: "Date de facturation",input_html: {class: "datepicker d-inline-flex p-3"} %>
+    <div style="width: 30%">
+      <%= f.input :creation_date, as: :string, required: false, input_html: {class: "datepicker"}, placeholder: "Date de facturation", label: false %>
 
-    <div class="d-inline-flex p-2">
-      <%= f.input :creation_date, as: :string, required: false, input_html: {class: "datepicker"}, label: "Date de facturation" %>
+
+      <%= f.input :title, placeholder: "Titre de la facture",label: false %>
     </div>
 
 
-    <div class="titre p-2">
-      <%= f.input :title, label: "Titre" %>
-    </div>
 
-        <h3>Missions</h3>
+        <h3 class="mt-5">Missions</h3>
 
         <div id="missions_invoices">
             <%= f.fields_for :missions_invoices do |missions_invoice| %>
               <%= render 'missions_invoice_fields', f: missions_invoice %>
-              <% end %>
+            <% end %>
 
             <div class="links d-flex justify-content-between">
-              <%= link_to_add_association 'Ajouter une ligne', f, :missions_invoices, class:"bouton btn btn-dark" %>
+              <%= link_to_add_association 'Ajouter une ligne', f, :missions_invoices, class:"button-big" %>
             </div>
             <div class="calc-total d-flex align-items-end flex-column mb-3">
               <div class="d-flex">

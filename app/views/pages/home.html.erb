@@ -1,4 +1,5 @@
 <div class="d-flex">
+
   <div class="welcome-card">
     <h2>Bonjour <%= current_user.first_name %> !</h2>
     <p>Que voulez-vous faire aujourd'hui ?</p>
@@ -13,6 +14,8 @@
     <!-- futur chart Aurore -->
   </div>
 
+
+</div>
 <div class="d-flex">
   <div class="turnover-chart-card" style="width: 600px">
     <div class="turnover-chart chart">
@@ -22,6 +25,13 @@
 
   <div class="mes-factures-chart-card" style="width: 330px">
     <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted %>" data-delayed="<%=current_user.get_total_delayed %>" data-paid="<%= current_user.get_total_paid %>"></canvas>
+  </div>
+</div>
+
+
+<div class="turnover-chart-card" style="width: 410px">
+  <div class="turnover-chart chart">
+    <canvas id="chart-bars" class="chart-canvas chartjs-render-monitor" data-months="<%= @income_months.to_json %>" data-values="<%= @income_values.to_json %>"></canvas>
   </div>
 </div>
 
