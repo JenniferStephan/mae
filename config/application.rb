@@ -18,8 +18,9 @@ module Mae
 
     config.i18n.default_locale = :fr
 
+    # postmark mailer
     config.action_mailer.delivery_method = :postmark
-    config.action_mailer.postmark_settings = { :api_token => "7ced1da5-48b9-4f15-976f-54da0d74865a" }
+    config.action_mailer.postmark_settings = { :api_token => "66970e42-5652-45c2-ac54-8c7bb11ac8a6" }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers

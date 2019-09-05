@@ -9,4 +9,12 @@ class InvoiceMailerTest < ActionMailer::TestCase
     assert_match "Hi", mail.body.encoded
   end
 
+  def hello
+    mail(
+      :subject => 'Facture MAE',
+      :to  => 'jennifer.stephan@beta.gouv.fr',
+      :from => 'jennifer@mae.com',
+      :html_body => '<strong>Hello</strong> dear Postmark user.',
+      :track_opens => 'true')
+  end
 end
