@@ -3,12 +3,6 @@
 </head>
 
 <body>
-<% unless @format == 'pdf' %>
-  <div class="invoice-show-action-buttons">
-    <%= link_to "PDF", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_pdf" %>
-  <%= link_to 'Envoyer', send_to_client_invoice_path(@invoice), method: :post, class: 'button button_envoi hidden-link' %>
-  </div>
-<% end %>
 
 <div class="container">
 
@@ -129,4 +123,13 @@
       </tr>
     </table>
   </div>
+
+  <% unless @format == 'pdf' %>
+    <div class="invoice-show-action-buttons">
+      <%= link_to "PDF", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_pdf" %>
+    <%= link_to 'Envoyer', send_to_client_invoice_path(@invoice), method: :post, class: 'button button_envoi hidden-link' %>
+    </div>
+  <% end %>
+
+</div>
 
