@@ -21,8 +21,9 @@ if (document.querySelector('#new_invoice')) {
   initFacture();
 }
 
-
-// loadDynamicBannerText();
+if (document.querySelector('#banner-typed-text')) {
+loadDynamicBannerText();
+}
 
 if (document.querySelector(".notification-bar")) {
      initNotificationBar();

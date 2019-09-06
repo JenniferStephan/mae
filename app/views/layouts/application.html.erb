@@ -16,9 +16,11 @@
     <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
+    <% unless (params[:controller] == 'pages' && params[:action] == 'discover') %>
     <%= render 'shared/login' %>
     <%= render 'shared/flashes' %>
     <%= render 'shared/notification_bar' %>
+    <% end %>
     <div class="page-layout">
       <% unless (params[:controller] == 'pages' && params[:action] == 'discover') %>
         <%= render 'shared/sidebar' %>

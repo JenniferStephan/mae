@@ -102,20 +102,27 @@ invoice1.save!
 
 MissionsInvoice.create!(man_day_quantity: 3, price_rate: 300, vat_rate: 0, mission: proto_web, invoice: invoice1)
 
-invoice2 = Invoice.new(user: user,
-                      title: "SEO consultancy mission",
-                      reference: "PDLP-023457",
-                      creation_date: Date.strptime("14-05-2019", '%d-%m-%Y'),
-                      due_date: Date.strptime("14-06-2019", '%d-%m-%Y'),
-                      payment_date: Date.strptime("09-06-2019", '%d-%m-%Y'),
-                      total_amount_ttc: 3000,
+thomas_thevenoud = Client.create!(user: user,
+                    email: "thomas.thevenoud@phobieadmin.com",
+                    first_name: "Thomas",
+                    last_name: "THEVENOUD",
+                    category: "particulier",
+                    company_name: "TT SA",
+                    company_address: "2 Rue Michelet, 21000 Dijon")
+
+
+invoicethevenoud = Invoice.new(user: user,
+                      title: "Site de campagne électorale",
+                      reference: "PDLP-023458",
+                      creation_date: Date.strptime("14-05-2012", '%d-%m-%Y'),
+                      due_date: Date.strptime("14-06-2012", '%d-%m-%Y'),
+                      total_amount_ttc: 1000,
                       status: 3,
-                      client: typology)
+                      client: thomas_thevenoud)
 
-invoice2.save!
+invoicethevenoud.save!
 
-MissionsInvoice.create!(man_day_quantity: 6, price_rate: 300, vat_rate: 0, mission: seo_test, invoice: invoice2)
-MissionsInvoice.create!(man_day_quantity: 6, price_rate: 200, vat_rate: 0, mission: ab_test, invoice: invoice2)
+MissionsInvoice.create!(man_day_quantity: 2, price_rate: 500, vat_rate: 0, mission: proto_web, invoice: invoicethevenoud)
 
 invoice3 = Invoice.new(user: user,
                       title: "Tests sur les features de paiement",
