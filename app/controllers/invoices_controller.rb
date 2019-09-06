@@ -91,6 +91,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_to_cli
 
   def send_to_client
     @invoice.sent!
+    @invoice.generate_reference
     @invoice.update(creation_date: Date.today)
     new_notif_sent = Notification.create(user: current_user,
       category: "Facture envoyée",
