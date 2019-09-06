@@ -12,13 +12,6 @@
   <% end %>
 <div class="container">
 
-  <% unless @format == 'pdf' %>
-    <div class="invoice-show-action-buttons">
-      <%= link_to "PDF", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_pdf" %>
-    <%= link_to 'Envoyer', send_to_client_invoice_path(@invoice), method: :post, class: 'button button_envoi hidden-link' %>
-    </div>
-  <% end %>
-
   <div class="invoice-box">
     <table>
       <tr class="top">
@@ -34,7 +27,7 @@
               </td>
 
               <td class="infos-factures-on-pdf-invoice">
-                Facture : #<b><%= @invoice.id %></b>
+                Facture : #<b><%= @invoice.reference %></b>
                 <br>
                 Créée le : <b><%= @invoice.get_creation_date %></b>
                 <br>
