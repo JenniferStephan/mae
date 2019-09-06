@@ -9,6 +9,8 @@
     <%= favicon_link_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
+    <%= favicon_link_tag %>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/logo-mae.png">
 
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
 
@@ -38,10 +40,15 @@
         { channel: 'UserNotifChannel', user_id: <%= current_user.id %> },
         {
           received: (data) => {
+            console.log('hello')
             var notifBar = document.querySelector(".notification-bar");
             notifBar.insertAdjacentHTML('afterbegin', data['notif_partial']);
             var bell = document.querySelector('.fa-bell');
+
             bell.classList.add('animated');
+
+            const audio = new Audio("<%= asset_url 'alert2.mp3' %>");
+            audio.play();
             // if (window.Notification && Notification.permission === "granted") {
             //       var n = new Notification("Coucou !");
             //     }
