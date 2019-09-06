@@ -100,7 +100,7 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_to_cli
     # InvoiceMailer.send_to_client(@invoice).deliver_now
     # InvoiceMailer.send_to_client(@invoice.id).deliver_now
     redirect_to root_path
-    flash[:notice] = "Facture envoyée !"
+    flash[:notice] = "Votre facture a bien été envoyée !"
   end
 
   private
