@@ -1,5 +1,5 @@
 .homepage-container {
-  width: 1000px;
+  width: 1050px;
   margin: 0 auto;
 }
 
@@ -13,7 +13,7 @@
   // background: $yellow;
   // background: #F64451;
   // background: #f9454b;
-  background: #6200EF;
+  background: $purple;
   border-radius: 10px;
   color: rgb(255, 255, 255);
   padding: 20px;
@@ -52,10 +52,6 @@
 .invoices-status {
   overflow: hidden;
   border-radius: 10px;
-  // &:first-child {
-  //   margin-left: 0px;
-  // }
-  // margin-left: 40px;
   h5 {
     font-size: 15px;
   }
@@ -63,7 +59,7 @@
 
 .column-title {
   background: white;
-  padding: 20px;
+  padding: 26px 20px;
   vertical-align: middle;
   h3 {
     margin-bottom: 0!important;
@@ -188,6 +184,7 @@
 }
 
 .cotisations-time {
+  width: 360px;
   height: 200px;
   font-size: 20px;
   font-weight: 500;
@@ -207,4 +204,17 @@
   color: #6200EF;
   font-weight: 700;
   font-size: 26px;
+}
+
+.payment-date a {
+  text-decoration: none;
+  color: rgba(98, 0, 239, 0.7);
+}
+
+.payment-date a:hover {
+  text-decoration: none;
+  font-size: 26px;
+  color: rgba(98, 0, 239, 1);
+  transition: all ease 0.2s;
+  transform: scale(1.1);
 }

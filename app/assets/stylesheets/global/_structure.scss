@@ -11,7 +11,7 @@
   height: 100vh;
   width: 190px;
   flex-direction: column;
-  flex: 0 0 190px;
+  flex: 0 0 200px;
   align-items: center;
 }
 
@@ -37,7 +37,7 @@
 
 .logo {
   display: inline-block;
-  margin-bottom: 100px;
+  margin-bottom: 60px;
   width: 90px;
   background: image_path('logo-mae.png');
 }
@@ -66,16 +66,16 @@
 .welcome-card {
   position: relative;
   height: 200px;
-  width: 570px;
+  width: 620px;
 }
 
 .illustration {
   position: absolute;
   bottom: 16px;
-  left: 365px;
+  left: 400px;
   height: 215px;
 }
 
 .invoices-status {
-  width: 298px;
+  width: 310px;
 }

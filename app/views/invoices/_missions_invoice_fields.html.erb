@@ -6,10 +6,10 @@
 
 <!--   </div> -->
   <!-- <div class="quantity"> -->
-    <%=   f.input :man_day_quantity, label: "Quantité", as: :integer, input_html: {class: "w-input"} %>
+    <%=   f.input :man_day_quantity, label: "Quantité", placeholder:"jours", as: :integer, input_html: {class: "w-input"} %>
 <!--    </div> -->
 <!--   <div class="unit-price">  -->
-    <%=   f.input :price_rate, label: "Prix unitaire", as: :integer, input_html: {class: "x-input"}%>
+    <%=   f.input :price_rate, label: "Prix unitaire", placeholder:"euros",as: :integer, input_html: {class: "x-input"}%>
 <!--   </div>
   <div class="tva"> -->
     <%=   f.input :vat_rate, label: "TVA", collection: MissionsInvoice::VAT, include_blank: false, input_html: {class: "y-input"} %>
