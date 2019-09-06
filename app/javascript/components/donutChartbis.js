@@ -17,7 +17,8 @@ if (document.querySelector('#myChart')) {
       labels: ["Factures envoyées", "Factures payées", "Factures en retard"],
       datasets: [{
         datalabels: {
-          display: false,
+          display: true,
+          color: "#FFF"
         },
         backgroundColor: [
           "rgba(34, 30, 206, 0.8)",
