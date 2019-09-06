@@ -13,15 +13,17 @@
 
     <div class="cotisations-time d-flex flex-column">
       <h2> Mes cotisations </h2>
-      <div class="d-flex justify-content-between">
-        <span class="mt-1"> Vous devez régler </span>
-        <div class="sum-to-pay"><%= @income_per_current_quarter_to_pay.round %> </div> <span class="sum-to-pay"> € </span>
+
+      <div class="reglement-cotisations d-flex">
+        <div class="sum-to-pay" data-quarter="<%= @income_per_current_quarter_to_pay.to_json %>"></div>
       </div>
 
         <div class="payment-date"> </div>
+        <div class="call-simul"> </div>
 
-      <div class="small" id="current-user-rate" data-rate="<%= current_user.tax_rate.to_json %>">Votre taux actuel : <%= current_user.tax_rate %></div>
+      <div class="small d-flex justify-content-between" id="current-user-rate" data-rate="<%= current_user.tax_rate.to_json %>"></div>
     </div>
+
   </div>
 
   <div class="second-div-homepage">
@@ -32,7 +34,7 @@
     </div>
 
     <div class="mes-factures-chart-card" style="width: 500px">
-      <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted.to_json %>" data-delayed="<%=current_user.get_total_delayed.to_json %>" data-paid="<%= current_user.get_total_paid.to_json %>"></canvas>
+      <canvas id="myChart" data-submitted="<%=current_user.get_total_submitted.to_json %>" data-delayed="<%=current_user.get_total_delayed.to_json %>" data-paid="<%= current_user.get_total_paid.to_json %>" data-paid-quarter="<%= @income_per_current_quarter.to_json %>"></canvas>
     </div>
   </div>
 
