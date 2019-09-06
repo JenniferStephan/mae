@@ -44,3 +44,4 @@ if (document.querySelector('#search_client')) {
 if (document.querySelector(".checklist-entry")) {
   changeColumn();
 }
+
