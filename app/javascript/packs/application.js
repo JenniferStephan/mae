@@ -17,8 +17,9 @@ if (document.querySelector('#new_invoice')) {
   initFacture();
 }
 
-
-// loadDynamicBannerText();
+if (document.querySelector('#banner-typed-text')) {
+loadDynamicBannerText();
+}
 
 if (document.querySelector(".notification-bar")) {
      initNotificationBar();
@@ -40,3 +41,4 @@ if (document.querySelector('#search_client')) {
 if (document.querySelector(".checklist-entry")) {
   changeColumn();
 }
+

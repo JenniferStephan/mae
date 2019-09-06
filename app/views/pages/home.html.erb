@@ -3,7 +3,7 @@
   <div class="top-div-homepage">
     <div class="welcome-card">
       <h2>Bonjour <%= current_user.first_name %> !</h2>
-      <p>Que voulez-vous faire aujourd'hui ?</p>
+      <p>Que souhaitez-vous faire aujourd'hui ?</p>
       <div class="two-actions-from-homepage-card">
         <%= link_to "Créer une nouvelle facture", new_invoice_path, class: "button" %>
         <%= link_to "Gérer mes factures", invoices_path, class: "second-button-on-the-right button-white-background-and-yellow-text" %>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="second-div-homepage">
-    <div class="turnover-chart-card" style="width: 470px">
+    <div class="turnover-chart-card" style="width: 480px">
       <div class="turnover-chart chart">
         <canvas id="chart-bars" class="chart-canvas chartjs-render-monitor" data-months="<%= @income_months.to_json %>" data-values="<%= @income_values.to_json %>"></canvas>
       </div>
@@ -45,14 +45,16 @@
       <div class="invoices-sent">
         <ul class="list-group list-group-flush" data-toggle="checklist">
 
-          <div class="column-title">
-            <h3>Factures envoyées</h3>
-              <div class="d-flex justify-content-between">
-                <div class="total_submitted">
-                  <%=current_user.get_total_submitted.round %> €
-                </div>
-                <div class="invoices-counted-with-circle-blue"> <%= @invoices.sent.count %> </div>
+          <div class="column-title d-flex justify-content-between align-items-center">
+            <div>
+              <h3>Factures envoyées</h3>
+              <div class="total_submitted">
+                <%= number_with_delimiter(current_user.get_total_submitted.round, delimiter: " ") %> €
               </div>
+            </div>
+            <div class="invoices-counted-with-circle-blue">
+              <%= @invoices.sent.count %>
+            </div>
           </div>
 
           <% @invoices.each do |invoice| %>
@@ -87,14 +89,16 @@
       <div class="invoices-delayed">
         <ul class="list-group list-group-flush" data-toggle="checklist">
 
-          <div class="column-title">
-            <h3>Factures en retard</h3>
-              <div class="d-flex justify-content-between">
-                <div class="total_delayed">
-                  <%=current_user.get_total_delayed.round %> €
-                </div>
-                  <div class="invoices-counted-with-circle-pink"> <%= @invoices.delayed.count %> </div>
+          <div class="column-title d-flex justify-content-between align-items-center">
+            <div>
+              <h3>Factures en retard</h3>
+              <div class="total_delayed">
+                <%= number_with_delimiter(current_user.get_total_delayed.round, delimiter: " ") %> €
               </div>
+            </div>
+            <div class="invoices-counted-with-circle-pink">
+              <%= @invoices.delayed.count %>
+            </div>
           </div>
 
           <% @invoices.each do |invoice| %>
@@ -133,9 +137,16 @@
     <div class="invoices-paid">
       <ul class="list-group list-group-flush" data-toggle="checklist">
 
-        <div class="column-title">
-          <h3>Factures payées</h3>
-          <div class="d-flex justify-content-between"> <div class="total_paid"><%= current_user.get_total_paid.round %> €</div> <div class="invoices-counted-with-circle-green"> <%= @invoices.paid.count %> </div> </div>
+        <div class="column-title d-flex justify-content-between align-items-center">
+          <div>
+            <h3>Factures payées</h3>
+            <div class="total_paid">
+              <%= number_with_delimiter(current_user.get_total_paid.round, delimiter: " ") %> €
+            </div>
+          </div>
+          <div class="invoices-counted-with-circle-green">
+            <%= @invoices.paid.count %>
+          </div>
         </div>
 
         <% @invoices.each do |invoice| %>

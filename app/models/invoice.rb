@@ -21,7 +21,7 @@ class Invoice < ApplicationRecord
   scope :to_be_delayed, -> { where('due_date < ?', Date.today).where.not(status: :paid) }
 
   def generate_reference
-    reference = "JS-BG-#{id}"
+    reference = "PDLP-#{id}"
   end
 
   def set_total_amounts
@@ -35,9 +35,9 @@ class Invoice < ApplicationRecord
 
   def notif_delayed
     if self.status == "delayed"
-      new_notif_delayed = Notification.create(user: current_user,
+      new_notif_delayed = Notification.create(user: self.user,
         category: "Paiement en retard",
-        content: "Votre client #{self.client.company_name} ne vous a toujours pas réglé la facture numéro #{self.reference}, d'un montant de #{self.total_amount_ttc} euros. Le paiement était dû au #{self.due_date}." )
+        content: "Votre client #{self.client.company_name} ne vous a toujours pas réglé la facture #{self.reference} d'un montant de #{self.total_amount_ttc}€. Le paiement était dû au #{self.due_date}." )
     end
   end
 
