@@ -38,14 +38,16 @@
             <div class="form-group simul">
               <label class="control-label check_boxes optional"></label>
               <input type="hidden" name="simulation[activity_ids][]" value="">
+              <div id="activity-choice" class="simulation-choix">
               <div class="category-choices">
                 <% Simulation::ACTIVITIES.each_with_index do |activity, index| %>
-                  <input type="checkbox" class="hidden" value="<%= activity %>" name="simulation[activity_ids][]" id="simulation_activity_ids_<%= activity %>">
+                  <input type="radio" class="hidden" value="<%= activity %>" name="simulation[activity_ids][]" id="simulation_activity_ids_<%= activity %>">
                   <label for="simulation_activity_ids_<%= activity %>" class="category-choice">
                     <%= activity %>
                   </label>
                 <% end %>
                </div>
+              </div>
             </div>
 
             <div class="tab-buttons text-right" id="first-tab">
@@ -63,16 +65,17 @@
 
               <label class="control-label check_boxes optional"></label>
               <input type="hidden" name="simulation[reglementary_ids][]" value="">
-
-              <div class="category-choices">
-                <input type="checkbox" class="hidden" value="true" name="simulation[reglementary_ids][]" id="simulation_reglementary_ids_true">
-                <label for="simulation_reglementary_ids_true" class="category-choice">
-                 Oui
-                </label>
-                <input type="checkbox" class="hidden" value="false" name="simulation[reglementary_ids][]" id="simulation_reglementary_ids_false">
-                <label for="simulation_reglementary_ids_false" class="category-choice">
-                  Non
-                </label>
+              <div id="reglementary-choice" class="simulation-choix">
+                <div class="category-choices">
+                  <input type="radio" class="hidden" value="true" name="simulation[reglementary_ids][]" id="simulation_reglementary_ids_true">
+                  <label for="simulation_reglementary_ids_true" class="category-choice">
+                   Oui
+                  </label>
+                  <input type="radio" class="hidden" value="false" name="simulation[reglementary_ids][]" id="simulation_reglementary_ids_false">
+                  <label for="simulation_reglementary_ids_false" class="category-choice">
+                    Non
+                  </label>
+                </div>
               </div>
             </div>
 
@@ -90,13 +93,15 @@
             <div class="form-group simul">
               <label class="control-label check_boxes optional"></label>
               <input type="hidden" name="simulation[year_ids][]" value="">
-              <div class="category-choices year-choices">
-                <% Simulation::YEAREXISTENCE.each_with_index do |year, index| %>
-                  <input type="checkbox" class="hidden" value="<%= index %>" name="simulation[year_ids][]" id="simulation_year_ids_<%= index %>">
-                  <label for="simulation_year_ids_<%= index %>" class="category-choice year">
-                    <%= year %>
-                  </label>
-                <% end %>
+              <div id="year-choice" class="simulation-choix">
+                <div class="category-choices year-choices">
+                  <% Simulation::YEAREXISTENCE.each_with_index do |year, index| %>
+                    <input type="radio" class="hidden" value="<%= index %>" name="simulation[year_ids][]" id="simulation_year_ids_<%= index %>">
+                    <label for="simulation_year_ids_<%= index %>" class="category-choice year">
+                      <%= year %>
+                    </label>
+                  <% end %>
+                </div>
               </div>
             </div>
 
@@ -116,16 +121,18 @@
             <div class="form-group simul">
               <label class="control-label check_boxes optional"></label>
               <input type="hidden" name="simulation[accre_ids][]" value="">
-              <div class="category-choices">
-                <input type="checkbox" class="hidden" value="true" name="simulation[accre_ids][]" id="simulation_accre_ids_true">
-                  <label for="simulation_accre_ids_true" class="category-choice">
-                   Oui
-                  </label>
+              <div id="accre-choice" class="simulation-choix">
+                <div class="category-choices">
+                  <input type="radio" class="hidden" value="true" name="simulation[accre_ids][]" id="simulation_accre_ids_true">
+                    <label for="simulation_accre_ids_true" class="category-choice">
+                     Oui
+                    </label>
 
-                <input type="checkbox" class="hidden" value="false" name="simulation[accre_ids][]" id="simulation_accre_ids_false">
-                  <label for="simulation_accre_ids_false" class="category-choice">
-                    Non
-                  </label>
+                  <input type="radio" class="hidden" value="false" name="simulation[accre_ids][]" id="simulation_accre_ids_false">
+                    <label for="simulation_accre_ids_false" class="category-choice">
+                      Non
+                    </label>
+                </div>
               </div>
             </div>
 
