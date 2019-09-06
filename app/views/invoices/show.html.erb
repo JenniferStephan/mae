@@ -3,136 +3,136 @@
 </head>
 
 <body>
+  <div class="container">
 
-  <% unless @format == 'pdf' %>
-    <div class="invoice-show-action-buttons">
-      <%= link_to "PDF", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_pdf" %>
-    <%= link_to 'Envoyer', send_to_client_invoice_path(@invoice), method: :post, class: 'button button_envoi hidden-link' %>
-    </div>
-  <% end %>
-<div class="container">
+    <% unless @format == 'pdf' %>
+      <div class="invoice-show-action-buttons">
+        <%= link_to "PDF", invoice_path(@invoice, format: :pdf), target: "_blank", class: "button button_pdf" %>
+      <%= link_to 'Envoyer', send_to_client_invoice_path(@invoice), method: :post, class: 'button button_envoi hidden-link' %>
+      </div>
+    <% end %>
 
-  <div class="invoice-box">
-    <table>
-      <tr class="top">
-        <td colspan="4">
-          <table>
-            <tr class="freelance-logo-and-invoice-summary">
-              <td class="freelance-big-logo-on-pdf-invoice">
-                <div class="user-invoice-logo">
-                  <%= image_tag image_url('user_logo3.png') %>
-                  <%#= wicked_pdf_image_tag 'user_logo3.png' %>
-                </div>
+    <div class="invoice-box">
+      <table>
+        <tr class="top">
+          <td colspan="4">
+            <table>
+              <tr class="freelance-logo-and-invoice-summary">
+                <td class="freelance-big-logo-on-pdf-invoice">
+                  <div class="user-invoice-logo">
+                    <%= image_tag image_url('user_logo3.png') %>
+                    <%#= wicked_pdf_image_tag 'user_logo3.png' %>
+                  </div>
 
-              </td>
+                </td>
 
-              <td class="infos-factures-on-pdf-invoice">
-                Facture : #<b><%= @invoice.reference %></b>
-                <br>
-                Créée le : <b><%= @invoice.get_creation_date %></b>
-                <br>
-                A payer avant le : <b><%= @invoice.get_due_date %></b>
-<!--                     <br>
-                Statut : <span class="badge badge-primary"><%= @invoice.status %></span> -->
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-
-      <tr>
-        <td colspan="4">
-          <table>
-            <tr class="user-and-client-addresses">
-              <td class="freelance-address-on-pdf-invoice">
-                <b><%= current_user.first_name + " " + current_user.last_name %></b><br>
-                <b><%= current_user.siret %></b><br>
-                <%= current_user.address %><br>
-                <i class="far fa-envelope"></i> <%= current_user.email %><br>
-<!--                    <i class="fas fa-phone"></i> <%= current_user.phone_number %> -->
-              </td>
-
-              <td class="client-address-on-pdf-invoice">
-                <b><%= @invoice.client.first_name + " " + @invoice.client.last_name %></b><br>
-                <%= @invoice.client.company_name %><br>
-                <%= @invoice.client.company_address %><br>
-                <i class="far fa-envelope"></i> <%= @invoice.client.email %><br>
-<!--                     <i class="fas fa-phone"></i> <%= @invoice.client.company_address %> -->
-              </td>
-            </tr>
-          </table>
-        </td>
-      </tr>
-
-      <tr class="heading">
-        <td colspan="6 titre">Titre</td>
-        <!-- <td class="right"><%= @invoice.title %></td> -->
-      </tr>
-
-      <tr class="details">
-        <td><%= @invoice.title %></td>
-      </tr>
-
-      <tr class="heading">
-        <td>Livrables</td>
-        <td class="right">TJH</td>
-        <td class="right">Qté</td>
-        <td>Total HT</td>
-      </tr>
-
-
-      <% @invoice.missions_invoices.each do |missions_invoice| %>
-        <tr class="item">
-              <td>
-                <%= missions_invoice.mission.name %><br>
-                <small><%= missions_invoice.mission.description %></small>
-              </td>
-
-              <td class="right">
-                <%= missions_invoice.price_rate %> €
-              </td>
-
-              <td class="right">
-                <%= missions_invoice.man_day_quantity %>
-              </td>
-
-              <td>
-                <%= missions_invoice.man_day_quantity * missions_invoice.price_rate %> €
-              </td>
+                <td class="infos-factures-on-pdf-invoice">
+                  Facture : #<b><%= @invoice.id %></b>
+                  <br>
+                  Créée le : <b><%= @invoice.get_creation_date %></b>
+                  <br>
+                  A payer avant le : <b><%= @invoice.get_due_date %></b>
+  <!--                     <br>
+                  Statut : <span class="badge badge-primary"><%= @invoice.status %></span> -->
+                </td>
+              </tr>
+            </table>
+          </td>
         </tr>
-      <% end %>
 
-      <tr>
-        <td colspan="4"></td>
-      </tr>
+        <tr>
+          <td colspan="4">
+            <table>
+              <tr class="user-and-client-addresses">
+                <td class="freelance-address-on-pdf-invoice">
+                  <b><%= current_user.first_name + " " + current_user.last_name %></b><br>
+                  <b><%= current_user.siret %></b><br>
+                  <%= current_user.address %><br>
+                  <i class="far fa-envelope"></i> <%= current_user.email %><br>
+  <!--                    <i class="fas fa-phone"></i> <%= current_user.phone_number %> -->
+                </td>
 
-      <tr>
-        <td colspan="2"></td>
-        <td><b>Sous-total HT</b></td>
-        <td><%= @invoice.total_amount_ht %> €</td>
-      </tr>
+                <td class="client-address-on-pdf-invoice">
+                  <b><%= @invoice.client.first_name + " " + @invoice.client.last_name %></b><br>
+                  <%= @invoice.client.company_name %><br>
+                  <%= @invoice.client.company_address %><br>
+                  <i class="far fa-envelope"></i> <%= @invoice.client.email %><br>
+  <!--                     <i class="fas fa-phone"></i> <%= @invoice.client.company_address %> -->
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
 
-      <tr>
-        <td colspan="2"></td>
-        <td><b>Remise</b></td>
-        <td>- 0.00%</td>
-      </tr>
+        <tr class="heading">
+          <td colspan="6 titre">Titre</td>
+          <!-- <td class="right"><%= @invoice.title %></td> -->
+        </tr>
 
-      <tr>
-        <td colspan="2"></td>
-        <td><b>TVA (20.0%)</b></td>
-        <td><%= @invoice.total_amount_ht * 0.20 %></td>
-      </tr>
+        <tr class="details">
+          <td><%= @invoice.title %></td>
+        </tr>
 
-      <tr class="heading">
-        <td colspan="2"></td>
-        <td><b>TOTAL TTC:</b></td>
-        <td>
-           <b><%= @invoice.total_amount_ttc %> €</b>
-        </td>
-      </tr>
-    </table>
+        <tr class="heading">
+          <td>Livrables</td>
+          <td class="right">TJH</td>
+          <td class="right">Qté</td>
+          <td>Total HT</td>
+        </tr>
+
+
+        <% @invoice.missions_invoices.each do |missions_invoice| %>
+          <tr class="item">
+                <td>
+                  <%= missions_invoice.mission.name %><br>
+                  <small><%= missions_invoice.mission.description %></small>
+                </td>
+
+                <td class="right">
+                  <%= missions_invoice.price_rate %> €
+                </td>
+
+                <td class="right">
+                  <%= missions_invoice.man_day_quantity %>
+                </td>
+
+                <td>
+                  <%= missions_invoice.man_day_quantity * missions_invoice.price_rate %> €
+                </td>
+          </tr>
+        <% end %>
+
+        <tr>
+          <td colspan="4"></td>
+        </tr>
+
+        <tr>
+          <td colspan="2"></td>
+          <td><b>Sous-total HT</b></td>
+          <td><%= @invoice.total_amount_ht %> €</td>
+        </tr>
+
+        <tr>
+          <td colspan="2"></td>
+          <td><b>Remise</b></td>
+          <td>- 0.00%</td>
+        </tr>
+
+        <tr>
+          <td colspan="2"></td>
+          <td><b>TVA (20.0%)</b></td>
+          <td><%= @invoice.total_amount_ht * 0.20 %></td>
+        </tr>
+
+        <tr class="heading">
+          <td colspan="2"></td>
+          <td><b>TOTAL TTC:</b></td>
+          <td>
+             <b><%= @invoice.total_amount_ttc %> €</b>
+          </td>
+        </tr>
+      </table>
+    </div>
+
   </div>
-
-</div>
-
+</body>
