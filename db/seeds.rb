@@ -47,7 +47,7 @@ frichti = Client.create!(user: user,
                         last_name: "CARTIER",
                         category: "professionnelle",
                         company_name: "Frichti",
-                        company_address: "5 rue charlot, 75003 paris")
+                        company_address: "5 rue Charlot, 75003 paris")
 
 algolia = Client.create!(user: user,
                     email: "clarisse@algolia.com",
@@ -346,7 +346,7 @@ Invoice.all.each do |invoice|
   puts invoice.total_amount_ttc
 end
 
-puts "we created #{Invoice.count} invoices/10"
+puts "we created #{Invoice.count} invoices/14"
 
 notif1 = Notification.new(
                   user: User.last,
@@ -378,4 +378,4 @@ notif5 = Notification.new(
                   content: "La facture numero #56789 d'un montant de 3 650€ a été réglée par votre client Typology.")
 notif5.save!
 
-puts "we created #{Notification.count} notifications/4"
+puts "we created #{Notification.count} notifications/5"
