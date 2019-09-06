@@ -16,22 +16,17 @@ if (document.querySelector('#myChart')) {
     data: {
       labels: ["Factures envoyées", "Factures payées", "Factures en retard"],
       datasets: [{
+        datalabels: {
+          display: false,
+        },
         backgroundColor: [
-          "rgba(34, 30, 206, 0.4)",
+          "rgba(34, 30, 206, 0.8)",
           "rgba(100, 210, 134, 0.8)",
           "rgba(245,54,92, 0.8)"
         ],
         data: [totalSubmitted, totalPaid, totalDelayed]
       }]
-    },
-    // options: {
-    //     legend: {
-    //         labels: {
-    //             fontColor: "white",
-    //             fontSize: 18
-    //         }
-    //     }
-    //   }
+    }
   });
 
 
