@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2019_09_04_091941) do
     t.datetime "updated_at", null: false
     t.integer "status", default: 0
     t.bigint "client_id"
+    t.text "comment"
     t.index ["client_id"], name: "index_invoices_on_client_id"
     t.index ["user_id"], name: "index_invoices_on_user_id"
   end
