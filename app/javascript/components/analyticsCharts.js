@@ -8,12 +8,15 @@ const ctx = canvas.getContext("2d");
 const months = JSON.parse(canvas.dataset.months);
 const values = JSON.parse(canvas.dataset.values);
 
-var gradient = ctx.createLinearGradient(0, 230, 0, canvas.height);
+var gradient = ctx.createLinearGradient(0, 220, 0, canvas.height);
 // gradient.addColorStop(0, '#221ECE');
 // gradient.addColorStop(0.9, '#f31069');
-gradient.addColorStop(1, '#221ECE');
-gradient.addColorStop(0.7, '#6C16C7');
-gradient.addColorStop(0, '#f31069');
+// gradient.addColorStop(1, '#221ECE');
+// gradient.addColorStop(0.7, '#6C16C7');
+// gradient.addColorStop(0, '#f31069');
+
+gradient.addColorStop(1, '#007065');
+gradient.addColorStop(0, '#64D286');
 
 
 const turnoverChart = new Chart(ctx, {
