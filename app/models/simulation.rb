@@ -11,9 +11,18 @@ class Simulation < ApplicationRecord
 
   def set_result
     if activity == "Libérale" && year_existence == 1 && reglementary == false && accre == true
+      self.result = 0.06
+      self.user.update(tax_rate: self.result)
+    elsif activity == "Libérale" && year_existence == 2 && reglementary == false && accre == true
       self.result = 0.12
       self.user.update(tax_rate: self.result)
-    else
+    elsif activity == "Libérale" && year_existence == 3 && reglementary == false && accre == true
+      self.result = 0.17
+      self.user.update(tax_rate: self.result)
+    elsif activity == "Libérale" && year_existence == 4 && reglementary == false && accre == true
+      self.result = 0.23
+      self.user.update(tax_rate: self.result)
+    elsif activity == "Libérale" && accre == false
       self.result = 0.23
       self.user.update(tax_rate: self.result)
     end
