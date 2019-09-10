@@ -37,13 +37,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_to_cli
           page_size: 'A4',
           template: "invoices/show.html.erb",
           layout: "pdf.html",
-          orientation: "Landscape",
-          lowquality: true,
-          zoom: 1,
-          dpi: 75,
-          page_size: 'A4',
-          template: "invoices/show.html.erb",
-          layout: "pdf.html",
           orientation: "Portrait",
           lowquality: true,
           zoom: 1,
@@ -92,7 +85,6 @@ before_action :set_invoice, only: [:show, :edit, :update, :destroy, :send_to_cli
   def send_to_client
     @invoice.sent!
     @invoice.generate_reference
-    @invoice.update(creation_date: Date.today)
     new_notif_sent = Notification.create(user: current_user,
       category: "Facture envoyée",
       content: "Vous venez d'envoyer la facture #{@invoice.reference} à votre client #{@invoice.client.company_name}, pour un montant total de #{@invoice.total_amount_ttc}. Votre client a jusqu'au #{@invoice.due_date} pour la régler."

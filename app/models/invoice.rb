@@ -21,7 +21,7 @@ class Invoice < ApplicationRecord
   scope :to_be_delayed, -> { where('due_date < ?', Date.today).where.not(status: :paid) }
 
   def generate_reference
-    reference = "PDLP-#{id}"
+    self.reference = "#{self.user.first_name.split("").first}#{self.user.last_name.split("").first}-#{id}"
   end
 
   def set_total_amounts

@@ -27,7 +27,7 @@
                 </td>
 
                 <td class="infos-factures-on-pdf-invoice">
-                  Facture : #<b><%= @invoice.id %></b>
+                  Facture : #<b><%= @invoice.generate_reference %></b>
                   <br>
                   Créée le : <b><%= @invoice.get_creation_date %></b>
                   <br>
