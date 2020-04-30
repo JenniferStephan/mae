@@ -11,7 +11,7 @@
     "chartjs-plugin-datalabels": "^0.6.0",
     "flatpickr": "^4.6.2",
     "font-awesome-animation": "^0.2.1",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "popper.js": "^1.15.0",
     "typed.js": "^2.0.10"
   },
